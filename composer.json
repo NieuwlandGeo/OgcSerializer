@@ -6,7 +6,8 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^6.0",
-        "phpunit/phpunit": "^8"
+        "phpunit/phpunit": "^8",
+        "squizlabs/php_codesniffer": "*"
     },
     "require": {
         "jms/serializer": "^3.0"
