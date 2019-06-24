@@ -21,6 +21,7 @@ class Service
      * @XmlElement(cdata=false)
      */
     private $name;
+
     /**
      * @var string
      *

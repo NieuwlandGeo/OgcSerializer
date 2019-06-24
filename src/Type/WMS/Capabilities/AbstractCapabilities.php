@@ -32,6 +32,13 @@ abstract class AbstractCapabilities
     private $service;
 
     /**
+     * @Type("OgcSerializer\Type\WMS\Capabilities\Capability")
+     *
+     * @var Capability
+     */
+    private $capability;
+
+    /**
      * Get the value of service
      *
      * @return  Service
@@ -75,6 +82,30 @@ abstract class AbstractCapabilities
     public function setVersion(string $version) : self
     {
         $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of capability
+     *
+     * @return  Capability
+     */
+    public function getCapability() : Capability
+    {
+        return $this->capability;
+    }
+
+    /**
+     * Set the value of capability
+     *
+     * @param  Capability $capability
+     *
+     * @return  self
+     */
+    public function setCapability(Capability $capability)
+    {
+        $this->capability = $capability;
 
         return $this;
     }
