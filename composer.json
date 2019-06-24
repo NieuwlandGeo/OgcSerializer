@@ -1,6 +1,12 @@
 {
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
     "require-dev": {
-        "doctrine/coding-standard": "^6.0"
+        "doctrine/coding-standard": "^6.0",
+        "phpunit/phpunit": "^8"
     },
     "require": {
         "jms/serializer": "^3.0"
