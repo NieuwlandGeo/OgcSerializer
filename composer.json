@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "doctrine/coding-standard": "^6.0"
+    },
+    "require": {
+        "jms/serializer": "^3.0"
     }
 }

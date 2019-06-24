@@ -9,7 +9,12 @@
 
 ## TODO 
 
-Choose guzzle or other client
+Choose serializer:JMS
+* Create Classes
+* Create tests
 
-Generate classes for capabilities documents
+Choose http client: 
+* Create Classes
+* Create Tests
+Generate classes for capabilities documents to serialize to
  
