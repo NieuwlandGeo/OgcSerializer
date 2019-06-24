@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bestuurlijkegrenzen="http://bestuurlijkegrenzen.geonovum.nl" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wfs="http://www.opengis.net/wfs/2.0" elementFormDefault="qualified" targetNamespace="http://bestuurlijkegrenzen.geonovum.nl">
+  <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="https://geodata.nationaalgeoregister.nl/schemas/gml/3.2.1/gml.xsd"/>
+  <xsd:complexType name="gemeentenType">
+    <xsd:complexContent>
+      <xsd:extension base="gml:AbstractFeatureType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="gemeentenaam" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="geom" nillable="true" type="gml:GeometryPropertyType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="gemeenten" substitutionGroup="gml:AbstractFeature" type="bestuurlijkegrenzen:gemeentenType"/>
+  <xsd:complexType name="landsgrensType">
+    <xsd:complexContent>
+      <xsd:extension base="gml:AbstractFeatureType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="code" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="landsnaam" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="geom" nillable="true" type="gml:GeometryPropertyType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="landsgrens" substitutionGroup="gml:AbstractFeature" type="bestuurlijkegrenzen:landsgrensType"/>
+  <xsd:complexType name="provinciesType">
+    <xsd:complexContent>
+      <xsd:extension base="gml:AbstractFeatureType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="provincienaam" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="geom" nillable="true" type="gml:GeometryPropertyType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="provincies" substitutionGroup="gml:AbstractFeature" type="bestuurlijkegrenzen:provinciesType"/>
+</xsd:schema>
