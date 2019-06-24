@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
-
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * @XmlRoot("Service")
@@ -17,7 +17,7 @@ class Service
      * @var string
      *
      * @Type("string")
-     * @SerializedName("Name")
+     *
      * @XmlElement(cdata=false)
      */
     private $name;
@@ -27,14 +27,13 @@ class Service
      * @Type("string")
      */
     private $title;
-    
+
     /**
      * @var string
      *
      * @Type("string")
      */
     private $abstract;
-
 
     /**
      * Get the value of name
@@ -49,7 +48,7 @@ class Service
     /**
      * Set the value of name
      *
-     * @param  string  $name
+     * @param  string $name
      *
      * @return  self
      */
@@ -73,7 +72,7 @@ class Service
     /**
      * Set the value of title
      *
-     * @param  string  $title
+     * @param  string $title
      *
      * @return  self
      */
@@ -97,7 +96,7 @@ class Service
     /**
      * Set the value of abstract
      *
-     * @param  string  $abstract
+     * @param  string $abstract
      *
      * @return  self
      */
