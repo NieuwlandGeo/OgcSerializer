@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "OgcClient\\": "src/"
+            "OgcSerializer\\": "src/"
         }
     },
     "require-dev": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace OgcClient\Type\WFS;
+namespace OgcSerializer\Type\WFS;
 
 abstract class AbstractCapabilities
 {

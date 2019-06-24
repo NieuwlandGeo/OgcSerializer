@@ -1,10 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use OgcClient\Type\WMS\Capabilities\Capabilities130;
+use OgcSerializer\Type\WMS\Capabilities\Capabilities130;
 use JMS\Serializer\SerializerBuilder;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use OgcClient\Type\WMS\Capabilities\Service;
+use OgcSerializer\Type\WMS\Capabilities\Service;
 
 class Capabilities130Test extends TestCase
 {

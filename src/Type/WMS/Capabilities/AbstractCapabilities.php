@@ -1,6 +1,6 @@
 <?php
 
-namespace OgcClient\Type\WMS\Capabilities;
+namespace OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
@@ -22,7 +22,7 @@ abstract class AbstractCapabilities
     protected $version;
 
     /**
-     * @Type("OgcClient\Type\WMS\Capabilities\Service")
+     * @Type("OgcSerializer\Type\WMS\Capabilities\Service")
      *
      * @XmlElement(namespace="http://www.opengis.net/wms")
      * @SerializedName("Service")

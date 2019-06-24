@@ -1,6 +1,6 @@
 <?php
 
-namespace OgcClient\Type\WMS\Capabilities;
+namespace OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 

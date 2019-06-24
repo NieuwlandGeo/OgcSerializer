@@ -1,6 +1,6 @@
 <?php
 
-namespace OgcClient\Type\WMS\Capabilities;
+namespace OgcSerializer\Type\WMS\Capabilities;
 
 class Capabilities111 extends AbstractCapabilities
 {
