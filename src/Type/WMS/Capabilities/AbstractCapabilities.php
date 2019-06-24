@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OgcSerializer\Type\WMS\Capabilities;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
-use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wms")
@@ -14,18 +16,17 @@ use JMS\Serializer\Annotation\SerializedName;
 abstract class AbstractCapabilities
 {
     /**
-     * @var string
-     *
-     * @Type("string")
      * @XmlAttribute
+     * @Type("string")
+     *
+     * @var string
      */
     protected $version;
 
     /**
-     * @Type("OgcSerializer\Type\WMS\Capabilities\Service")
-     *
-     * @XmlElement(namespace="http://www.opengis.net/wms")
      * @SerializedName("Service")
+     * @Type("OgcSerializer\Type\WMS\Capabilities\Service")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Service
      */
@@ -36,7 +37,7 @@ abstract class AbstractCapabilities
      *
      * @return  Service
      */
-    public function getService()
+    public function getService() : Service
     {
         return $this->service;
     }
@@ -44,7 +45,7 @@ abstract class AbstractCapabilities
     /**
      * Set the value of service
      *
-     * @param  Service  $service
+     * @param  Service $service
      *
      * @return  self
      */
@@ -68,11 +69,11 @@ abstract class AbstractCapabilities
     /**
      * Set the value of version
      *
-     * @param  string  $version
+     * @param   string $version
      *
      * @return  self
      */
-    public function setVersion(string $version)
+    public function setVersion(string $version) : self
     {
         $this->version = $version;
 
