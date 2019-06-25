@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace OgcSerializer\Type\WMS\DescribeLayer;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+
 class Query
 {
     /**

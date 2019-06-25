@@ -6,12 +6,14 @@ namespace OgcSerializer\Type\WMS\DescribeLayer;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\SerializedName;
 
 class LayerDescription
 {
     /**
      * @Type("string")
      * @XmlAttribute()
+     * @SerializedName("name")
      *
      * @var string
      */
@@ -20,6 +22,7 @@ class LayerDescription
     /**
      * @Type("string")
      * @XmlAttribute()
+     * @SerializedName("wfs")
      *
      * @var string
      */
@@ -28,6 +31,7 @@ class LayerDescription
     /**
      * @Type("string")
      * @XmlAttribute()
+     * @SerializedName("owsType")
      *
      * @var string
      */
@@ -36,10 +40,18 @@ class LayerDescription
     /**
      * @Type("string")
      * @XmlAttribute()
+     * @SerializedName("owsURL")
      *
      * @var string
      */
     private $owsURL;
+
+    /**
+     * @Type("OgcSerializer\Type\WMS\DescribeLayer\Query")
+     *
+     * @var Query
+     */
+    private $query;
 
     /**
      * Get the value of name
@@ -133,6 +145,30 @@ class LayerDescription
     public function setOwsURL(string $owsURL)
     {
         $this->owsURL = $owsURL;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of query
+     *
+     * @return  Query
+     */
+    public function getQuery()
+    {
+        return $this->query;
+    }
+
+    /**
+     * Set the value of query
+     *
+     * @param  Query $query
+     *
+     * @return  self
+     */
+    public function setQuery(Query $query)
+    {
+        $this->query = $query;
 
         return $this;
     }

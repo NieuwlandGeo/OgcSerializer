@@ -48,6 +48,6 @@ class Capabilities130Test extends TestCase
         $service->setName('mijn test');
         $capabilities->setService($service);
         $serializer = SerializerFactory::create();
-        // var_dump($serializer->serialize($capabilities, 'xml'));
+        $serializer->serialize($capabilities, 'xml');
     }
 }

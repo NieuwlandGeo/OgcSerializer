@@ -9,6 +9,7 @@ use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\Visitor\Factory\XmlDeserializationVisitorFactory;
 
 /**
  * Custom builder
@@ -20,16 +21,20 @@ class SerializerFactory
      *
      * @return Serializer
      */
-    public static function create() : Serializer
+    public static function create($doctypeWhitelist = []) : Serializer
     {
         AnnotationRegistry::registerLoader('class_exists');
-        $serializer = SerializerBuilder::create();
-        $serializer->setPropertyNamingStrategy(
+        $xmlVisitor = new XmlDeserializationVisitorFactory();
+        $xmlVisitor->setDoctypeWhitelist($doctypeWhitelist);
+        $builder = SerializerBuilder::create();
+        $builder->setDeserializationVisitor('xml', $xmlVisitor);
+        $builder->addDefaultSerializationVisitors();
+        $builder->setPropertyNamingStrategy(
             new SerializedNameAnnotationStrategy(
                 new CamelCaseNamingStrategy('_', false)
             )
         );
 
-        return $serializer->build();
+        return $builder->build();
     }
 }
