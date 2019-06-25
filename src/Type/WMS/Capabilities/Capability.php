@@ -5,38 +5,36 @@ declare(strict_types=1);
 namespace OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
 
 class Capability
 {
     /**
-     * @Type("array<OgcSerializer\Type\WMS\Capabilities\Layer>")
-     * @XmlList(inline = true, entry = "Layer")
+     * @Type("OgcSerializer\Type\WMS\Capabilities\Layer")
      *
-     * @var Layer[]
+     * @var Layer
      */
-    private $layers = [];
+    private $layer;
 
     /**
      * Get the value of layers
      *
-     * @return  Layer[]
+     * @return  Layer
      */
-    public function getLayers() : array
+    public function getLayer() : Layer
     {
-        return $this->layers;
+        return $this->layer;
     }
 
     /**
      * Set the value of layers
      *
-     * @param  Layer[] $layers
+     * @param  Layer $layer
      *
      * @return  self
      */
-    public function setLayers(Layer $layers) : self
+    public function setLayer(Layer $layer) : self
     {
-        $this->layers = $layers;
+        $this->layer = $layer;
 
         return $this;
     }
