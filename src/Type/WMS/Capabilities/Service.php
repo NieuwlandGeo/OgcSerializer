@@ -9,6 +9,8 @@ use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlRoot;
 
 /**
+ * WMS Capabilities Service
+ *
  * @XmlRoot("Service")
  */
 class Service

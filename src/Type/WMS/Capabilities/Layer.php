@@ -8,6 +8,9 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 
+/**
+ * WMS Capabilities Layer
+ */
 class Layer
 {
     /**

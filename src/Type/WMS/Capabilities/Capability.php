@@ -6,6 +6,9 @@ namespace OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 
+/**
+ * WMS Capabilities Capability
+ */
 class Capability
 {
     /**
