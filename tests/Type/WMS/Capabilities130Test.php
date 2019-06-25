@@ -8,6 +8,7 @@ use OgcSerializer\SerializerFactory;
 use OgcSerializer\Type\WMS\Capabilities\Capabilities130;
 use OgcSerializer\Type\WMS\Capabilities\Service;
 use PHPUnit\Framework\TestCase;
+use OgcSerializer\Type\WMS\Capabilities\Layer;
 
 class Capabilities130Test extends TestCase
 {
@@ -32,9 +33,9 @@ class Capabilities130Test extends TestCase
         /** @var Capabilities130 $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
         $this->assertEquals('WMS', $capabilities->getService()->getName());
-        $layerGroup = $capabilities->getCapability()->getLayers();
-        $this->assertCount(1, $layerGroup);
-        $this->assertCount(3, $layerGroup['0']->getLayers());
+        $layerGroup = $capabilities->getCapability()->getLayer();
+        $this->assertInstanceOf(Layer::class, $layerGroup);
+        $this->assertCount(3, $layerGroup->getLayers());
     }
 
 
@@ -42,7 +43,7 @@ class Capabilities130Test extends TestCase
     {
         $this->markTestIncomplete();
         $capabilities = new Capabilities130();
-        $service = new Service();
+        $service      = new Service();
         $service->setName('mijn test');
         $capabilities->setService($service);
         $serializer = SerializerFactory::create();
