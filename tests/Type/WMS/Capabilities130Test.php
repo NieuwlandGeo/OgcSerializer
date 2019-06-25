@@ -38,10 +38,11 @@ class Capabilities130Test extends TestCase
         $this->assertCount(3, $layerGroup->getLayers());
     }
 
-
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testSerialize()
     {
-        $this->markTestIncomplete();
         $capabilities = new Capabilities130();
         $service      = new Service();
         $service->setName('mijn test');

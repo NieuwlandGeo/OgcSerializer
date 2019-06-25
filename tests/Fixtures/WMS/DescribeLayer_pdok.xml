@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE WMS_DescribeLayerResponse SYSTEM "https://geodata.nationaalgeoregister.nl/schemas/wms/1.1.1/WMS_DescribeLayerResponse.dtd">
+<WMS_DescribeLayerResponse version="1.1.1">
+    <LayerDescription name="kruising" wfs="https://geodata.nationaalgeoregister.nl/spoorwegen/wfs?" owsURL="https://geodata.nationaalgeoregister.nl/spoorwegen/wfs?" owsType="WFS">
+        <Query typeName="spoorwegen:kruising"/>
+    </LayerDescription>
+</WMS_DescribeLayerResponse>

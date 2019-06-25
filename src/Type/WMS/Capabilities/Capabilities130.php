@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OgcSerializer\Type\WMS\Capabilities;
 
-use JMS\Serializer\Annotation\XmlRoot;
-use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlRoot;
 
 /**
  * @XmlRoot("WMS_Capabilities")

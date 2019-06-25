@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bestuurlijkegrenzen="http://bestuurlijkegrenzen.geonovum.nl" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wfs="http://www.opengis.net/wfs/2.0" elementFormDefault="qualified" targetNamespace="http://bestuurlijkegrenzen.geonovum.nl">
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:bestuurlijkegrenzen="http://bestuurlijkegrenzen.geonovum.nl" 
+  xmlns:gml="http://www.opengis.net/gml/3.2" 
+  xmlns:wfs="http://www.opengis.net/wfs/2.0" elementFormDefault="qualified" targetNamespace="http://bestuurlijkegrenzen.geonovum.nl">
   <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="https://geodata.nationaalgeoregister.nl/schemas/gml/3.2.1/gml.xsd"/>
   <xsd:complexType name="gemeentenType">
     <xsd:complexContent>
