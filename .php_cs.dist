@@ -12,7 +12,9 @@ return PhpCsFixer\Config::create()
         'phpdoc_to_comment' => false,
         'binary_operator_spaces' => [
             'default' => 'align'
-        ]
+        ],
+        'ordered_imports' => true,
+        'concat_space' => ['spacing' => 'one']
     ])
     ->setFinder($finder)
 ;
