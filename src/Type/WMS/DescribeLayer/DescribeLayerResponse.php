@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlRoot;
 
 /**
- * Describe layer for WMS version 1.1.1
+ * Describe layer for WMS version 1.1.1.
  *
  * @XmlRoot("WMS_DescribeLayerResponse")
  */
@@ -24,17 +24,17 @@ class DescribeLayerResponse
     private $layerDescription;
 
     /**
-     * Get the value of layerDescription
+     * Get the value of layerDescription.
      */
-    public function getLayerDescription() : LayerDescription
+    public function getLayerDescription(): LayerDescription
     {
         return $this->layerDescription;
     }
 
     /**
-     * Set the value of layerDescription
+     * Set the value of layerDescription.
      *
-     * @return  self
+     * @return self
      */
     public function setLayerDescription(LayerDescription $layerDescription)
     {

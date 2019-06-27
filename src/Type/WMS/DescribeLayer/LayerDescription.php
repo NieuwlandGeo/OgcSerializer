@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace OgcSerializer\Type\WMS\DescribeLayer;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
-use JMS\Serializer\Annotation\SerializedName;
 
 class LayerDescription
 {
     /**
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      * @SerializedName("name")
      *
      * @var string
@@ -21,7 +21,7 @@ class LayerDescription
 
     /**
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      * @SerializedName("wfs")
      *
      * @var string
@@ -30,7 +30,7 @@ class LayerDescription
 
     /**
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      * @SerializedName("owsType")
      *
      * @var string
@@ -39,7 +39,7 @@ class LayerDescription
 
     /**
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
      * @SerializedName("owsURL")
      *
      * @var string
@@ -54,9 +54,9 @@ class LayerDescription
     private $query;
 
     /**
-     * Get the value of name
+     * Get the value of name.
      *
-     * @return  string
+     * @return string
      */
     public function getName()
     {
@@ -64,11 +64,11 @@ class LayerDescription
     }
 
     /**
-     * Set the value of name
+     * Set the value of name.
      *
-     * @param  string $name
+     * @param string $name
      *
-     * @return  self
+     * @return self
      */
     public function setName(string $name)
     {
@@ -78,9 +78,9 @@ class LayerDescription
     }
 
     /**
-     * Get the value of wfs
+     * Get the value of wfs.
      *
-     * @return  string
+     * @return string
      */
     public function getWfs()
     {
@@ -88,11 +88,11 @@ class LayerDescription
     }
 
     /**
-     * Set the value of wfs
+     * Set the value of wfs.
      *
-     * @param  string $wfs
+     * @param string $wfs
      *
-     * @return  self
+     * @return self
      */
     public function setWfs(string $wfs)
     {
@@ -102,9 +102,9 @@ class LayerDescription
     }
 
     /**
-     * Get the value of owsType
+     * Get the value of owsType.
      *
-     * @return  string
+     * @return string
      */
     public function getOwsType()
     {
@@ -112,11 +112,11 @@ class LayerDescription
     }
 
     /**
-     * Set the value of owsType
+     * Set the value of owsType.
      *
-     * @param  string $owsType
+     * @param string $owsType
      *
-     * @return  self
+     * @return self
      */
     public function setOwsType(string $owsType)
     {
@@ -126,9 +126,9 @@ class LayerDescription
     }
 
     /**
-     * Get the value of owsURL
+     * Get the value of owsURL.
      *
-     * @return  string
+     * @return string
      */
     public function getOwsURL()
     {
@@ -136,11 +136,11 @@ class LayerDescription
     }
 
     /**
-     * Set the value of owsURL
+     * Set the value of owsURL.
      *
-     * @param  string $owsURL
+     * @param string $owsURL
      *
-     * @return  self
+     * @return self
      */
     public function setOwsURL(string $owsURL)
     {
@@ -150,9 +150,9 @@ class LayerDescription
     }
 
     /**
-     * Get the value of query
+     * Get the value of query.
      *
-     * @return  Query
+     * @return Query
      */
     public function getQuery()
     {
@@ -160,11 +160,11 @@ class LayerDescription
     }
 
     /**
-     * Set the value of query
+     * Set the value of query.
      *
-     * @param  Query $query
+     * @param Query $query
      *
-     * @return  self
+     * @return self
      */
     public function setQuery(Query $query)
     {

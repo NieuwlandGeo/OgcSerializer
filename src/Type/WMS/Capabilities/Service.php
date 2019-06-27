@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlRoot;
 
 /**
- * WMS Capabilities Service
+ * WMS Capabilities Service.
  *
  * @XmlRoot("Service")
  */
@@ -39,9 +39,9 @@ class Service
     private $abstract;
 
     /**
-     * Get the value of name
+     * Get the value of name.
      *
-     * @return  string
+     * @return string
      */
     public function getName()
     {
@@ -49,11 +49,11 @@ class Service
     }
 
     /**
-     * Set the value of name
+     * Set the value of name.
      *
-     * @param  string $name
+     * @param string $name
      *
-     * @return  self
+     * @return self
      */
     public function setName(string $name)
     {
@@ -63,9 +63,9 @@ class Service
     }
 
     /**
-     * Get the value of title
+     * Get the value of title.
      *
-     * @return  string
+     * @return string
      */
     public function getTitle()
     {
@@ -73,11 +73,11 @@ class Service
     }
 
     /**
-     * Set the value of title
+     * Set the value of title.
      *
-     * @param  string $title
+     * @param string $title
      *
-     * @return  self
+     * @return self
      */
     public function setTitle(string $title)
     {
@@ -87,9 +87,9 @@ class Service
     }
 
     /**
-     * Get the value of abstract
+     * Get the value of abstract.
      *
-     * @return  string
+     * @return string
      */
     public function getAbstract()
     {
@@ -97,11 +97,11 @@ class Service
     }
 
     /**
-     * Set the value of abstract
+     * Set the value of abstract.
      *
-     * @param  string $abstract
+     * @param string $abstract
      *
-     * @return  self
+     * @return self
      */
     public function setAbstract(string $abstract)
     {

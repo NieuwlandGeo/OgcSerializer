@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 
 /**
- * WMS Capabilities Layer
+ * WMS Capabilities Layer.
  */
 class Layer
 {
@@ -36,7 +36,6 @@ class Layer
     private $queryable;
 
     /**
-     *
      * @Type("array")
      *
      * @var array
@@ -45,28 +44,28 @@ class Layer
 
     /**
      * @Type("array<OgcSerializer\Type\WMS\Capabilities\Layer>")
-     * @XmlList(inline = true, entry = "Layer")
+     * @XmlList(inline=true, entry="Layer")
      *
      * @var Layer[]
      */
     private $layers;
 
     /**
-     * Get the value of queryable
+     * Get the value of queryable.
      *
      * @return bool
      */
-    public function getQueryable() : bool
+    public function getQueryable(): bool
     {
         return $this->queryable;
     }
 
     /**
-     * Set the value of queryable
+     * Set the value of queryable.
      *
-     * @param  bool $queryable
+     * @param bool $queryable
      *
-     * @return  self
+     * @return self
      */
     public function setQueryable(bool $queryable)
     {
@@ -76,23 +75,23 @@ class Layer
     }
 
     /**
-     * Get the value of crs
+     * Get the value of crs.
      *
-     * @return  array
+     * @return array
      */
-    public function getCrs() : array
+    public function getCrs(): array
     {
         return $this->crs;
     }
 
     /**
-     * Set the value of crs
+     * Set the value of crs.
      *
      * @param array $crs
      *
-     * @return  self
+     * @return self
      */
-    public function setCrs(array $crs) : self
+    public function setCrs(array $crs): self
     {
         $this->crs = $crs;
 
@@ -100,21 +99,21 @@ class Layer
     }
 
     /**
-     * Get the value of name
+     * Get the value of name.
      *
-     * @return  string
+     * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * Set the value of name
+     * Set the value of name.
      *
-     * @param  string $name
+     * @param string $name
      *
-     * @return  self
+     * @return self
      */
     public function setName(string $name)
     {
@@ -124,9 +123,9 @@ class Layer
     }
 
     /**
-     * Get the value of title
+     * Get the value of title.
      *
-     * @return  string
+     * @return string
      */
     public function getTitle()
     {
@@ -134,11 +133,11 @@ class Layer
     }
 
     /**
-     * Set the value of title
+     * Set the value of title.
      *
-     * @param  string $title
+     * @param string $title
      *
-     * @return  self
+     * @return self
      */
     public function setTitle(string $title)
     {
@@ -148,9 +147,9 @@ class Layer
     }
 
     /**
-     * Get the value of layers
+     * Get the value of layers.
      *
-     * @return  Layer[]
+     * @return Layer[]
      */
     public function getLayers()
     {
@@ -158,11 +157,11 @@ class Layer
     }
 
     /**
-     * Set the value of layers
+     * Set the value of layers.
      *
-     * @param  Layer[] $layers
+     * @param Layer[] $layers
      *
-     * @return  self
+     * @return self
      */
     public function setLayers(array $layers)
     {

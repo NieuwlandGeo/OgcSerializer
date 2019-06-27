@@ -7,7 +7,7 @@ namespace OgcSerializer\Type\WMS\Capabilities;
 use JMS\Serializer\Annotation\Type;
 
 /**
- * WMS Capabilities Capability
+ * WMS Capabilities Capability.
  */
 class Capability
 {
@@ -19,23 +19,23 @@ class Capability
     private $layer;
 
     /**
-     * Get the value of layers
+     * Get the value of layers.
      *
-     * @return  Layer
+     * @return Layer
      */
-    public function getLayer() : Layer
+    public function getLayer(): Layer
     {
         return $this->layer;
     }
 
     /**
-     * Set the value of layers
+     * Set the value of layers.
      *
-     * @param  Layer $layer
+     * @param Layer $layer
      *
-     * @return  self
+     * @return self
      */
-    public function setLayer(Layer $layer) : self
+    public function setLayer(Layer $layer): self
     {
         $this->layer = $layer;
 

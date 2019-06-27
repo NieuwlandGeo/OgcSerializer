@@ -12,16 +12,16 @@ use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\Visitor\Factory\XmlDeserializationVisitorFactory;
 
 /**
- * Custom builder
+ * Custom builder.
  */
 class SerializerFactory
 {
     /**
-     * Create JMS serializer with custom naming
+     * Create JMS serializer with custom naming.
      *
      * @return Serializer
      */
-    public static function create($doctypeWhitelist = []) : Serializer
+    public static function create($doctypeWhitelist = []): Serializer
     {
         AnnotationRegistry::registerLoader('class_exists');
         $xmlVisitor = new XmlDeserializationVisitorFactory();

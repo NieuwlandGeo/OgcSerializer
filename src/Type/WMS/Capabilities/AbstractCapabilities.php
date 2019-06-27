@@ -23,7 +23,6 @@ abstract class AbstractCapabilities
     protected $version;
 
     /**
-     *
      * @Type("OgcSerializer\Type\WMS\Capabilities\Service")
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
@@ -39,21 +38,21 @@ abstract class AbstractCapabilities
     private $capability;
 
     /**
-     * Get the value of service
+     * Get the value of service.
      *
-     * @return  Service
+     * @return Service
      */
-    public function getService() : Service
+    public function getService(): Service
     {
         return $this->service;
     }
 
     /**
-     * Set the value of service
+     * Set the value of service.
      *
-     * @param  Service $service
+     * @param Service $service
      *
-     * @return  self
+     * @return self
      */
     public function setService(Service $service)
     {
@@ -63,9 +62,9 @@ abstract class AbstractCapabilities
     }
 
     /**
-     * Get the value of version
+     * Get the value of version.
      *
-     * @return  string
+     * @return string
      */
     public function getVersion()
     {
@@ -73,13 +72,13 @@ abstract class AbstractCapabilities
     }
 
     /**
-     * Set the value of version
+     * Set the value of version.
      *
-     * @param   string $version
+     * @param string $version
      *
-     * @return  self
+     * @return self
      */
-    public function setVersion(string $version) : self
+    public function setVersion(string $version): self
     {
         $this->version = $version;
 
@@ -87,21 +86,21 @@ abstract class AbstractCapabilities
     }
 
     /**
-     * Get the value of capability
+     * Get the value of capability.
      *
-     * @return  Capability
+     * @return Capability
      */
-    public function getCapability() : Capability
+    public function getCapability(): Capability
     {
         return $this->capability;
     }
 
     /**
-     * Set the value of capability
+     * Set the value of capability.
      *
-     * @param  Capability $capability
+     * @param Capability $capability
      *
-     * @return  self
+     * @return self
      */
     public function setCapability(Capability $capability)
     {
