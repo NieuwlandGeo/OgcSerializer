@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace OgcSerializer\Type\WFS\Capabilities;
 
-use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
@@ -17,8 +16,6 @@ abstract class AbstractCapabilities
 {
     /**
      * @Type("OgcSerializer\Type\WFS\Capabilities\FeatureTypeList")
-     *
-     * @SerializedName("FeatureTypeList")
      *
      * @var FeatureTypeList
      */
