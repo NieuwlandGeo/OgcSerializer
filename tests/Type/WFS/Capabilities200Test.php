@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Tests\Type\WFS;
 
 use OgcSerializer\SerializerFactory;
-use OgcSerializer\Type\WFS\Capabilities200;
+use OgcSerializer\Type\WFS\Capabilities\Capabilities200;
+use OgcSerializer\Type\WFS\Capabilities\FeatureTypeList;
 use PHPUnit\Framework\TestCase;
 
 class Capabilities200Test extends TestCase
@@ -28,7 +29,8 @@ class Capabilities200Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok-20.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
+        /** @var Capabilities200 $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities200::class, 'xml');
+        $this->assertInstanceOf(FeatureTypeList::class, $capabilities->getFeatureTypeList());
     }
 }

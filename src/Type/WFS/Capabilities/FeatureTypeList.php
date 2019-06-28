@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace OgcSerializer\Type\WFS\Capabilities;
 
+use JMS\Serializer\Annotation\Type;
+
 class FeatureTypeList
 {
     /**
