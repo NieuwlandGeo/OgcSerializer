@@ -31,7 +31,7 @@ class SerializerFactory
         $builder->addDefaultSerializationVisitors();
         $builder->setPropertyNamingStrategy(
             new SerializedNameAnnotationStrategy(
-                new CamelCaseNamingStrategy('_', false)
+                new CamelCaseNamingStrategy('', false)
             )
         );
 
