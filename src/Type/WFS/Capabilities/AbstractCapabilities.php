@@ -59,7 +59,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     {
         $types = $this->getFeatureTypeList()->getFeatureTypes();
 
-        if (!isset($types[$name])) {
+        if (! isset($types[$name])) {
             throw new RuntimeException(sprintf('Featuretype %s not found', $name));
         }
 
