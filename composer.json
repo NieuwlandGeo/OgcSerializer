@@ -1,4 +1,15 @@
 {
+    "name": "nieuwland/ogc-serializer",
+    "description": "(de)serialize ogc documents",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Allart Kooiman",
+            "email": "akooiman@nieuwland.nl",
+            "role": "developer"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "OgcSerializer\\": "src/"
