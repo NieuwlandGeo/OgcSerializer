@@ -10,10 +10,16 @@
         <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming"/>
         <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration"/>
         <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
         <properties>
             <property name="allAnnotationsAreUseful" type="boolean" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing">
+        <properties>
+            <property name="spacesCountBeforeColon" value="0"/>
         </properties>
     </rule>
     <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
