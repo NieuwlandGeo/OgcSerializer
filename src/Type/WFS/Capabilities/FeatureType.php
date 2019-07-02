@@ -6,8 +6,9 @@ namespace OgcSerializer\Type\WFS\Capabilities;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use OgcSerializer\Type\LayerInterface;
 
-class FeatureType
+class FeatureType implements LayerInterface
 {
     /**
      * @Type("string")

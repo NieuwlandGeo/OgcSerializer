@@ -7,12 +7,14 @@ namespace OgcSerializer\Type\WFS\Capabilities;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
+use OgcSerializer\Type\LayerCollectionInterface;
+use OgcSerializer\Type\LayerInterface;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wfs/2.0")
  * @XmlRoot("WFS_Capabilities")
  */
-abstract class AbstractCapabilities
+abstract class AbstractCapabilities implements LayerCollectionInterface
 {
     /**
      * @Type("OgcSerializer\Type\WFS\Capabilities\FeatureTypeList")
@@ -43,5 +45,21 @@ abstract class AbstractCapabilities
         $this->featureTypeList = $featureTypeList;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLayerNames(): array
+    {
+        return [];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLayer(string $name): LayerInterface
+    {
+        return;
     }
 }
