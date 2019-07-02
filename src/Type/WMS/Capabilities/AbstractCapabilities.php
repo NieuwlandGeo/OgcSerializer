@@ -8,11 +8,15 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
+use OgcSerializer\Type\LayerCollectionInterface;
+use OgcSerializer\Type\LayerInterface;
+use RuntimeException;
+use function sprintf;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wms")
  */
-abstract class AbstractCapabilities
+abstract class AbstractCapabilities implements LayerCollectionInterface
 {
     /**
      * @XmlAttribute
@@ -107,5 +111,33 @@ abstract class AbstractCapabilities
         $this->capability = $capability;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLayerNames(): array
+    {
+        $names = [
+            $this->getCapability()->getLayer()->getName(),
+        ];
+        foreach ($this->getCapability()->getLayer()->getLayers() as $layer) {
+            $names[] = $layer->getName();
+        }
+
+        return $names;
+    }
+
+    public function getLayer(string $name): LayerInterface
+    {
+        if ($name === $this->getCapability()->getLayer()->getName()) {
+            return $this->getCapability()->getLayer();
+        }
+        foreach ($this->getCapability()->getLayer()->getLayers() as $layer) {
+            if ($layer->getName() === $name) {
+                return $layer;
+            }
+        }
+        throw new RuntimeException(sprintf('Layer %s not found', $name));
     }
 }

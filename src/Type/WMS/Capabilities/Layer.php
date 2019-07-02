@@ -7,11 +7,12 @@ namespace OgcSerializer\Type\WMS\Capabilities;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
+use OgcSerializer\Type\LayerInterface;
 
 /**
  * WMS Capabilities Layer.
  */
-class Layer
+class Layer implements LayerInterface
 {
     /**
      * @Type("string")
