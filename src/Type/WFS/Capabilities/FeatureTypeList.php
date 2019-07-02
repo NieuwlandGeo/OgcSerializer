@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace OgcSerializer\Type\WFS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
 
 class FeatureTypeList
 {
     /**
      * @Type("array<OgcSerializer\Type\WFS\Capabilities\FeatureType>")
+     * @XmlList(inline=true, entry="FeatureType")
      *
      * @var FeatureType[]
      */
-    private $featureTypes;
+    private $featureTypes = [];
 
     /**
      * Get the value of featureTypes.
@@ -32,7 +34,7 @@ class FeatureTypeList
      *
      * @return self
      */
-    public function setFeatureTypes($featureTypes)
+    public function setFeatureTypes(array $featureTypes)
     {
         $this->featureTypes = $featureTypes;
 
