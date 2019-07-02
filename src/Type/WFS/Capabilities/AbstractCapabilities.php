@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace OgcSerializer\Type\WFS\Capabilities;
 
+use function array_keys;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 use OgcSerializer\Type\LayerCollectionInterface;
 use OgcSerializer\Type\LayerInterface;
+use RuntimeException;
+use function sprintf;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wfs/2.0")
@@ -47,19 +50,19 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLayerNames(): array
     {
-        return [];
+        return array_keys($this->getFeatureTypeList()->getFeatureTypes());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLayer(string $name): LayerInterface
     {
-        return;
+        $types = $this->getFeatureTypeList()->getFeatureTypes();
+
+        if (!isset($types[$name])) {
+            throw new RuntimeException(sprintf('Featuretype %s not found', $name));
+        }
+
+        return $types[$name];
     }
 }
