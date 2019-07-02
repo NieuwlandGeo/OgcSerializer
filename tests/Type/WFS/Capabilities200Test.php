@@ -34,6 +34,8 @@ class Capabilities200Test extends TestCase
         $capabilities = $serializer->deserialize($xml, Capabilities200::class, 'xml');
         $this->assertInstanceOf(FeatureTypeList::class, $capabilities->getFeatureTypeList());
         $this->assertCount(2, $capabilities->getFeatureTypeList()->getFeatureTypes());
+        $this->assertCount(2, $capabilities->getLayerNames());
+        $this->assertContains('weggeg:weggegaantalrijbanen', $capabilities->getLayerNames());
     }
 
     public function testCanDeserializeMapserver()
@@ -52,6 +54,8 @@ class Capabilities200Test extends TestCase
         $capabilities = $serializer->deserialize($xml, Capabilities200::class, 'xml');
         $this->assertInstanceOf(FeatureTypeList::class, $capabilities->getFeatureTypeList());
         $this->assertCount(20, $capabilities->getFeatureTypeList()->getFeatureTypes());
+        $this->assertCount(20, $capabilities->getLayerNames());
+        $this->assertContains('ms:buurt', $capabilities->getLayerNames());
     }
 
     /**

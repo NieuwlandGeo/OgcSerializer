@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Type\WMS;
 
+use function file_get_contents;
 use OgcSerializer\SerializerFactory;
+use OgcSerializer\Type\LayerInterface;
 use OgcSerializer\Type\WMS\Capabilities\Capabilities130;
 use OgcSerializer\Type\WMS\Capabilities\Layer;
 use OgcSerializer\Type\WMS\Capabilities\Service;
@@ -36,6 +38,8 @@ class Capabilities130Test extends TestCase
         $layerGroup = $capabilities->getCapability()->getLayer();
         $this->assertInstanceOf(Layer::class, $layerGroup);
         $this->assertCount(3, $layerGroup->getLayers());
+        $this->assertContains('gemeenten', $capabilities->getLayerNames());
+        $this->assertInstanceOf(LayerInterface::class, $capabilities->getLayer('gemeenten'));
     }
 
     /**

@@ -118,9 +118,9 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
      */
     public function getLayerNames(): array
     {
-        $names = [
-            $this->getCapability()->getLayer()->getName(),
-        ];
+        $defaultLayerName = $this->getCapability()->getLayer()->getName();
+        $names            = $defaultLayerName ? [$defaultLayerName] : [];
+
         foreach ($this->getCapability()->getLayer()->getLayers() as $layer) {
             $names[] = $layer->getName();
         }

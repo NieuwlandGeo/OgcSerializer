@@ -29,9 +29,11 @@ class Capabilities110Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities200 $capabilities */
+        /** @var Capabilities110 $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities110::class, 'xml');
         $this->assertInstanceOf(FeatureTypeList::class, $capabilities->getFeatureTypeList());
         $this->assertCount(2, $capabilities->getFeatureTypeList()->getFeatureTypes());
+        $this->assertCount(2, $capabilities->getLayerNames());
+        $this->assertContains('weggeg:weggegaantalrijbanen', $capabilities->getLayerNames());
     }
 }
