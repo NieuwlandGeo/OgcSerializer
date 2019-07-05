@@ -21,6 +21,7 @@
         "squizlabs/php_codesniffer": "*"
     },
     "require": {
+        "php": "^7.2",
         "jms/serializer": "^3.0"
     }
 }
