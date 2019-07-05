@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace OgcSerializer\Type\WFS\Capabilities;
 
-use function array_keys;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 use OgcSerializer\Type\LayerCollectionInterface;
 use OgcSerializer\Type\LayerInterface;
 use RuntimeException;
+use function array_keys;
 use function sprintf;
 
 /**

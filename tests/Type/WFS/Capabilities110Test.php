@@ -8,6 +8,7 @@ use OgcSerializer\SerializerFactory;
 use OgcSerializer\Type\WFS\Capabilities\Capabilities110;
 use OgcSerializer\Type\WFS\Capabilities\FeatureTypeList;
 use PHPUnit\Framework\TestCase;
+use function file_get_contents;
 
 class Capabilities110Test extends TestCase
 {

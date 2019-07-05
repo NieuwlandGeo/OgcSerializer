@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace OgcSerializer\Type\WFS\Capabilities;
 
-use function array_combine;
-use function array_map;
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
+use function array_combine;
+use function array_map;
 
 class FeatureTypeList
 {
