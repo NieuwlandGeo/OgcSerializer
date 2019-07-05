@@ -9,6 +9,7 @@ use OgcSerializer\Type\WFS\Capabilities\Capabilities200;
 use OgcSerializer\Type\WFS\Capabilities\FeatureType;
 use OgcSerializer\Type\WFS\Capabilities\FeatureTypeList;
 use PHPUnit\Framework\TestCase;
+use function file_get_contents;
 
 class Capabilities200Test extends TestCase
 {

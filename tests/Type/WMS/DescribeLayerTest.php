@@ -9,6 +9,7 @@ use OgcSerializer\Type\WMS\DescribeLayer\DescribeLayerResponse;
 use OgcSerializer\Type\WMS\DescribeLayer\LayerDescription;
 use OgcSerializer\Type\WMS\DescribeLayer\Query;
 use PHPUnit\Framework\TestCase;
+use function file_get_contents;
 
 class DescribeLayerTest extends TestCase
 {
@@ -44,8 +45,6 @@ class DescribeLayerTest extends TestCase
 
     /**
      * @doesNotPerformAssertions
-     *
-     * @return void
      */
     public function testSerialize()
     {
