@@ -2,7 +2,7 @@
     "name": "nieuwland/ogc-serializer",
     "description": "(de)serialize ogc documents",
     "type": "library",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Allart Kooiman",
@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "OgcSerializer\\": "src/"
+            "Nieuwland\\OgcSerializer\\": "src/"
         }
     },
     "require-dev": {

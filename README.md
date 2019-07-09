@@ -24,11 +24,13 @@ $layer = $capabilities->getLayer('mylayer');
 ## TODO 
 
 * Implement WMTS capabilities.
-* CI tests
-* Choose license
+* CI 
 
 ## Contribute
 
 * Follow the coding standards defined in `phpcs.xml.dist`
 * Add tests for your code
  
+## Professional Support
+
+For eventual paid support please write an email to develop@nieuwland.nl.
