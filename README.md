@@ -2,6 +2,13 @@
 
 Read documents from OGC (Open Geospatial Consortium) web service interfaces. Similar to [OWSLib](https://geopython.github.io/OWSLib/) but without a http client.
 
+## Install
+
+```
+composer require nieuwland/ogc-serializer
+```
+
+
 ## Planned
 
 *This package is in early development!*
