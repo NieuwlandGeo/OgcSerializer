@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type;
+namespace Nieuwland\OgcSerializer\Type;
 
 interface LayerCollectionInterface
 {

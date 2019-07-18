@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Type\WMS;
 
-use OgcSerializer\SerializerFactory;
-use OgcSerializer\Type\WMS\DescribeLayer\DescribeLayerResponse;
-use OgcSerializer\Type\WMS\DescribeLayer\LayerDescription;
-use OgcSerializer\Type\WMS\DescribeLayer\Query;
+use Nieuwland\OgcSerializer\SerializerFactory;
+use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\DescribeLayerResponse;
+use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\LayerDescription;
+use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\Query;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type\WFS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Type;
@@ -13,7 +13,7 @@ use function array_map;
 class FeatureTypeList
 {
     /**
-     * @Type("array<OgcSerializer\Type\WFS\Capabilities\FeatureType>")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureType>")
      * @XmlList(inline=true, entry="FeatureType")
      * @AccessType("public_method")
      *

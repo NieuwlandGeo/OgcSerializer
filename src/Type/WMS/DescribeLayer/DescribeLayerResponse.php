@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type\WMS\DescribeLayer;
+namespace Nieuwland\OgcSerializer\Type\WMS\DescribeLayer;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
@@ -17,7 +17,7 @@ class DescribeLayerResponse
 {
     /**
      * @SerializedName("LayerDescription")
-     * @Type("OgcSerializer\Type\WMS\DescribeLayer\LayerDescription")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\LayerDescription")
      *
      * @var LayerDescription
      */

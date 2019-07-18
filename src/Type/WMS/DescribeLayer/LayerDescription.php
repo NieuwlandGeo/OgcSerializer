@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type\WMS\DescribeLayer;
+namespace Nieuwland\OgcSerializer\Type\WMS\DescribeLayer;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
@@ -47,7 +47,7 @@ class LayerDescription
     private $owsURL;
 
     /**
-     * @Type("OgcSerializer\Type\WMS\DescribeLayer\Query")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\Query")
      *
      * @var Query
      */

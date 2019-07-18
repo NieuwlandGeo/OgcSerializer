@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type\WFS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
-use OgcSerializer\Type\LayerCollectionInterface;
-use OgcSerializer\Type\LayerInterface;
+use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
+use Nieuwland\OgcSerializer\Type\LayerInterface;
 use RuntimeException;
 use function array_keys;
 use function sprintf;
@@ -20,7 +20,7 @@ use function sprintf;
 abstract class AbstractCapabilities implements LayerCollectionInterface
 {
     /**
-     * @Type("OgcSerializer\Type\WFS\Capabilities\FeatureTypeList")
+     * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureTypeList")
      *
      * @var FeatureTypeList
      */

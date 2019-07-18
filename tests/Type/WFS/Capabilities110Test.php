@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Type\WFS;
 
-use OgcSerializer\SerializerFactory;
-use OgcSerializer\Type\WFS\Capabilities\Capabilities110;
-use OgcSerializer\Type\WFS\Capabilities\FeatureTypeList;
+use Nieuwland\OgcSerializer\SerializerFactory;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\Capabilities110;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureTypeList;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
