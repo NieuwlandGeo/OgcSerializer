@@ -7,16 +7,14 @@ namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
-use function array_combine;
-use function array_map;
 
 /**
- * FeatureTypeList Capabilities 2.0.
+ * FeatureTypelist WFS 1.1.0.
  */
-class FeatureTypeList
+class FeatureTypeList110 extends FeatureTypeList
 {
     /**
-     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureType>")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureType110>")
      * @XmlList(inline=true, entry="FeatureType")
      * @AccessType("public_method")
      *
@@ -43,11 +41,7 @@ class FeatureTypeList
      */
     public function setFeatureTypes(array $featureTypes)
     {
-        $keys = array_map(static function (AbstractFeatureType $type) {
-            return $type->getName();
-        }, $featureTypes);
-
-        $this->featureTypes = array_combine($keys, $featureTypes);
+        parent::setFeatureTypes($featureTypes);
 
         return $this;
     }
