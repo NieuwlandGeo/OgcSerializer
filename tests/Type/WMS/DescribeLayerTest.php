@@ -44,6 +44,7 @@ class DescribeLayerTest extends TestCase
             $descr->getLayerDescription()->getWfs()
         );
         $this->assertInstanceOf(Query::class, $descr->getLayerDescription()->getQuery());
+        $this->assertEquals('spoorwegen:kruising', $descr->getLayerDescription()->getQuery()->getTypeName());
     }
 
     /**

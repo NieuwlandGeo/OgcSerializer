@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WMS\DescribeLayer;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 
@@ -12,6 +13,7 @@ class Query
     /**
      * @Type("string")
      * @XmlAttribute
+     * @SerializedName("typeName")
      *
      * @var string
      */
