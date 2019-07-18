@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
+use JMS\Serializer\Annotation\AccessType;
+use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
@@ -46,10 +48,18 @@ class Layer implements LayerInterface
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer>")
      * @XmlList(inline=true, entry="Layer")
+     * @AccessType("public_method")
      *
      * @var Layer[]
      */
     private $layers;
+
+    /**
+     * @Exclude
+     *
+     * @var Layer
+     */
+    private $parent;
 
     /**
      * Get the value of queryable.
@@ -166,7 +176,35 @@ class Layer implements LayerInterface
      */
     public function setLayers(array $layers)
     {
+        /** @var Layer $layer */
+        foreach ($layers as $layer) {
+            $layer->setParent($this);
+        }
         $this->layers = $layers;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of parent.
+     *
+     * @return Layer
+     */
+    public function getParent(): Layer
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Set the value of parent.
+     *
+     * @param Layer $parent
+     *
+     * @return self
+     */
+    public function setParent(Layer $parent): self
+    {
+        $this->parent = $parent;
 
         return $this;
     }
