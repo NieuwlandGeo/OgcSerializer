@@ -39,7 +39,10 @@ class DescribeLayerTest extends TestCase
         $descr = $serializer->deserialize($xml, DescribeLayerResponse::class, 'xml');
         $this->assertInstanceOf(LayerDescription::class, $descr->getLayerDescription());
         $this->assertEquals('kruising', $descr->getLayerDescription()->getName());
-        $this->assertEquals('https://geodata.nationaalgeoregister.nl/spoorwegen/wfs?', $descr->getLayerDescription()->getWfs());
+        $this->assertEquals(
+            'https://geodata.nationaalgeoregister.nl/spoorwegen/wfs?',
+            $descr->getLayerDescription()->getWfs()
+        );
         $this->assertInstanceOf(Query::class, $descr->getLayerDescription()->getQuery());
     }
 
