@@ -55,6 +55,14 @@ class Capabilities130Test extends TestCase
 
     public function testReadProjections()
     {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities130 $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        $layer        = $capabilities->getLayer('gemeenten');
+        $this->assertContains('EPSG:25831', $layer->getCrsOptions());
+        $this->assertContains('EPSG:28992', $layer->getCrsOptions());
+        $this->assertContains('CRS:84', $layer->getCrsOptions());
     }
 
     /**
