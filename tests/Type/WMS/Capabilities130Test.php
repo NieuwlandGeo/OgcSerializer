@@ -42,6 +42,21 @@ class Capabilities130Test extends TestCase
         $this->assertInstanceOf(LayerInterface::class, $capabilities->getLayer('gemeenten'));
     }
 
+    public function testHasParent()
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities130 $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        $parent       = $capabilities->getLayer('gemeenten')->getParent();
+        $this->assertInstanceOf(LayerInterface::class, $parent);
+        $this->assertEquals('Bestuurlijke grenzen WMS', $parent->getTitle());
+    }
+
+    public function testReadProjections()
+    {
+    }
+
     /**
      * @doesNotPerformAssertions
      */
