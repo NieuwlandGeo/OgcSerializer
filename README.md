@@ -1,9 +1,12 @@
 # Ogc Serializer
 
+Read documents from OGC (Open Geospatial Consortium) web service interfaces. Similar to [OWSLib](https://geopython.github.io/OWSLib/) but without a http client.
 
 ## Planned
 
-* (de)serialize WMS, WFS and WMTS getCapabilities and related
+*This package is in early development!*
+
+(de)Serialize WMS, WFS and WMTS getCapabilities and related.
 
 ## Example
 
@@ -20,11 +23,6 @@ $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
 $layer = $capabilities->getLayer('mylayer');
 ```
 
-
-## TODO 
-
-* Implement WMTS capabilities.
-* CI 
 
 ## Contribute
 
