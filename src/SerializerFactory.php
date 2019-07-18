@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer;
+namespace Nieuwland\OgcSerializer;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;

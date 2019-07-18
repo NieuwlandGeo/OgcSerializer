@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type\WMS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 
@@ -12,7 +12,7 @@ use JMS\Serializer\Annotation\Type;
 class Capability
 {
     /**
-     * @Type("OgcSerializer\Type\WMS\Capabilities\Layer")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer")
      *
      * @var Layer
      */

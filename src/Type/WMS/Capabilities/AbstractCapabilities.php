@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type\WMS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
-use OgcSerializer\Type\LayerCollectionInterface;
-use OgcSerializer\Type\LayerInterface;
+use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
+use Nieuwland\OgcSerializer\Type\LayerInterface;
 use RuntimeException;
 use function sprintf;
 
@@ -27,7 +27,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     protected $version;
 
     /**
-     * @Type("OgcSerializer\Type\WMS\Capabilities\Service")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Service")
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Service
@@ -35,7 +35,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     private $service;
 
     /**
-     * @Type("OgcSerializer\Type\WMS\Capabilities\Capability")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capability")
      *
      * @var Capability
      */

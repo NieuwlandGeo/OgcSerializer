@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Tests\Type\WMS;
 
-use OgcSerializer\SerializerFactory;
-use OgcSerializer\Type\LayerInterface;
-use OgcSerializer\Type\WMS\Capabilities\Capabilities130;
-use OgcSerializer\Type\WMS\Capabilities\Layer;
-use OgcSerializer\Type\WMS\Capabilities\Service;
+use Nieuwland\OgcSerializer\SerializerFactory;
+use Nieuwland\OgcSerializer\Type\LayerInterface;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capabilities130;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Service;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 

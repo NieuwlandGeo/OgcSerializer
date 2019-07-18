@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace OgcSerializer\Type\WMS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
-use OgcSerializer\Type\LayerInterface;
+use Nieuwland\OgcSerializer\Type\LayerInterface;
 
 /**
  * WMS Capabilities Layer.
@@ -44,7 +44,7 @@ class Layer implements LayerInterface
     private $crs;
 
     /**
-     * @Type("array<OgcSerializer\Type\WMS\Capabilities\Layer>")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer>")
      * @XmlList(inline=true, entry="Layer")
      *
      * @var Layer[]
