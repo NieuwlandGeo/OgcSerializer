@@ -13,8 +13,8 @@ Read documents from OGC (Open Geospatial Consortium) web service interfaces. Sim
 ```php
 <?php
 
-use OgcSerializer\SerializerFactory;
-use OgcSerializer\Type\WMS\Capabilities\Capabilities130;
+use Nieuwland\OgcSerializer\SerializerFactory;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capabilities130;
 
 $serializer   = SerializerFactory::create();
 /** @var LayerCollectionInterface $capabilities */
