@@ -10,6 +10,8 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
+use function array_merge;
+use function array_unique;
 
 /**
  * WMS Capabilities Layer.
@@ -39,7 +41,8 @@ class Layer implements LayerInterface
     private $queryable;
 
     /**
-     * @Type("array")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="CRS")
      *
      * @var array
      */
@@ -90,7 +93,7 @@ class Layer implements LayerInterface
      *
      * @return array
      */
-    public function getCrs(): array
+    public function getCrs(): ?array
     {
         return $this->crs;
     }
@@ -190,7 +193,7 @@ class Layer implements LayerInterface
      *
      * @return Layer
      */
-    public function getParent(): Layer
+    public function getParent(): ?Layer
     {
         return $this->parent;
     }
@@ -207,5 +210,20 @@ class Layer implements LayerInterface
         $this->parent = $parent;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @Exclude
+     */
+    public function getCrsOptions(): array
+    {
+        $crs = $this->getCrs() ?? [];
+        if ($this->getParent()) {
+            $crs = array_merge($crs, $this->getParent()->getCrsOptions());
+        }
+
+        return array_unique($crs);
     }
 }

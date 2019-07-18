@@ -12,4 +12,11 @@ interface LayerInterface
      * @return string
      */
     public function getName(): ?string;
+
+    /**
+     * Get available CRS.
+     *
+     * @return string[]
+     */
+    public function getCrsOptions(): array;
 }

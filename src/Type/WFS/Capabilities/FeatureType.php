@@ -135,4 +135,12 @@ class FeatureType implements LayerInterface
 
         return $this;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCrsOptions(): array
+    {
+        return [];
+    }
 }
