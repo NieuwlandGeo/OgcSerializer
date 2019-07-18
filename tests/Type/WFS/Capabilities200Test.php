@@ -59,6 +59,18 @@ class Capabilities200Test extends TestCase
         $this->assertContains('ms:buurt', $capabilities->getLayerNames());
     }
 
+    public function testReadProjections()
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_mapserver_adam_gebieden-20.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities200 $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities200::class, 'xml');
+        $layer        = $capabilities->getLayer('ms:buurt');
+        $this->assertIsArray($layer->getCrsOptions());
+        $this->assertContains('urn:ogc:def:crs:EPSG::28992', $layer->getCrsOptions());
+        $this->assertContains('urn:ogc:def:crs:EPSG::4258', $layer->getCrsOptions());
+    }
+
     /**
      * @doesNotPerformAssertions
      */

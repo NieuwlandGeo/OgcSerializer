@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 
@@ -15,4 +16,34 @@ use JMS\Serializer\Annotation\XmlRoot;
  */
 class Capabilities110 extends AbstractCapabilities
 {
+    /**
+     * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureTypeList110")
+     *
+     * @var FeatureTypeList
+     */
+    protected $featureTypeList;
+
+    /**
+     * Get the value of featureTypeList.
+     *
+     * @return FeatureTypeList
+     */
+    public function getFeatureTypeList()
+    {
+        return $this->featureTypeList;
+    }
+
+    /**
+     * Set the value of featureTypeList.
+     *
+     * @param FeatureTypeList $featureTypeList
+     *
+     * @return self
+     */
+    public function setFeatureTypeList(FeatureTypeList $featureTypeList)
+    {
+        $this->featureTypeList = $featureTypeList;
+
+        return $this;
+    }
 }

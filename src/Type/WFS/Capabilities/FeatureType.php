@@ -6,63 +6,25 @@ namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Nieuwland\OgcSerializer\Type\LayerInterface;
+use JMS\Serializer\Annotation\XmlList;
 
-class FeatureType implements LayerInterface
+class FeatureType extends AbstractFeatureType
 {
-    /**
-     * @Type("string")
-     *
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @Type("string")
-     *
-     * @var string
-     */
-    private $title;
-
     /**
      * @Type("string")
      * @SerializedName("DefaultCRS")
      *
      * @var string
      */
-    private $defaultCRS;
+    protected $defaultCRS;
 
     /**
-     * @Type("array")
-     * @SerializedName("OtherCRS")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="OtherCRS")
      *
-     * @var array
+     * @var string[]
      */
-    private $otherCRS;
-
-    /**
-     * Get the value of name.
-     *
-     * @return string
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set the value of name.
-     *
-     * @param string $name
-     *
-     * @return self
-     */
-    public function setName(string $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    protected $otherCRS;
 
     /**
      * Get the value of defaultCRS.
@@ -113,34 +75,13 @@ class FeatureType implements LayerInterface
     }
 
     /**
-     * Get the value of title.
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set the value of title.
-     *
-     * @param string $title
-     *
-     * @return self
-     */
-    public function setTitle(string $title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function getCrsOptions(): array
     {
-        return [];
+        $crs   = $this->getOtherCRS();
+        $crs[] = $this->getDefaultCRS();
+
+        return $crs;
     }
 }

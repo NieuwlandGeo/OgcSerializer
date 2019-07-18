@@ -60,6 +60,7 @@ class Capabilities130Test extends TestCase
         /** @var Capabilities130 $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
         $layer        = $capabilities->getLayer('gemeenten');
+        $this->assertIsArray($layer->getCrsOptions());
         $this->assertContains('EPSG:25831', $layer->getCrsOptions());
         $this->assertContains('EPSG:28992', $layer->getCrsOptions());
         $this->assertContains('CRS:84', $layer->getCrsOptions());
