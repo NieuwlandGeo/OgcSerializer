@@ -75,4 +75,9 @@ abstract class AbstractFeatureType implements LayerInterface
      * {@inheritdoc}
      */
     abstract public function getCrsOptions(): array;
+
+    /**
+     * Get de default Crs.
+     */
+    abstract public function getDefaultCrs(): string;
 }

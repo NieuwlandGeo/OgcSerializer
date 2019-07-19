@@ -42,9 +42,17 @@ class FeatureType110 extends AbstractFeatureType
      *
      * @return string
      */
-    public function getDefaultSRS()
+    public function getDefaultSRS(): string
     {
         return $this->defaultSRS;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDefaultCRS(): string
+    {
+        return $this->getDefaultSRS();
     }
 
     /**

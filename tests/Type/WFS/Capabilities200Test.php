@@ -69,6 +69,7 @@ class Capabilities200Test extends TestCase
         $this->assertIsArray($layer->getCrsOptions());
         $this->assertContains('urn:ogc:def:crs:EPSG::28992', $layer->getCrsOptions());
         $this->assertContains('urn:ogc:def:crs:EPSG::4258', $layer->getCrsOptions());
+        $this->assertEquals('urn:ogc:def:crs:EPSG::28992', $capabilities->getFeatureType('ms:buurt')->getDefaultCrs());
     }
 
     /**
