@@ -8,6 +8,7 @@ use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\DescribeLayerResponse;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\LayerDescription;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\Query;
+use Nieuwland\OgcSerializer\Utils;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
@@ -22,21 +23,17 @@ class DescribeLayerTest extends TestCase
     public function testCanDeserialize()
     {
         $xml          = file_get_contents(FIXTURE_PATH . '/WMS/DescribeLayer_pdok.xml');
-        $serializer   = SerializerFactory::create(
-            ['<!DOCTYPE WMS_DescribeLayerResponse SYSTEM "https://geodata.nationaalgeoregister.nl/schemas/wms/1.1.1/WMS_DescribeLayerResponse.dtd">']
-        );
-        $capabilities = $serializer->deserialize($xml, DescribeLayerResponse::class, 'xml');
+        $serializer   = SerializerFactory::create();
+        $capabilities = $serializer->deserialize(Utils::removeDocType($xml), DescribeLayerResponse::class, 'xml');
         $this->assertInstanceOf(DescribeLayerResponse::class, $capabilities);
     }
 
     public function testReadProps()
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/DescribeLayer_pdok.xml');
-        $serializer = SerializerFactory::create(
-            ['<!DOCTYPE WMS_DescribeLayerResponse SYSTEM "https://geodata.nationaalgeoregister.nl/schemas/wms/1.1.1/WMS_DescribeLayerResponse.dtd">']
-        );
+        $serializer = SerializerFactory::create();
         /** @var DescribeLayerResponse $descr */
-        $descr = $serializer->deserialize($xml, DescribeLayerResponse::class, 'xml');
+        $descr = $serializer->deserialize(Utils::removeDocType($xml), DescribeLayerResponse::class, 'xml');
         $this->assertInstanceOf(LayerDescription::class, $descr->getLayerDescription());
         $this->assertEquals('kruising', $descr->getLayerDescription()->getName());
         $this->assertEquals(
