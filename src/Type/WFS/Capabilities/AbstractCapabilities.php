@@ -65,4 +65,9 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
 
         return $types[$name];
     }
+
+    public function getFeatureType(string $name): AbstractFeatureType
+    {
+        return $this->getLayer($name);
+    }
 }
