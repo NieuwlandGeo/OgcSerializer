@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 
@@ -23,6 +24,7 @@ class BoundingBox
     /**
      * @Type("float")
      * @XmlAttribute
+     * @SerializedName("minx")
      *
      * @var float
      */
@@ -31,6 +33,7 @@ class BoundingBox
     /**
      * @Type("float")
      * @XmlAttribute
+     * @SerializedName("miny")
      *
      * @var float
      */
@@ -39,6 +42,7 @@ class BoundingBox
     /**
      * @Type("float")
      * @XmlAttribute
+     * @SerializedName("maxx")
      *
      * @var float
      */
@@ -47,6 +51,7 @@ class BoundingBox
     /**
      * @Type("float")
      * @XmlAttribute
+     * @SerializedName("maxy")
      *
      * @var float
      */
@@ -55,6 +60,7 @@ class BoundingBox
     /**
      * @Type("float")
      * @XmlAttribute
+     * @SerializedName("resx")
      *
      * @var float
      */
@@ -62,6 +68,7 @@ class BoundingBox
     /**
      * @Type("float")
      * @XmlAttribute
+     * @SerializedName("resy")
      *
      * @var float
      */

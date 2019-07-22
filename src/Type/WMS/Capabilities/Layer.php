@@ -388,7 +388,7 @@ class Layer implements LayerInterface
     }
 
     /**
-     * Get EX_GeographicBoundingBox option, inherited or not.
+     * Get optional inherited EX_GeographicBoundingBox.
      *
      * @Exclude
      */
@@ -426,6 +426,39 @@ class Layer implements LayerInterface
     public function getBoundingBoxes()
     {
         return $this->boundingBoxes;
+    }
+
+    /**
+     * Get inherited bounding box.
+     *
+     * @return BoundingBox[]|null
+     */
+    public function getBoundingBoxOptions(): array
+    {
+        if ($this->getBoundingBoxes()) {
+            return $this->getBoundingBoxes();
+        }
+        if ($this->getParent()) {
+            $this->getParent()->getBoundingBoxOptions();
+        }
+
+        return null;
+    }
+
+    /**
+     * @param string $crs
+     *
+     * @return BoundingBox|null
+     */
+    public function getBoundingBoxOption(string $crs): ?BoundingBox
+    {
+        foreach ($this->getBoundingBoxOptions() as $bbox) {
+            if ($bbox->getCrs() === $crs) {
+                return $bbox;
+            }
+        }
+
+        return null;
     }
 
     /**
