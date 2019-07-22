@@ -10,6 +10,8 @@ use Nieuwland\OgcSerializer\Type\WMS\Capabilities\BoundingBox;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capabilities130;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\ExGeographicBoundingBox;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\OperationType;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Request;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Service;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Style;
 use PHPUnit\Framework\TestCase;
@@ -110,6 +112,21 @@ class Capabilities130Test extends TestCase
         $this->assertIsArray($layer->getBoundingBoxOptions());
         $this->assertInstanceOf(BoundingBox::class, $layer->getBoundingBoxOption('EPSG:28992'));
         $this->assertEquals(278026.09, $layer->getBoundingBoxOption('EPSG:28992')->getMaxx());
+    }
+
+    public function testRequest()
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities130 $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        $request      = $capabilities->getCapability()->getRequest();
+
+        $this->assertInstanceOf(Request::class, $request);
+        $this->assertInstanceOf(OperationType::class, $request->getGetFeatureInfo());
+        $this->assertIsArray($request->getGetFeatureInfo()->getFormat());
+        $this->assertContains('application/json', $request->getGetFeatureInfo()->getFormat());
+        $this->assertInstanceOf(OperationType::class, $request->getGetMap());
     }
 
     /**
