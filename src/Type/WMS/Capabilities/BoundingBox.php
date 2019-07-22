@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
 
 /**
  * Base on WMS 1.3.0 BoundingBox.
@@ -13,6 +14,7 @@ class BoundingBox
 {
     /**
      * @Type("string")
+     * @XmlAttribute
      *
      * @var string
      */
@@ -20,6 +22,7 @@ class BoundingBox
 
     /**
      * @Type("float")
+     * @XmlAttribute
      *
      * @var float
      */
@@ -27,6 +30,7 @@ class BoundingBox
 
     /**
      * @Type("float")
+     * @XmlAttribute
      *
      * @var float
      */
@@ -34,6 +38,7 @@ class BoundingBox
 
     /**
      * @Type("float")
+     * @XmlAttribute
      *
      * @var float
      */
@@ -41,6 +46,7 @@ class BoundingBox
 
     /**
      * @Type("float")
+     * @XmlAttribute
      *
      * @var float
      */
@@ -48,12 +54,14 @@ class BoundingBox
 
     /**
      * @Type("float")
+     * @XmlAttribute
      *
      * @var float
      */
     private $resx;
     /**
      * @Type("float")
+     * @XmlAttribute
      *
      * @var float
      */
