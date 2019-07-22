@@ -83,6 +83,7 @@ class Layer implements LayerInterface
      * @var array
      */
     private $crs;
+
     /**
      * @Type("float")
      * @AccessType("public_method")

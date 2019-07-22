@@ -7,6 +7,7 @@ namespace Tests\Type\WMS;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capabilities130;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\ExGeographicBoundingBox;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Service;
 use PHPUnit\Framework\TestCase;
@@ -64,6 +65,31 @@ class Capabilities130Test extends TestCase
         $this->assertContains('EPSG:25831', $layer->getCrsOptions());
         $this->assertContains('EPSG:28992', $layer->getCrsOptions());
         $this->assertContains('CRS:84', $layer->getCrsOptions());
+    }
+
+    public function testReadExGeographicBoundingBox()
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities130 $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        $layer        = $capabilities->getLayer('gemeenten');
+        $this->assertInstanceOf(ExGeographicBoundingBox::class, $layer->getExGeographicBoundingBoxOption());
+        $this->assertIsFloat($layer->getExGeographicBoundingBoxOption()->getWestBoundLongitude());
+        $this->assertIsFloat($layer->getExGeographicBoundingBoxOption()->getEastBoundLongitude());
+        $this->assertIsFloat($layer->getExGeographicBoundingBoxOption()->getSouthBoundLatitude());
+        $this->assertIsFloat($layer->getExGeographicBoundingBoxOption()->getNorthBoundLatitude());
+    }
+
+    public function testReadStyles()
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities130 $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        $layer        = $capabilities->getLayer('gemeenten');
+        $this->assertIsArray($layer->getStyleOptions());
+        $this->assertIsArray($layer->getStyles());
     }
 
     /**

@@ -9,7 +9,6 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
-use Nieuwland\OgcSerializer\Type\LayerInterface;
 use RuntimeException;
 use function sprintf;
 
@@ -128,7 +127,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
         return $names;
     }
 
-    public function getLayer(string $name): LayerInterface
+    public function getLayer(string $name): Layer
     {
         if ($name === $this->getCapability()->getLayer()->getName()) {
             return $this->getCapability()->getLayer();
