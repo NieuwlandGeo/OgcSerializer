@@ -317,6 +317,8 @@ class Layer implements LayerInterface
      * Get all style options, including inherited.
      *
      * @Exclude
+     *
+     * @return Style[]
      */
     public function getStyleOptions(): array
     {
@@ -326,6 +328,39 @@ class Layer implements LayerInterface
         }
 
         return array_unique($styles);
+    }
+
+    /**
+     * Undocumented function.
+     *
+     * @return string[]
+     */
+    public function getStyleNames(): array
+    {
+        $names = [];
+        foreach ($this->getStyleOptions() as $style) {
+            $names[] = $style->getName();
+        }
+
+        return $names;
+    }
+
+    /**
+     * Get style by name.
+     *
+     * @param string $name
+     *
+     * @return Style|null
+     */
+    public function getStyle(string $name): ?Style
+    {
+        foreach ($this->getStyleOptions() as $style) {
+            if ($style->getName() === $name) {
+                return $style;
+            }
+        }
+
+        return null;
     }
 
     /**

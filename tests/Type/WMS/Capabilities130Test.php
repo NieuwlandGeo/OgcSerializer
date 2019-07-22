@@ -10,6 +10,7 @@ use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capabilities130;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\ExGeographicBoundingBox;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Service;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Style;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
@@ -90,6 +91,12 @@ class Capabilities130Test extends TestCase
         $layer        = $capabilities->getLayer('gemeenten');
         $this->assertIsArray($layer->getStyleOptions());
         $this->assertIsArray($layer->getStyles());
+        $style = $layer->getStyle('bestuurlijkegrenzen:bestuurlijkegrenzen_gemeentegrenzen');
+        $this->assertInstanceOf(
+            Style::class,
+            $style
+        );
+        $this->assertEquals('gemeenten', $style->getTitle());
     }
 
     /**
