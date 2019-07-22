@@ -35,6 +35,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
 
     /**
      * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capability")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Capability
      */

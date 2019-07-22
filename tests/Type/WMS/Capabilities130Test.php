@@ -129,6 +129,22 @@ class Capabilities130Test extends TestCase
         $this->assertInstanceOf(OperationType::class, $request->getGetMap());
     }
 
+    public function testExampleSLD()
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/example_capabilities_sld.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities130 $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        $request      = $capabilities->getCapability()->getRequest();
+        //describe layer
+        $this->assertInstanceOf(OperationType::class, $request->getDescribeLayer());
+        $this->assertIsArray($request->getDescribeLayer()->getFormat());
+        $this->assertContains('text/xml', $request->getDescribeLayer()->getFormat());
+        //layernames
+        // var_dump($capabilities->getLayerNames());
+        // $this->assertContains('ROADS_1M', $capabilities->getLayerNames());
+    }
+
     /**
      * @doesNotPerformAssertions
      */
