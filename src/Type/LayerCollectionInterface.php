@@ -10,9 +10,4 @@ interface LayerCollectionInterface
      * @return string[]
      */
     public function getLayerNames(): array;
-
-    /**
-     * @return LayerInterface
-     */
-    public function getLayer(string $name): LayerInterface;
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
 /**
@@ -13,6 +14,7 @@ class ExGeographicBoundingBox
 {
     /**
      * @Type("float")
+     * @SerializedName("westBoundLongitude")
      *
      * @var float
      */
@@ -20,6 +22,7 @@ class ExGeographicBoundingBox
 
     /**
      * @Type("float")
+     * @SerializedName("eastBoundLongitude")
      *
      * @var float
      */
@@ -27,6 +30,7 @@ class ExGeographicBoundingBox
 
     /**
      * @Type("float")
+     * @SerializedName("southBoundLatitude")
      *
      * @var float
      */
@@ -34,6 +38,7 @@ class ExGeographicBoundingBox
 
     /**
      * @Type("float")
+     * @SerializedName("northBoundLatitude")
      *
      * @var float
      */
