@@ -14,7 +14,7 @@ class OperationType
 {
     /**
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="Format")
+     * @XmlList(inline=true, entry="Format", namespace="http://www.opengis.net/wms")
      *
      * @var string
      */

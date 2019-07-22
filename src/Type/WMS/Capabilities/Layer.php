@@ -9,6 +9,7 @@ use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use function array_merge;
@@ -25,6 +26,7 @@ class Layer implements LayerInterface
 {
     /**
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var string
      */
@@ -32,6 +34,7 @@ class Layer implements LayerInterface
 
     /**
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var string
      */
@@ -39,6 +42,7 @@ class Layer implements LayerInterface
 
     /**
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var string
      */
@@ -46,7 +50,7 @@ class Layer implements LayerInterface
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Style>")
-     * @XmlList(inline=true, entry="Style")
+     * @XmlList(inline=true, entry="Style", namespace="http://www.opengis.net/wms")
      *
      * @var Style[]
      */
@@ -55,6 +59,7 @@ class Layer implements LayerInterface
     /**
      * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\ExGeographicBoundingBox")
      * @SerializedName("EX_GeographicBoundingBox")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var ExGeographicBoundingBox
      */
@@ -62,7 +67,7 @@ class Layer implements LayerInterface
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\BoundingBox>")
-     * @XmlList(inline=true, entry="BoundingBox")
+     * @XmlList(inline=true, entry="BoundingBox", namespace="http://www.opengis.net/wms")
      *
      * @var BoundingBox[]
      */
@@ -102,7 +107,7 @@ class Layer implements LayerInterface
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer>")
-     * @XmlList(inline=true, entry="Layer")
+     * @XmlList(inline=true, entry="Layer", namespace="http://www.opengis.net/wms")
      * @AccessType("public_method")
      *
      * @var Layer[]
