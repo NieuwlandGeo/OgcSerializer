@@ -141,8 +141,7 @@ class Capabilities130Test extends TestCase
         $this->assertIsArray($request->getDescribeLayer()->getFormat());
         $this->assertContains('text/xml', $request->getDescribeLayer()->getFormat());
         //layernames
-        // var_dump($capabilities->getLayerNames());
-        // $this->assertContains('ROADS_1M', $capabilities->getLayerNames());
+        $this->assertContains('ROADS_1M', $capabilities->getLayerNames());
     }
 
     /**
