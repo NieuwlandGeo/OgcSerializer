@@ -13,7 +13,10 @@ use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use function array_merge;
 use function array_unique;
+use function explode;
 use function is_numeric;
+use function pow;
+use function strpos;
 
 /**
  * WMS Capabilities Layer.
@@ -455,6 +458,11 @@ class Layer implements LayerInterface
     {
         if (is_numeric($denominator)) {
             return $denominator;
+        }
+        if (strpos($denominator, 'e')) {
+            [$base,$exp] = explode('e', $denominator);
+
+            return pow($base, $exp);
         }
 
         return null;
