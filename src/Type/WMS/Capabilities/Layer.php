@@ -528,6 +528,30 @@ class Layer implements LayerInterface
         return $this;
     }
 
+    /**
+     * Get flat array of layernames of all children.
+     *
+     * @return array|null
+     */
+    public function getLayerNames(): ?array
+    {
+        if (! $this->getLayers()) {
+            return null;
+        }
+        $names = [];
+        foreach ($this->getLayers() as $layer) {
+            if ($layer->getLayerNames()) {
+                $names = array_merge($names, $layer->getLayerNames());
+            }
+            if (! $layer->getName()) {
+                continue;
+            }
+            $names[] = $layer->getName();
+        }
+
+        return $names;
+    }
+
     private function readScaleDenominator($denominator): ?float
     {
         if (is_numeric($denominator)) {
