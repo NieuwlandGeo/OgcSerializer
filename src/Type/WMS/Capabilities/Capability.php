@@ -19,6 +19,13 @@ class Capability
     private $layer;
 
     /**
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Request")
+     *
+     * @var Request
+     */
+    private $request;
+
+    /**
      * Get the value of layers.
      *
      * @return Layer
@@ -38,6 +45,30 @@ class Capability
     public function setLayer(Layer $layer): self
     {
         $this->layer = $layer;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of request.
+     *
+     * @return Request
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    /**
+     * Set the value of request.
+     *
+     * @param Request $request
+     *
+     * @return self
+     */
+    public function setRequest(Request $request)
+    {
+        $this->request = $request;
 
         return $this;
     }
