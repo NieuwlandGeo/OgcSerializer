@@ -6,12 +6,14 @@ namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
 
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use function array_merge;
 use function array_unique;
+use function is_numeric;
 
 /**
  * WMS Capabilities Layer.
@@ -33,6 +35,37 @@ class Layer implements LayerInterface
     private $title;
 
     /**
+     * @Type("string")
+     *
+     * @var string
+     */
+    private $abstract;
+
+    /**
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Style>")
+     * @XmlList(inline=true, entry="Style")
+     *
+     * @var Style[]
+     */
+    private $styles;
+
+    /**
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\ExGeographicBoundingBox")
+     * @SerializedName("EX_GeographicBoundingBox")
+     *
+     * @var ExGeographicBoundingBox
+     */
+    private $exGeographicBoundingBox;
+
+    /**
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\BoundingBox>")
+     * @XmlList(inline=true, entry="BoundingBox")
+     *
+     * @var BoundingBox[]
+     */
+    private $boundingBoxes;
+
+    /**
      * @XmlAttribute
      * @Type("bool")
      *
@@ -47,6 +80,21 @@ class Layer implements LayerInterface
      * @var array
      */
     private $crs;
+    /**
+     * @Type("float")
+     * @AccessType("public_method")
+     *
+     * @var float
+     */
+    private $minScaleDenominator;
+
+    /**
+     * @Type("float")
+     * @AccessType("public_method")
+     *
+     * @var float
+     */
+    private $maxScaleDenominator;
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer>")
@@ -225,5 +273,190 @@ class Layer implements LayerInterface
         }
 
         return array_unique($crs);
+    }
+
+    /**
+     * Get the value of abstract.
+     *
+     * @return string
+     */
+    public function getAbstract()
+    {
+        return $this->abstract;
+    }
+
+    /**
+     * Set the value of abstract.
+     *
+     * @param string $abstract
+     *
+     * @return self
+     */
+    public function setAbstract(string $abstract)
+    {
+        $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of styles.
+     *
+     * @return Style[]
+     */
+    public function getStyles()
+    {
+        return $this->styles;
+    }
+
+    /**
+     * Get all style options, including inherited.
+     *
+     * @Exclude
+     */
+    public function getStyleOptions(): array
+    {
+        $styles = $this->getStyles() ?? [];
+        if ($this->getParent()) {
+            $crs = array_merge($styles, $this->getParent()->getStyleOptions());
+        }
+
+        return array_unique($styles);
+    }
+
+    /**
+     * Set the value of styles.
+     *
+     * @param Style[] $styles
+     *
+     * @return self
+     */
+    public function setStyles(array $styles)
+    {
+        $this->styles = $styles;
+
+        return $this;
+    }
+
+    /**
+     * Get undocumented variable.
+     *
+     * @return ExGeographicBoundingBox
+     */
+    public function getExGeographicBoundingBox(): ?ExGeographicBoundingBox
+    {
+        return $this->exGeographicBoundingBox;
+    }
+
+    /**
+     * Get EX_GeographicBoundingBox option, inherited or not.
+     *
+     * @Exclude
+     */
+    public function getExGeographicBoundingBoxOption(): ?ExGeographicBoundingBox
+    {
+        if ($this->getExGeographicBoundingBox()) {
+            return $this->getExGeographicBoundingBox();
+        }
+        if ($this->getParent() && $this->getParent()->getExGeographicBoundingBoxOption()) {
+            return $this->getParent()->getExGeographicBoundingBoxOption();
+        }
+
+        return null;
+    }
+
+    /**
+     * Set undocumented variable.
+     *
+     * @param ExGeographicBoundingBox $exGeographicBoundingBox undocumented variable
+     *
+     * @return self
+     */
+    public function setExGeographicBoundingBox(ExGeographicBoundingBox $exGeographicBoundingBox)
+    {
+        $this->exGeographicBoundingBox = $exGeographicBoundingBox;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of boundingBoxes.
+     *
+     * @return BoundingBox[]
+     */
+    public function getBoundingBoxes()
+    {
+        return $this->boundingBoxes;
+    }
+
+    /**
+     * Set the value of boundingBoxes.
+     *
+     * @param BoundingBox[] $boundingBoxes
+     *
+     * @return self
+     */
+    public function setBoundingBoxes(array $boundingBoxes)
+    {
+        $this->boundingBoxes = $boundingBoxes;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of minScaleDenominator.
+     *
+     * @return float
+     */
+    public function getMinScaleDenominator(): ?float
+    {
+        return $this->minScaleDenominator;
+    }
+
+    /**
+     * Set the value of minScaleDenominator.
+     *
+     * @param mixed $minScaleDenominator
+     *
+     * @return self
+     */
+    public function setMinScaleDenominator($minScaleDenominator)
+    {
+        $this->minScaleDenominator = $this->readScaleDenominator($minScaleDenominator);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of maxScaleDenominator.
+     *
+     * @return float
+     */
+    public function getMaxScaleDenominator(): ?float
+    {
+        return $this->maxScaleDenominator;
+    }
+
+    /**
+     * Set the value of maxScaleDenominator.
+     *
+     * @param mixed $maxScaleDenominator
+     *
+     * @return self
+     */
+    public function setMaxScaleDenominator($maxScaleDenominator)
+    {
+        $this->maxScaleDenominator = $this->readScaleDenominator($maxScaleDenominator);
+
+        return $this;
+    }
+
+    private function readScaleDenominator($denominator): ?float
+    {
+        if (is_numeric($denominator)) {
+            return $denominator;
+        }
+
+        return null;
     }
 }
