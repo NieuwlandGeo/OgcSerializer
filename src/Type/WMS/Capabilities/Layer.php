@@ -552,6 +552,35 @@ class Layer implements LayerInterface
         return $names;
     }
 
+    /**
+     * Find (child) layer by name.
+     *
+     * @Exclude
+     *
+     * @param string $name
+     *
+     * @return Layer|null
+     */
+    public function getLayerByName(string $name): ?Layer
+    {
+        if ($this->getName() === $name) {
+            return $this;
+        }
+
+        if (! $this->getLayers()) {
+            return null;
+        }
+
+        foreach ($this->getLayers() as $layer) {
+            $namedLayer = $layer->getLayerByName($name);
+            if ($namedLayer) {
+                return $namedLayer;
+            }
+        }
+
+        return null;
+    }
+
     private function readScaleDenominator($denominator): ?float
     {
         if (is_numeric($denominator)) {
