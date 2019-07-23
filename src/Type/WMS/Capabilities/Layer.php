@@ -434,17 +434,17 @@ class Layer implements LayerInterface
     }
 
     /**
-     * Get inherited bounding box.
+     * Get (inherited) bounding box.
      *
      * @return BoundingBox[]|null
      */
-    public function getBoundingBoxOptions(): array
+    public function getBoundingBoxOptions(): ?array
     {
         if ($this->getBoundingBoxes()) {
             return $this->getBoundingBoxes();
         }
         if ($this->getParent()) {
-            $this->getParent()->getBoundingBoxOptions();
+            return $this->getParent()->getBoundingBoxOptions();
         }
 
         return null;

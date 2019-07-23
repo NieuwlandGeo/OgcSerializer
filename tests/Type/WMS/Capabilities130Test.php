@@ -144,7 +144,7 @@ class Capabilities130Test extends TestCase
         $this->assertContains('ROADS_1M', $capabilities->getLayerNames());
         // bounding box inheterance
         $layer = $capabilities->getLayer('ROADS_1M');
-        var_dump($layer->getBoundingBoxOptions());
+        $this->assertIsArray($layer->getBoundingBoxOptions());
     }
 
     /**
