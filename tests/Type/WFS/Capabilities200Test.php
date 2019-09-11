@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests\Type\WFS;
 
 use Nieuwland\OgcSerializer\SerializerFactory;
-use Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureType;
-use Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureTypeList;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as Capabilities200;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureType;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureTypeList;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
@@ -33,7 +33,7 @@ class Capabilities200Test extends TestCase
         $serializer = SerializerFactory::create();
         /** @var Capabilities200 $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities200::class, 'xml');
-        $this->assertEquals('2.0.0', $capabilities->version);
+        $this->assertEquals('2.0.0', $capabilities->getVersion());
         $this->assertInstanceOf(FeatureTypeList::class, $capabilities->getFeatureTypeList());
         $this->assertCount(2, $capabilities->getFeatureTypeList()->getFeatureTypes());
         $this->assertCount(2, $capabilities->getLayerNames());
@@ -85,6 +85,7 @@ class Capabilities200Test extends TestCase
         $type->setDefaultCRS('EPSG:28992');
         $list->setFeatureTypes([$type]);
         $capabilities->setFeatureTypeList($list);
+        $capabilities->setVersion('2.0.0');
         $serializer = SerializerFactory::create();
         $serializer->serialize($capabilities, 'xml');
     }
