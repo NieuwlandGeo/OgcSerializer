@@ -7,6 +7,7 @@ namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractFeatureType;
 
 class FeatureType extends AbstractFeatureType
 {
