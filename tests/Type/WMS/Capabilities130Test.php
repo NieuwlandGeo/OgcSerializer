@@ -6,14 +6,14 @@ namespace Tests\Type\WMS;
 
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\BoundingBox;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capabilities130;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\ExGeographicBoundingBox;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\OperationType;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Request;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Service;
-use Nieuwland\OgcSerializer\Type\WMS\Capabilities\Style;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\BoundingBox;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Capabilities;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\ExGeographicBoundingBox;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Layer;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\OperationType;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Request;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Service;
+use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Style;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
@@ -21,24 +21,24 @@ class Capabilities130Test extends TestCase
 {
     public function testCanCreateInstance()
     {
-        $object = new Capabilities130();
-        $this->assertInstanceOf(Capabilities130::class, $object);
+        $object = new Capabilities();
+        $this->assertInstanceOf(Capabilities::class, $object);
     }
 
     public function testCanDeserialize()
     {
         $xml          = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer   = SerializerFactory::create();
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
-        $this->assertInstanceOf(Capabilities130::class, $capabilities);
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $this->assertInstanceOf(Capabilities::class, $capabilities);
     }
 
     public function testReadServiceProps()
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $this->assertEquals('WMS', $capabilities->getService()->getName());
         $layerGroup = $capabilities->getCapability()->getLayer();
         $this->assertInstanceOf(Layer::class, $layerGroup);
@@ -51,8 +51,8 @@ class Capabilities130Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $parent       = $capabilities->getLayer('gemeenten')->getParent();
         $this->assertInstanceOf(LayerInterface::class, $parent);
         $this->assertEquals('Bestuurlijke grenzen WMS', $parent->getTitle());
@@ -62,8 +62,8 @@ class Capabilities130Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $layer        = $capabilities->getLayer('gemeenten');
         $this->assertIsArray($layer->getCrsOptions());
         $this->assertContains('EPSG:25831', $layer->getCrsOptions());
@@ -75,8 +75,8 @@ class Capabilities130Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $layer        = $capabilities->getLayer('gemeenten');
         $this->assertInstanceOf(ExGeographicBoundingBox::class, $layer->getExGeographicBoundingBoxOption());
         $this->assertIsFloat($layer->getExGeographicBoundingBoxOption()->getWestBoundLongitude());
@@ -89,8 +89,8 @@ class Capabilities130Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $layer        = $capabilities->getLayer('gemeenten');
         $this->assertIsArray($layer->getStyleOptions());
         $this->assertIsArray($layer->getStyles());
@@ -106,8 +106,8 @@ class Capabilities130Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $layer        = $capabilities->getLayer('gemeenten');
         $this->assertIsArray($layer->getBoundingBoxOptions());
         $this->assertInstanceOf(BoundingBox::class, $layer->getBoundingBoxOption('EPSG:28992'));
@@ -118,8 +118,8 @@ class Capabilities130Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $request      = $capabilities->getCapability()->getRequest();
 
         $this->assertInstanceOf(Request::class, $request);
@@ -133,8 +133,8 @@ class Capabilities130Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/example_capabilities_sld.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities130 $capabilities */
-        $capabilities = $serializer->deserialize($xml, Capabilities130::class, 'xml');
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $request      = $capabilities->getCapability()->getRequest();
         //describe layer
         $this->assertInstanceOf(OperationType::class, $request->getDescribeLayer());
@@ -152,7 +152,7 @@ class Capabilities130Test extends TestCase
      */
     public function testSerialize()
     {
-        $capabilities = new Capabilities130();
+        $capabilities = new Capabilities();
         $service      = new Service();
         $service->setName('mijn test');
         $capabilities->setService($service);
