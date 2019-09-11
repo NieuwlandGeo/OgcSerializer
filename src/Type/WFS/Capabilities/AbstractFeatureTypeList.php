@@ -22,9 +22,9 @@ abstract class AbstractFeatureTypeList
     abstract public function getFeatureTypes();
 
     /**
-     * Set the value of featureTypes.
+     * Key featureTypes by name .
      *
-     * @param FeatureType[] $featureTypes
+     * @param AbstractFeatureType[] $featureTypes
      *
      * @return self
      */

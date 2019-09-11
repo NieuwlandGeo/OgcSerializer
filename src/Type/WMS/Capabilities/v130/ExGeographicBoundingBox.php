@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;

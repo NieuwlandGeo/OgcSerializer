@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
@@ -16,7 +16,7 @@ use JMS\Serializer\Annotation\XmlNamespace;
 class Capability
 {
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Layer")
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Layer
@@ -24,7 +24,7 @@ class Capability
     private $layer;
 
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Request")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Request")
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Request
