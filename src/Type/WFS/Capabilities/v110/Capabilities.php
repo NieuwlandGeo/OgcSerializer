@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @XmlNamespace(uri="http://www.opengis.net/wfs")
  * @XmlRoot("WFS_Capabilities")
  */
-class Capabilities110 extends AbstractCapabilities
+class Capabilities extends AbstractCapabilities
 {
     /**
      * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureTypeList110")
