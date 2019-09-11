@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
@@ -20,35 +21,24 @@ use function sprintf;
 abstract class AbstractCapabilities implements LayerCollectionInterface
 {
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureTypeList")
+     * @Type("string")
+     * @XmlAttribute
      *
-     * @var FeatureTypeList
+     * @var string
      */
-    private $featureTypeList;
+    private $version;
 
     /**
-     * Get the value of featureTypeList.
+     * featuretypelist.
      *
-     * @return FeatureTypeList
+     * @var AbstractFeatureTypeList
      */
-    public function getFeatureTypeList()
-    {
-        return $this->featureTypeList;
-    }
+    protected $featureTypeList;
 
     /**
-     * Set the value of featureTypeList.
-     *
-     * @param FeatureTypeList $featureTypeList
-     *
-     * @return self
+     * @return AbstractFeatureTypeList
      */
-    public function setFeatureTypeList(FeatureTypeList $featureTypeList)
-    {
-        $this->featureTypeList = $featureTypeList;
-
-        return $this;
-    }
+    abstract public function getFeatureTypeList(): AbstractFeatureTypeList;
 
     public function getLayerNames(): array
     {
@@ -69,5 +59,15 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     public function getFeatureType(string $name): AbstractFeatureType
     {
         return $this->getLayer($name);
+    }
+
+    /**
+     * Get the value of version.
+     *
+     * @return string
+     */
+    public function getVersion(): string
+    {
+        return $this->version;
     }
 }

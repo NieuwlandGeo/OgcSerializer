@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110;
 
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Type;
@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation\XmlList;
 /**
  * FeatureTypelist WFS 1.1.0.
  */
-class FeatureTypeList110 extends FeatureTypeList
+class FeatureTypeList extends FeatureTypeList
 {
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureType110>")
