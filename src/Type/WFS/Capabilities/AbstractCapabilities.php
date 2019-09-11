@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlNamespace;
@@ -23,10 +24,11 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     /**
      * @Type("string")
      * @XmlAttribute
+     * @SerializedName("version")
      *
      * @var string
      */
-    private $version;
+    protected $version;
 
     /**
      * featuretypelist.
@@ -64,10 +66,24 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     /**
      * Get the value of version.
      *
-     * @return string
+     * @return string|null
      */
-    public function getVersion(): string
+    public function getVersion(): ?string
     {
         return $this->version;
+    }
+
+    /**
+     * Set the value of version.
+     *
+     * @param string $version
+     *
+     * @return self
+     */
+    public function setVersion(string $version)
+    {
+        $this->version = $version;
+
+        return $this;
     }
 }
