@@ -4,40 +4,27 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
-use JMS\Serializer\Annotation\AccessType;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\XmlList;
 use function array_combine;
 use function array_map;
 
 /**
- * FeatureTypeList Capabilities 2.0.
+ * AbstractFeatureTypeList WFS Capabilities.
  */
-class FeatureTypeList
+abstract class AbstractFeatureTypeList
 {
-    /**
-     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureType>")
-     * @XmlList(inline=true, entry="FeatureType")
-     * @AccessType("public_method")
-     *
-     * @var FeatureType[]
-     */
     protected $featureTypes = [];
 
     /**
      * Get the value of featureTypes.
      *
-     * @return FeatureType[]
+     * @return AbstractFeatureType[]
      */
-    public function getFeatureTypes()
-    {
-        return $this->featureTypes;
-    }
+    abstract public function getFeatureTypes();
 
     /**
-     * Set the value of featureTypes.
+     * Key featureTypes by name .
      *
-     * @param FeatureType[] $featureTypes
+     * @param AbstractFeatureType[] $featureTypes
      *
      * @return self
      */

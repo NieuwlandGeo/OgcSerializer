@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110;
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractFeatureType;
 
-class FeatureType110 extends AbstractFeatureType
+class FeatureType extends AbstractFeatureType
 {
     /**
      * @Type("string")
