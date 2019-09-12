@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200;
 
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractFeatureTypeList;
 
 /**
- * FeatureTypelist WFS 1.1.0.
+ * FeatureTypeList Capabilities 2.0.
  */
-class FeatureTypeList110 extends FeatureTypeList
+class FeatureTypeList extends AbstractFeatureTypeList
 {
     /**
-     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureType110>")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureType>")
      * @XmlList(inline=true, entry="FeatureType")
      * @AccessType("public_method")
      *
@@ -30,19 +31,5 @@ class FeatureTypeList110 extends FeatureTypeList
     public function getFeatureTypes()
     {
         return $this->featureTypes;
-    }
-
-    /**
-     * Set the value of featureTypes.
-     *
-     * @param FeatureType[] $featureTypes
-     *
-     * @return self
-     */
-    public function setFeatureTypes(array $featureTypes)
-    {
-        parent::setFeatureTypes($featureTypes);
-
-        return $this;
     }
 }

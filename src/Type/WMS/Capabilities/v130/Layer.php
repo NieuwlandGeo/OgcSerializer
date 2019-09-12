@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 
 use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\Exclude;
@@ -49,7 +49,7 @@ class Layer implements LayerInterface
     private $abstract;
 
     /**
-     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Style>")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Style>")
      * @XmlList(inline=true, entry="Style", namespace="http://www.opengis.net/wms")
      *
      * @var Style[]
@@ -57,7 +57,7 @@ class Layer implements LayerInterface
     private $styles;
 
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\ExGeographicBoundingBox")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\ExGeographicBoundingBox")
      * @SerializedName("EX_GeographicBoundingBox")
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
@@ -66,7 +66,7 @@ class Layer implements LayerInterface
     private $exGeographicBoundingBox;
 
     /**
-     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\BoundingBox>")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\BoundingBox>")
      * @XmlList(inline=true, entry="BoundingBox", namespace="http://www.opengis.net/wms")
      *
      * @var BoundingBox[]
@@ -106,7 +106,7 @@ class Layer implements LayerInterface
     private $maxScaleDenominator;
 
     /**
-     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\Layer>")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Layer>")
      * @XmlList(inline=true, entry="Layer", namespace="http://www.opengis.net/wms")
      * @AccessType("public_method")
      *

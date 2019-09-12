@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractCapabilities;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractFeatureTypeList;
 
 /**
- * Capabilities WFS 1.1.0.
- *
- * @XmlNamespace(uri="http://www.opengis.net/wfs")
+ * @XmlNamespace(uri="http://www.opengis.net/wfs/2.0")
  * @XmlRoot("WFS_Capabilities")
  */
-class Capabilities110 extends AbstractCapabilities
+class Capabilities extends AbstractCapabilities
 {
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\FeatureTypeList110")
+     * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureTypeList")
      *
      * @var FeatureTypeList
      */
@@ -28,7 +28,7 @@ class Capabilities110 extends AbstractCapabilities
      *
      * @return FeatureTypeList
      */
-    public function getFeatureTypeList()
+    public function getFeatureTypeList(): AbstractFeatureTypeList
     {
         return $this->featureTypeList;
     }

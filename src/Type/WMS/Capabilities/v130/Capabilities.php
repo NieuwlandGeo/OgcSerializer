@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities;
+namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
@@ -13,18 +14,19 @@ use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wms")
  */
-abstract class AbstractCapabilities implements LayerCollectionInterface
+class Capabilities implements LayerCollectionInterface
 {
     /**
      * @XmlAttribute
      * @Type("string")
+     * @SerializedName("version")
      *
      * @var string
      */
     protected $version;
 
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Service")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Service")
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Service
@@ -32,7 +34,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     private $service;
 
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\Capability")
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Capability")
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Capability
@@ -68,7 +70,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
      *
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): ?string
     {
         return $this->version;
     }
