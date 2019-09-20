@@ -57,4 +57,19 @@ class WfsSchemaReaderTest extends TestCase
             $this->assertInstanceOf(WfsSchemaElement::class, $field);
         }
     }
+
+    public function testExtractFieldsFromAdam(): void
+    {
+        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/overlastgebieden_describefeaturetype.xml');
+        $fields = $this->wfsSchema->extractFields($xml, 'ms:algemeen_overlastgebied');
+        $this->assertCount(7, $fields);
+        foreach ($fields as $field) {
+            $this->assertInstanceOf(WfsSchemaElement::class, $field);
+            $this->assertIsString($field->getName());
+            $this->assertIsString($field->getTypeName());
+            $this->assertStringNotContainsString(':', $field->getTypeName());
+            $this->assertIsInt($field->getMinOccurs());
+            $this->assertNull($field->getNillable());
+        }
+    }
 }
