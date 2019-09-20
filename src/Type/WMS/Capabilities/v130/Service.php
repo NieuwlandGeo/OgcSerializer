@@ -41,9 +41,8 @@ class Service
     /**
      * Get the value of name.
      *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -51,11 +50,9 @@ class Service
     /**
      * Set the value of name.
      *
-     * @param string $name
      *
-     * @return self
      */
-    public function setName(string $name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -65,9 +62,8 @@ class Service
     /**
      * Get the value of title.
      *
-     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -75,11 +71,9 @@ class Service
     /**
      * Set the value of title.
      *
-     * @param string $title
      *
-     * @return self
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -89,9 +83,8 @@ class Service
     /**
      * Get the value of abstract.
      *
-     * @return string
      */
-    public function getAbstract()
+    public function getAbstract(): string
     {
         return $this->abstract;
     }
@@ -99,11 +92,9 @@ class Service
     /**
      * Set the value of abstract.
      *
-     * @param string $abstract
      *
-     * @return self
      */
-    public function setAbstract(string $abstract)
+    public function setAbstract(string $abstract): self
     {
         $this->abstract = $abstract;
 

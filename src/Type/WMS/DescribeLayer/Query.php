@@ -22,9 +22,8 @@ class Query
     /**
      * Get the value of typeName.
      *
-     * @return string
      */
-    public function getTypeName()
+    public function getTypeName(): string
     {
         return $this->typeName;
     }
@@ -32,11 +31,9 @@ class Query
     /**
      * Set the value of typeName.
      *
-     * @param string $typeName
      *
-     * @return self
      */
-    public function setTypeName(string $typeName)
+    public function setTypeName(string $typeName): self
     {
         $this->typeName = $typeName;
 

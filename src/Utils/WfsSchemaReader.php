@@ -18,7 +18,6 @@ class WfsSchemaReader
     /**
      * extract fields from xsd.
      *
-     * @param string $xsd
      * @param string $name featuretype name including prefix
      *
      * @throws WfsSchemaException
@@ -98,9 +97,7 @@ class WfsSchemaReader
     /**
      * Target namespace.
      *
-     * @param DOMNode $schemaNode
      *
-     * @return string
      */
     private function getTargetNameSpace(DOMNode $schemaNode): string
     {
@@ -110,8 +107,7 @@ class WfsSchemaReader
     /**
      * Get name attribute to use for node filtering.
      *
-     * @param DOMNode $schemaNode
-     * @param string  $name       prefixed
+     * @param string $name prefixed
      *
      * @return string without prefix if it equals targetNameSpace
      */

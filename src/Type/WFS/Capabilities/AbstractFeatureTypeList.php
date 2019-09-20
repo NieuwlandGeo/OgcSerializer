@@ -19,16 +19,15 @@ abstract class AbstractFeatureTypeList
      *
      * @return AbstractFeatureType[]
      */
-    abstract public function getFeatureTypes();
+    abstract public function getFeatureTypes(): array;
 
     /**
      * Key featureTypes by name .
      *
      * @param AbstractFeatureType[] $featureTypes
      *
-     * @return self
      */
-    public function setFeatureTypes(array $featureTypes)
+    public function setFeatureTypes(array $featureTypes): self
     {
         $keys = array_map(static function (AbstractFeatureType $type) {
             return $type->getName();

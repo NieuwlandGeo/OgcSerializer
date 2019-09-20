@@ -19,7 +19,6 @@ class SerializerFactory
     /**
      * Create JMS serializer with custom naming.
      *
-     * @return Serializer
      */
     public static function create($doctypeWhitelist = []): Serializer
     {

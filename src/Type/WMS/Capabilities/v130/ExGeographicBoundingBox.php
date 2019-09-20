@@ -47,9 +47,8 @@ class ExGeographicBoundingBox
     /**
      * Get the value of westBoundLongitude.
      *
-     * @return float
      */
-    public function getWestBoundLongitude()
+    public function getWestBoundLongitude(): float
     {
         return $this->westBoundLongitude;
     }
@@ -57,11 +56,9 @@ class ExGeographicBoundingBox
     /**
      * Set the value of westBoundLongitude.
      *
-     * @param float $westBoundLongitude
      *
-     * @return self
      */
-    public function setWestBoundLongitude(float $westBoundLongitude)
+    public function setWestBoundLongitude(float $westBoundLongitude): self
     {
         $this->westBoundLongitude = $westBoundLongitude;
 
@@ -71,9 +68,8 @@ class ExGeographicBoundingBox
     /**
      * Get the value of eastBoundLongitude.
      *
-     * @return float
      */
-    public function getEastBoundLongitude()
+    public function getEastBoundLongitude(): float
     {
         return $this->eastBoundLongitude;
     }
@@ -81,11 +77,9 @@ class ExGeographicBoundingBox
     /**
      * Set the value of eastBoundLongitude.
      *
-     * @param float $eastBoundLongitude
      *
-     * @return self
      */
-    public function setEastBoundLongitude(float $eastBoundLongitude)
+    public function setEastBoundLongitude(float $eastBoundLongitude): self
     {
         $this->eastBoundLongitude = $eastBoundLongitude;
 
@@ -95,9 +89,8 @@ class ExGeographicBoundingBox
     /**
      * Get the value of southBoundLatitude.
      *
-     * @return float
      */
-    public function getSouthBoundLatitude()
+    public function getSouthBoundLatitude(): float
     {
         return $this->southBoundLatitude;
     }
@@ -105,11 +98,9 @@ class ExGeographicBoundingBox
     /**
      * Set the value of southBoundLatitude.
      *
-     * @param float $southBoundLatitude
      *
-     * @return self
      */
-    public function setSouthBoundLatitude(float $southBoundLatitude)
+    public function setSouthBoundLatitude(float $southBoundLatitude): self
     {
         $this->southBoundLatitude = $southBoundLatitude;
 
@@ -119,9 +110,8 @@ class ExGeographicBoundingBox
     /**
      * Get the value of northBoundLatitude.
      *
-     * @return float
      */
-    public function getNorthBoundLatitude()
+    public function getNorthBoundLatitude(): float
     {
         return $this->northBoundLatitude;
     }
@@ -129,11 +119,9 @@ class ExGeographicBoundingBox
     /**
      * Set the value of northBoundLatitude.
      *
-     * @param float $northBoundLatitude
      *
-     * @return self
      */
-    public function setNorthBoundLatitude(float $northBoundLatitude)
+    public function setNorthBoundLatitude(float $northBoundLatitude): self
     {
         $this->northBoundLatitude = $northBoundLatitude;
 
