@@ -30,6 +30,11 @@ class WfsSchemaReaderTest extends TestCase
         $this->assertCount(3, $fields);
         foreach ($fields as $field) {
             $this->assertInstanceOf(WfsSchemaElement::class, $field);
+            $this->assertIsString($field->getName());
+            $this->assertIsString($field->getTypeName());
+            $this->assertStringNotContainsString(':', $field->getTypeName());
+            $this->assertIsInt($field->getMinOccurs());
+            $this->assertIsBool($field->getNillable());
         }
     }
 
@@ -38,6 +43,16 @@ class WfsSchemaReaderTest extends TestCase
         $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_geoserver_pdok.xml');
         $fields = $this->wfsSchema->extractFields($xml, 'bestuurlijkegrenzen:provincies');
         $this->assertCount(2, $fields);
+        foreach ($fields as $field) {
+            $this->assertInstanceOf(WfsSchemaElement::class, $field);
+        }
+    }
+
+    public function testExtractFieldsFromDamo(): void
+    {
+        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/damo_describefeaturetype.xml');
+        $fields = $this->wfsSchema->extractFields($xml, 'DAMO_S:AFSLUITMIDDEL');
+        $this->assertCount(17, $fields);
         foreach ($fields as $field) {
             $this->assertInstanceOf(WfsSchemaElement::class, $field);
         }
