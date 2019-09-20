@@ -34,9 +34,8 @@ class DescribeLayerResponse
     /**
      * Set the value of layerDescription.
      *
-     * @return self
      */
-    public function setLayerDescription(LayerDescription $layerDescription)
+    public function setLayerDescription(LayerDescription $layerDescription): self
     {
         $this->layerDescription = $layerDescription;
 

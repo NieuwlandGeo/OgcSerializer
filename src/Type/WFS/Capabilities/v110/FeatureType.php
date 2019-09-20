@@ -41,7 +41,6 @@ class FeatureType extends AbstractFeatureType
     /**
      * Get the value of defaultSRS.
      *
-     * @return string
      */
     public function getDefaultSRS(): string
     {
@@ -59,11 +58,9 @@ class FeatureType extends AbstractFeatureType
     /**
      * Set the value of defaultSRS.
      *
-     * @param string $defaultSRS
      *
-     * @return self
      */
-    public function setDefaultSRS(string $defaultSRS)
+    public function setDefaultSRS(string $defaultSRS): self
     {
         $this->defaultSRS = $defaultSRS;
 
@@ -75,7 +72,7 @@ class FeatureType extends AbstractFeatureType
      *
      * @return string[]
      */
-    public function getOtherSRS()
+    public function getOtherSRS(): array
     {
         return $this->otherSRS;
     }
@@ -85,9 +82,8 @@ class FeatureType extends AbstractFeatureType
      *
      * @param string[] $otherSRS
      *
-     * @return self
      */
-    public function setOtherSRS(array $otherSRS)
+    public function setOtherSRS(array $otherSRS): self
     {
         $this->otherSRS = $otherSRS;
 

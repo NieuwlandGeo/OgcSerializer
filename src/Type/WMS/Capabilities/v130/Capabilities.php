@@ -44,7 +44,6 @@ class Capabilities implements LayerCollectionInterface
     /**
      * Get the value of service.
      *
-     * @return Service
      */
     public function getService(): Service
     {
@@ -54,11 +53,9 @@ class Capabilities implements LayerCollectionInterface
     /**
      * Set the value of service.
      *
-     * @param Service $service
      *
-     * @return self
      */
-    public function setService(Service $service)
+    public function setService(Service $service): self
     {
         $this->service = $service;
 
@@ -68,7 +65,6 @@ class Capabilities implements LayerCollectionInterface
     /**
      * Get the value of version.
      *
-     * @return string
      */
     public function getVersion(): ?string
     {
@@ -78,9 +74,7 @@ class Capabilities implements LayerCollectionInterface
     /**
      * Set the value of version.
      *
-     * @param string $version
      *
-     * @return self
      */
     public function setVersion(string $version): self
     {
@@ -92,7 +86,6 @@ class Capabilities implements LayerCollectionInterface
     /**
      * Get the value of capability.
      *
-     * @return Capability
      */
     public function getCapability(): Capability
     {
@@ -102,11 +95,9 @@ class Capabilities implements LayerCollectionInterface
     /**
      * Set the value of capability.
      *
-     * @param Capability $capability
      *
-     * @return self
      */
-    public function setCapability(Capability $capability)
+    public function setCapability(Capability $capability): self
     {
         $this->capability = $capability;
 
@@ -127,11 +118,6 @@ class Capabilities implements LayerCollectionInterface
         return $names;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return Layer
-     */
     public function getLayer(string $name): Layer
     {
         return $this->getCapability()->getLayer()->getLayerByName($name);

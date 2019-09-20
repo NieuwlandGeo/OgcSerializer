@@ -9,7 +9,6 @@ interface LayerInterface
     /**
      * Get name identifying the layer.
      *
-     * @return string
      */
     public function getName(): ?string;
 

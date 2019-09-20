@@ -26,7 +26,6 @@ abstract class AbstractFeatureType implements LayerInterface
     /**
      * Get the value of name.
      *
-     * @return string
      */
     public function getName(): ?string
     {
@@ -36,11 +35,9 @@ abstract class AbstractFeatureType implements LayerInterface
     /**
      * Set the value of name.
      *
-     * @param string $name
      *
-     * @return self
      */
-    public function setName(string $name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -50,9 +47,8 @@ abstract class AbstractFeatureType implements LayerInterface
     /**
      * Get the value of title.
      *
-     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -60,11 +56,9 @@ abstract class AbstractFeatureType implements LayerInterface
     /**
      * Set the value of title.
      *
-     * @param string $title
      *
-     * @return self
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
