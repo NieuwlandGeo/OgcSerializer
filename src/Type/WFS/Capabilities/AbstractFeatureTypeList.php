@@ -12,6 +12,7 @@ use function array_map;
  */
 abstract class AbstractFeatureTypeList
 {
+    /** @var AbstractFeatureType[] */
     protected $featureTypes = [];
 
     /**
@@ -25,7 +26,6 @@ abstract class AbstractFeatureTypeList
      * Key featureTypes by name .
      *
      * @param AbstractFeatureType[] $featureTypes
-     *
      */
     public function setFeatureTypes(array $featureTypes): self
     {

@@ -75,6 +75,9 @@ class WfsSchemaReader
         return $fields;
     }
 
+    /**
+     * @return mixed
+     */
     private function getAttributeValue(DOMNode $node, string $name)
     {
         $attr = $node->attributes->getNamedItem($name);

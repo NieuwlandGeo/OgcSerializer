@@ -85,7 +85,7 @@ class Layer implements LayerInterface
      * @Type("array<string>")
      * @XmlList(inline=true, entry="CRS")
      *
-     * @var array
+     * @var string[]
      */
     private $crs;
 
@@ -123,7 +123,6 @@ class Layer implements LayerInterface
 
     /**
      * Get the value of queryable.
-     *
      */
     public function getQueryable(): bool
     {
@@ -132,8 +131,6 @@ class Layer implements LayerInterface
 
     /**
      * Set the value of queryable.
-     *
-     *
      */
     public function setQueryable(bool $queryable): self
     {
@@ -145,7 +142,7 @@ class Layer implements LayerInterface
     /**
      * Get the value of crs.
      *
-     * @return array
+     * @return string[]
      */
     public function getCrs(): ?array
     {
@@ -155,8 +152,7 @@ class Layer implements LayerInterface
     /**
      * Set the value of crs.
      *
-     * @param array $crs
-     *
+     * @param string[] $crs
      */
     public function setCrs(array $crs): self
     {
@@ -167,7 +163,6 @@ class Layer implements LayerInterface
 
     /**
      * Get the value of name.
-     *
      */
     public function getName(): ?string
     {
@@ -176,8 +171,6 @@ class Layer implements LayerInterface
 
     /**
      * Set the value of name.
-     *
-     *
      */
     public function setName(string $name): self
     {
@@ -188,7 +181,6 @@ class Layer implements LayerInterface
 
     /**
      * Get the value of title.
-     *
      */
     public function getTitle(): string
     {
@@ -197,8 +189,6 @@ class Layer implements LayerInterface
 
     /**
      * Set the value of title.
-     *
-     *
      */
     public function setTitle(string $title): self
     {
@@ -221,7 +211,6 @@ class Layer implements LayerInterface
      * Set the value of layers.
      *
      * @param Layer[] $layers
-     *
      */
     public function setLayers(array $layers): self
     {
@@ -236,7 +225,6 @@ class Layer implements LayerInterface
 
     /**
      * Get the value of parent.
-     *
      */
     public function getParent(): ?Layer
     {
@@ -245,8 +233,6 @@ class Layer implements LayerInterface
 
     /**
      * Set the value of parent.
-     *
-     *
      */
     public function setParent(Layer $parent): self
     {
@@ -272,7 +258,6 @@ class Layer implements LayerInterface
 
     /**
      * Get the value of abstract.
-     *
      */
     public function getAbstract(): string
     {
@@ -281,8 +266,6 @@ class Layer implements LayerInterface
 
     /**
      * Set the value of abstract.
-     *
-     *
      */
     public function setAbstract(string $abstract): self
     {
@@ -335,8 +318,6 @@ class Layer implements LayerInterface
 
     /**
      * Get style by name.
-     *
-     *
      */
     public function getStyle(string $name): ?Style
     {
@@ -353,7 +334,6 @@ class Layer implements LayerInterface
      * Set the value of styles.
      *
      * @param Style[] $styles
-     *
      */
     public function setStyles(array $styles): self
     {
@@ -364,7 +344,6 @@ class Layer implements LayerInterface
 
     /**
      * Get undocumented variable.
-     *
      */
     public function getExGeographicBoundingBox(): ?ExGeographicBoundingBox
     {
@@ -392,7 +371,6 @@ class Layer implements LayerInterface
      * Set undocumented variable.
      *
      * @param ExGeographicBoundingBox $exGeographicBoundingBox undocumented variable
-     *
      */
     public function setExGeographicBoundingBox(ExGeographicBoundingBox $exGeographicBoundingBox): self
     {
@@ -443,7 +421,6 @@ class Layer implements LayerInterface
      * Set the value of boundingBoxes.
      *
      * @param BoundingBox[] $boundingBoxes
-     *
      */
     public function setBoundingBoxes(array $boundingBoxes): self
     {
@@ -454,7 +431,6 @@ class Layer implements LayerInterface
 
     /**
      * Get the value of minScaleDenominator.
-     *
      */
     public function getMinScaleDenominator(): ?float
     {
@@ -465,7 +441,6 @@ class Layer implements LayerInterface
      * Set the value of minScaleDenominator.
      *
      * @param mixed $minScaleDenominator
-     *
      */
     public function setMinScaleDenominator($minScaleDenominator): self
     {
@@ -476,7 +451,6 @@ class Layer implements LayerInterface
 
     /**
      * Get the value of maxScaleDenominator.
-     *
      */
     public function getMaxScaleDenominator(): ?float
     {
@@ -487,7 +461,6 @@ class Layer implements LayerInterface
      * Set the value of maxScaleDenominator.
      *
      * @param mixed $maxScaleDenominator
-     *
      */
     public function setMaxScaleDenominator($maxScaleDenominator): self
     {
@@ -499,7 +472,7 @@ class Layer implements LayerInterface
     /**
      * Get flat array of layernames of all children.
      *
-     * @return array|null
+     * @return string[]|null
      */
     public function getLayerNames(): ?array
     {
@@ -524,8 +497,6 @@ class Layer implements LayerInterface
      * Find (child) layer by name.
      *
      * @Exclude
-     *
-     *
      */
     public function getLayerByName(string $name): ?Layer
     {
@@ -547,6 +518,9 @@ class Layer implements LayerInterface
         return null;
     }
 
+    /**
+     * @param mixed $denominator
+     */
     private function readScaleDenominator($denominator): ?float
     {
         if (is_numeric($denominator)) {
