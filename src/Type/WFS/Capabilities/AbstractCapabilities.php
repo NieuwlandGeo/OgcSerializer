@@ -39,6 +39,9 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
 
     abstract public function getFeatureTypeList(): AbstractFeatureTypeList;
 
+    /**
+     * {@inheritdoc}
+     */
     public function getLayerNames(): array
     {
         return array_keys($this->getFeatureTypeList()->getFeatureTypes());
@@ -62,7 +65,6 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
 
     /**
      * Get the value of version.
-     *
      */
     public function getVersion(): ?string
     {
@@ -71,8 +73,6 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
 
     /**
      * Set the value of version.
-     *
-     *
      */
     public function setVersion(string $version): self
     {

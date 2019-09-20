@@ -19,8 +19,9 @@ class SerializerFactory
     /**
      * Create JMS serializer with custom naming.
      *
+     * @param string[] $doctypeWhitelist
      */
-    public static function create($doctypeWhitelist = []): Serializer
+    public static function create(array $doctypeWhitelist = []): Serializer
     {
         AnnotationRegistry::registerLoader('class_exists');
         $xmlVisitor = new XmlDeserializationVisitorFactory();
