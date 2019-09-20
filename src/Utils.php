@@ -7,7 +7,7 @@ namespace Nieuwland\OgcSerializer;
 use function preg_replace;
 
 /**
- * Some utilities for.
+ * Some utilities for xml.
  */
 class Utils
 {

@@ -77,9 +77,8 @@ class BoundingBox
     /**
      * Get the value of crs.
      *
-     * @return string
      */
-    public function getCRS()
+    public function getCRS(): string
     {
         return $this->CRS;
     }
@@ -87,11 +86,9 @@ class BoundingBox
     /**
      * Set the value of crs.
      *
-     * @param string $crs
      *
-     * @return self
      */
-    public function setCRS(string $crs)
+    public function setCRS(string $crs): self
     {
         $this->CRS = $crs;
 
@@ -101,9 +98,8 @@ class BoundingBox
     /**
      * Get the value of minx.
      *
-     * @return float
      */
-    public function getMinx()
+    public function getMinx(): float
     {
         return $this->minx;
     }
@@ -111,11 +107,9 @@ class BoundingBox
     /**
      * Set the value of minx.
      *
-     * @param float $minx
      *
-     * @return self
      */
-    public function setMinx(float $minx)
+    public function setMinx(float $minx): self
     {
         $this->minx = $minx;
 
@@ -125,9 +119,8 @@ class BoundingBox
     /**
      * Get the value of miny.
      *
-     * @return float
      */
-    public function getMiny()
+    public function getMiny(): float
     {
         return $this->miny;
     }
@@ -135,11 +128,9 @@ class BoundingBox
     /**
      * Set the value of miny.
      *
-     * @param float $miny
      *
-     * @return self
      */
-    public function setMiny(float $miny)
+    public function setMiny(float $miny): self
     {
         $this->miny = $miny;
 
@@ -149,9 +140,8 @@ class BoundingBox
     /**
      * Get the value of maxx.
      *
-     * @return float
      */
-    public function getMaxx()
+    public function getMaxx(): float
     {
         return $this->maxx;
     }
@@ -159,11 +149,9 @@ class BoundingBox
     /**
      * Set the value of maxx.
      *
-     * @param float $maxx
      *
-     * @return self
      */
-    public function setMaxx(float $maxx)
+    public function setMaxx(float $maxx): self
     {
         $this->maxx = $maxx;
 
@@ -173,9 +161,8 @@ class BoundingBox
     /**
      * Get the value of maxy.
      *
-     * @return float
      */
-    public function getMaxy()
+    public function getMaxy(): float
     {
         return $this->maxy;
     }
@@ -183,11 +170,9 @@ class BoundingBox
     /**
      * Set the value of maxy.
      *
-     * @param float $maxy
      *
-     * @return self
      */
-    public function setMaxy(float $maxy)
+    public function setMaxy(float $maxy): self
     {
         $this->maxy = $maxy;
 
@@ -197,9 +182,8 @@ class BoundingBox
     /**
      * Get the value of resx.
      *
-     * @return float
      */
-    public function getResx()
+    public function getResx(): float
     {
         return $this->resx;
     }
@@ -207,11 +191,9 @@ class BoundingBox
     /**
      * Set the value of resx.
      *
-     * @param float $resx
      *
-     * @return self
      */
-    public function setResx(float $resx)
+    public function setResx(float $resx): self
     {
         $this->resx = $resx;
 
@@ -221,9 +203,8 @@ class BoundingBox
     /**
      * Get the value of resy.
      *
-     * @return float
      */
-    public function getResy()
+    public function getResy(): float
     {
         return $this->resy;
     }
@@ -231,11 +212,9 @@ class BoundingBox
     /**
      * Set the value of resy.
      *
-     * @param float $resy
      *
-     * @return self
      */
-    public function setResy(float $resy)
+    public function setResy(float $resy): self
     {
         $this->resy = $resy;
 

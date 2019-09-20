@@ -46,9 +46,8 @@ class Request
     /**
      * Get the value of getMap.
      *
-     * @return OperationType
      */
-    public function getGetMap()
+    public function getGetMap(): OperationType
     {
         return $this->getMap;
     }
@@ -56,11 +55,9 @@ class Request
     /**
      * Set the value of getMap.
      *
-     * @param OperationType $getMap
      *
-     * @return self
      */
-    public function setGetMap(OperationType $getMap)
+    public function setGetMap(OperationType $getMap): self
     {
         $this->getMap = $getMap;
 
@@ -70,9 +67,8 @@ class Request
     /**
      * Get the value of getFeatureInfo.
      *
-     * @return OperationType
      */
-    public function getGetFeatureInfo()
+    public function getGetFeatureInfo(): OperationType
     {
         return $this->getFeatureInfo;
     }
@@ -80,11 +76,9 @@ class Request
     /**
      * Set the value of getFeatureInfo.
      *
-     * @param OperationType $getFeatureInfo
      *
-     * @return self
      */
-    public function setGetFeatureInfo(OperationType $getFeatureInfo)
+    public function setGetFeatureInfo(OperationType $getFeatureInfo): self
     {
         $this->getFeatureInfo = $getFeatureInfo;
 
@@ -94,9 +88,8 @@ class Request
     /**
      * Get the value of describeLayer.
      *
-     * @return OperationType
      */
-    public function getDescribeLayer()
+    public function getDescribeLayer(): OperationType
     {
         return $this->describeLayer;
     }
@@ -104,11 +97,9 @@ class Request
     /**
      * Set the value of describeLayer.
      *
-     * @param OperationType $describeLayer
      *
-     * @return self
      */
-    public function setDescribeLayer(OperationType $describeLayer)
+    public function setDescribeLayer(OperationType $describeLayer): self
     {
         $this->describeLayer = $describeLayer;
 
@@ -118,9 +109,8 @@ class Request
     /**
      * Get the value of getLegendGraphic.
      *
-     * @return OperationType
      */
-    public function getGetLegendGraphic()
+    public function getGetLegendGraphic(): OperationType
     {
         return $this->getLegendGraphic;
     }
@@ -128,11 +118,9 @@ class Request
     /**
      * Set the value of getLegendGraphic.
      *
-     * @param OperationType $getLegendGraphic
      *
-     * @return self
      */
-    public function setGetLegendGraphic(OperationType $getLegendGraphic)
+    public function setGetLegendGraphic(OperationType $getLegendGraphic): self
     {
         $this->getLegendGraphic = $getLegendGraphic;
 

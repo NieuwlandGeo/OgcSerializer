@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:DAMO_S="DAMO_S" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wfs="http://www.opengis.net/wfs/2.0" elementFormDefault="qualified" targetNamespace="DAMO_S">
+  <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="https://maps.aaenmaas.nl/services/schemas/gml/3.2.1/gml.xsd"/>
+  <xsd:complexType name="AFSLUITMIDDELType">
+    <xsd:complexContent>
+      <xsd:extension base="gml:AbstractFeatureType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="OBJECTID" nillable="false" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CODE" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOORTAFSLUITMIDDEL" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="WS_LAAGSTEDOORSTROOMHOOGTE" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="HOOGTEOPENING" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BREEDTEOPENING" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="FUNCTIEAFSLUITMIDDEL" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SOORTREGELBAARHEID" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="STATUSLEGGERWATERSYSTEEM" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="STATUSLEGGERWATERVEILIGHEID" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="RICHTING" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="WS_INWINDATUM" nillable="true" type="xsd:dateTime"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DUIKERSIFONHEVELID" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="GEMAALID" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="STUWID" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SE_ANNO_CAD_DATA" nillable="true" type="xsd:hexBinary"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SHAPE" nillable="true" type="gml:GeometryPropertyType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AFSLUITMIDDEL" substitutionGroup="gml:AbstractFeature" type="DAMO_S:AFSLUITMIDDELType"/>
+</xsd:schema>
