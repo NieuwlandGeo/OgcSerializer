@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Type\WFS;
 
 use Nieuwland\OgcSerializer\Utils\WfsSchemaElement;
+use Nieuwland\OgcSerializer\Utils\WfsSchemaException;
 use Nieuwland\OgcSerializer\Utils\WfsSchemaReader;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
@@ -71,5 +72,12 @@ class WfsSchemaReaderTest extends TestCase
             $this->assertIsInt($field->getMinOccurs());
             $this->assertNull($field->getNillable());
         }
+    }
+
+    public function testExceptionWhenEmptyString(): void
+    {
+        $this->expectException(WfsSchemaException::class);
+        $xml    = '';
+        $fields = $this->wfsSchema->extractFields($xml, 'ms:algemeen_overlastgebied');
     }
 }

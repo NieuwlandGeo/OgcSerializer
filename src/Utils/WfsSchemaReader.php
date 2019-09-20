@@ -37,7 +37,7 @@ class WfsSchemaReader
         $xpath          = sprintf("//%s:element[@name='%s']", $xsdPrefix, $nameAttr);
         $elementCrawler = $crawler->filterXPath($xpath);
         $elementNode    = $elementCrawler->getNode(0);
-        if (! $schemaNode) {
+        if (! $elementNode) {
             throw new WfsSchemaException(sprintf('Element node with name %s not found', $nameAttr));
         }
         $complexTypeName       = $elementNode->attributes->getNamedItem('type')->nodeValue;
@@ -96,8 +96,6 @@ class WfsSchemaReader
 
     /**
      * Target namespace.
-     *
-     *
      */
     private function getTargetNameSpace(DOMNode $schemaNode): string
     {
