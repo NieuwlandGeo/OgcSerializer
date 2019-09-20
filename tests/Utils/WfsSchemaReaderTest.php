@@ -23,7 +23,7 @@ class WfsSchemaReaderTest extends TestCase
         $this->wfsSchema = new WfsSchemaReader();
     }
 
-    public function testExtractFieldsFromPdok()
+    public function testExtractFieldsFromPdok(): void
     {
         $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_geoserver_pdok.xml');
         $fields = $this->wfsSchema->extractFields($xml, 'bestuurlijkegrenzen:gemeenten');

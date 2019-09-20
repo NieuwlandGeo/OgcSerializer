@@ -56,9 +56,8 @@ class LayerDescription
     /**
      * Get the value of name.
      *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -66,11 +65,9 @@ class LayerDescription
     /**
      * Set the value of name.
      *
-     * @param string $name
      *
-     * @return self
      */
-    public function setName(string $name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -80,9 +77,8 @@ class LayerDescription
     /**
      * Get the value of wfs.
      *
-     * @return string
      */
-    public function getWfs()
+    public function getWfs(): string
     {
         return $this->wfs;
     }
@@ -90,11 +86,9 @@ class LayerDescription
     /**
      * Set the value of wfs.
      *
-     * @param string $wfs
      *
-     * @return self
      */
-    public function setWfs(string $wfs)
+    public function setWfs(string $wfs): self
     {
         $this->wfs = $wfs;
 
@@ -104,9 +98,8 @@ class LayerDescription
     /**
      * Get the value of owsType.
      *
-     * @return string
      */
-    public function getOwsType()
+    public function getOwsType(): string
     {
         return $this->owsType;
     }
@@ -114,11 +107,9 @@ class LayerDescription
     /**
      * Set the value of owsType.
      *
-     * @param string $owsType
      *
-     * @return self
      */
-    public function setOwsType(string $owsType)
+    public function setOwsType(string $owsType): self
     {
         $this->owsType = $owsType;
 
@@ -128,9 +119,8 @@ class LayerDescription
     /**
      * Get the value of owsURL.
      *
-     * @return string
      */
-    public function getOwsURL()
+    public function getOwsURL(): string
     {
         return $this->owsURL;
     }
@@ -138,11 +128,9 @@ class LayerDescription
     /**
      * Set the value of owsURL.
      *
-     * @param string $owsURL
      *
-     * @return self
      */
-    public function setOwsURL(string $owsURL)
+    public function setOwsURL(string $owsURL): self
     {
         $this->owsURL = $owsURL;
 
@@ -152,9 +140,8 @@ class LayerDescription
     /**
      * Get the value of query.
      *
-     * @return Query
      */
-    public function getQuery()
+    public function getQuery(): Query
     {
         return $this->query;
     }
@@ -162,11 +149,9 @@ class LayerDescription
     /**
      * Set the value of query.
      *
-     * @param Query $query
      *
-     * @return self
      */
-    public function setQuery(Query $query)
+    public function setQuery(Query $query): self
     {
         $this->query = $query;
 

@@ -36,11 +36,9 @@ class Capabilities extends AbstractCapabilities
     /**
      * Set the value of featureTypeList.
      *
-     * @param FeatureTypeList $featureTypeList
      *
-     * @return self
      */
-    public function setFeatureTypeList(FeatureTypeList $featureTypeList)
+    public function setFeatureTypeList(FeatureTypeList $featureTypeList): self
     {
         $this->featureTypeList = $featureTypeList;
 

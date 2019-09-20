@@ -23,11 +23,7 @@ class WfsSchemaElement
     private $nillable;
 
     /**
-     * @param string   $name          without prefix
-     * @param string   $typeName
-     * @param string   $typeNamespace
-     * @param int|null $minOccurs
-     * @param int|null $maxOccurs
+     * @param string $name without prefix
      */
     public function __construct(string $name, string $typeName, string $typeNamespace, bool $nillable, ?int $minOccurs = null, ?int $maxOccurs = null)
     {
@@ -42,7 +38,6 @@ class WfsSchemaElement
     /**
      * Get the value of minOccurs.
      *
-     * @return int
      */
     public function getMinOccurs(): ?int
     {
@@ -52,7 +47,6 @@ class WfsSchemaElement
     /**
      * Get the value of maxOccurs.
      *
-     * @return int
      */
     public function getMaxOccurs(): ?int
     {
@@ -62,7 +56,6 @@ class WfsSchemaElement
     /**
      * Get the value of name.
      *
-     * @return string
      */
     public function getName(): string
     {
@@ -72,7 +65,6 @@ class WfsSchemaElement
     /**
      * Get the value of typeName.
      *
-     * @return string
      */
     public function getTypeName(): string
     {
@@ -82,10 +74,18 @@ class WfsSchemaElement
     /**
      * Get the value of typeNamespace.
      *
-     * @return string
      */
     public function getTypeNamespace(): string
     {
         return $this->typeNamespace;
+    }
+
+    /**
+     * Get the value of nillable.
+     *
+     */
+    public function getNillable(): bool
+    {
+        return $this->nillable;
     }
 }

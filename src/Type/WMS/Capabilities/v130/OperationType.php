@@ -23,9 +23,8 @@ class OperationType
     /**
      * Get the value of format.
      *
-     * @return string
      */
-    public function getFormat()
+    public function getFormat(): string
     {
         return $this->format;
     }
@@ -35,9 +34,8 @@ class OperationType
      *
      * @param string[] $format
      *
-     * @return self
      */
-    public function setFormat(array $format)
+    public function setFormat(array $format): self
     {
         $this->format = $format;
 
