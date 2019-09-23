@@ -83,4 +83,28 @@ class CapabilitiesTest extends TestCase
             'image/gif',
         ], $layer->getFormats());
     }
+
+    public function testStyles(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMTS/wmtsGetCapabilities_response.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $layers       = $capabilities->getContents()->getLayers();
+        /** @var Layer $layer */
+        $layer  = current($layers);
+        $styles = $layer->getStyles();
+        $this->assertCount(2, $styles);
+        foreach ($styles as $style) {
+            $this->assertNotEmpty($style->getIdentifier());
+            $this->assertNotEmpty($style->getTitle());
+        }
+        $this->assertTrue($styles['0']->getIsDefault());
+        $this->assertFalse($styles['1']->getIsDefault());
+        $this->assertEquals('image/png', $styles['0']->getLegendurl()->getFormat());
+        $this->assertEquals(
+            'http://www.miramon.uab.es/wmts/Coastlines/coastlines_darkBlue.png',
+            $styles['0']->getLegendurl()->getHref()
+        );
+    }
 }
