@@ -28,7 +28,7 @@ class FeatureTypeList extends AbstractFeatureTypeList
      *
      * @return FeatureType[]
      */
-    public function getFeatureTypes()
+    public function getFeatureTypes(): array
     {
         return $this->featureTypes;
     }

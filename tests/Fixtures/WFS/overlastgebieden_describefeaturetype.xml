@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<schema
+   targetNamespace="http://mapserver.gis.umn.edu/mapserver" 
+   xmlns:ms="http://mapserver.gis.umn.edu/mapserver" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns="http://www.w3.org/2001/XMLSchema"
+   xmlns:gml="http://www.opengis.net/gml/3.2"
+   elementFormDefault="qualified" version="0.1" >
+
+  <import namespace="http://www.opengis.net/gml/3.2"
+          schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />
+
+  <element name="algemeen_overlastgebied" 
+           type="ms:algemeen_overlastgebiedType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="algemeen_overlastgebiedType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="cameratoezichtgebied" 
+           type="ms:cameratoezichtgebiedType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="cameratoezichtgebiedType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="dealeroverlastgebied" 
+           type="ms:dealeroverlastgebiedType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="dealeroverlastgebiedType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="uitgaansoverlastgebied" 
+           type="ms:uitgaansoverlastgebiedType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="uitgaansoverlastgebiedType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="alcoholverbodsgebied" 
+           type="ms:alcoholverbodsgebiedType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="alcoholverbodsgebiedType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="taxi-standplaatsgebied" 
+           type="ms:taxi-standplaatsgebiedType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="taxi-standplaatsgebiedType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="vuurwerkvrijezone" 
+           type="ms:vuurwerkvrijezoneType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="vuurwerkvrijezoneType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="barbecueverbodsgebieden" 
+           type="ms:barbecueverbodsgebiedenType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="barbecueverbodsgebiedenType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="rondleidingverbodsgebieden" 
+           type="ms:rondleidingverbodsgebiedenType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="rondleidingverbodsgebiedenType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="algemeen_overlastgebied_label" 
+           type="ms:algemeen_overlastgebied_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="algemeen_overlastgebied_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="cameratoezichtgebied_label" 
+           type="ms:cameratoezichtgebied_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="cameratoezichtgebied_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="dealeroverlastgebied_label" 
+           type="ms:dealeroverlastgebied_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="dealeroverlastgebied_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="uitgaansoverlastgebied_label" 
+           type="ms:uitgaansoverlastgebied_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="uitgaansoverlastgebied_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="alcoholverbodsgebied_label" 
+           type="ms:alcoholverbodsgebied_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="alcoholverbodsgebied_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="taxi-standplaatsgebied_label" 
+           type="ms:taxi-standplaatsgebied_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="taxi-standplaatsgebied_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="vuurwerkvrijezone_label" 
+           type="ms:vuurwerkvrijezone_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="vuurwerkvrijezone_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="barbecueverbodsgebieden_label" 
+           type="ms:barbecueverbodsgebieden_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="barbecueverbodsgebieden_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="rondleidingverbodsgebieden_label" 
+           type="ms:rondleidingverbodsgebieden_labelType" 
+           substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="rondleidingverbodsgebieden_labelType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="msGeometry" type="gml:GeometryPropertyType" minOccurs="0" maxOccurs="1"/>
+          <element name="id" minOccurs="0" type="string"/>
+          <element name="naam" minOccurs="0" type="string"/>
+          <element name="display" minOccurs="0" type="string"/>
+          <element name="type" minOccurs="0" type="string"/>
+          <element name="overlastgebied_type" minOccurs="0" type="string"/>
+          <element name="uri" minOccurs="0" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+</schema>

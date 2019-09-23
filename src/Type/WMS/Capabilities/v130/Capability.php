@@ -34,7 +34,6 @@ class Capability
     /**
      * Get the value of layers.
      *
-     * @return Layer
      */
     public function getLayer(): Layer
     {
@@ -44,9 +43,7 @@ class Capability
     /**
      * Set the value of layers.
      *
-     * @param Layer $layer
      *
-     * @return self
      */
     public function setLayer(Layer $layer): self
     {
@@ -58,9 +55,8 @@ class Capability
     /**
      * Get the value of request.
      *
-     * @return Request
      */
-    public function getRequest()
+    public function getRequest(): Request
     {
         return $this->request;
     }
@@ -68,11 +64,9 @@ class Capability
     /**
      * Set the value of request.
      *
-     * @param Request $request
      *
-     * @return self
      */
-    public function setRequest(Request $request)
+    public function setRequest(Request $request): self
     {
         $this->request = $request;
 

@@ -37,12 +37,8 @@ class FeatureType extends AbstractFeatureType
 
     /**
      * Set the value of defaultCRS.
-     *
-     * @param string $defaultCRS
-     *
-     * @return self
      */
-    public function setDefaultCRS(string $defaultCRS)
+    public function setDefaultCRS(string $defaultCRS): self
     {
         $this->defaultCRS = $defaultCRS;
 
@@ -52,9 +48,9 @@ class FeatureType extends AbstractFeatureType
     /**
      * Get the value of otherCRS.
      *
-     * @return array
+     * @return string[]
      */
-    public function getOtherCRS()
+    public function getOtherCRS(): array
     {
         return $this->otherCRS;
     }
@@ -62,11 +58,9 @@ class FeatureType extends AbstractFeatureType
     /**
      * Set the value of otherCRS.
      *
-     * @param array $otherCRS
-     *
-     * @return self
+     * @param stinrg[] $otherCRS
      */
-    public function setOtherCRS(array $otherCRS)
+    public function setOtherCRS(array $otherCRS): self
     {
         $this->otherCRS = $otherCRS;
 

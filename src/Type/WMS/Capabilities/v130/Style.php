@@ -28,9 +28,8 @@ class Style
     /**
      * Get the value of title
      *
-     * @return  string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -38,11 +37,9 @@ class Style
     /**
      * Set the value of title
      *
-     * @param  string $title
      *
-     * @return  self
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -52,9 +49,8 @@ class Style
     /**
      * Get the value of name
      *
-     * @return  string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -62,11 +58,9 @@ class Style
     /**
      * Set the value of name
      *
-     * @param  string $name
      *
-     * @return  self
      */
-    public function setName(string $name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 

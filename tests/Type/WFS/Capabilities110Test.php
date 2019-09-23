@@ -12,13 +12,13 @@ use function file_get_contents;
 
 class Capabilities110Test extends TestCase
 {
-    public function testCanCreateInstance()
+    public function testCanCreateInstance(): void
     {
         $object = new Capabilities();
         $this->assertInstanceOf(Capabilities::class, $object);
     }
 
-    public function testCanDeserializeGeoserver()
+    public function testCanDeserializeGeoserver(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
         $serializer = SerializerFactory::create();
@@ -28,7 +28,7 @@ class Capabilities110Test extends TestCase
         $this->assertInstanceOf(FeatureTypeList::class, $capabilities->getFeatureTypeList());
     }
 
-    public function testReadServicePropsGeoserver()
+    public function testReadServicePropsGeoserver(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
         $serializer = SerializerFactory::create();
@@ -41,7 +41,7 @@ class Capabilities110Test extends TestCase
         $this->assertContains('weggeg:weggegaantalrijbanen', $capabilities->getLayerNames());
     }
 
-    public function testReadProjections()
+    public function testReadProjections(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
         $serializer = SerializerFactory::create();
