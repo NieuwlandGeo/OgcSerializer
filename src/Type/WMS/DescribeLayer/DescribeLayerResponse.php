@@ -19,21 +19,20 @@ class DescribeLayerResponse
      * @SerializedName("LayerDescription")
      * @Type("Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\LayerDescription")
      *
-     * @var LayerDescription
+     * @var LayerDescription|null
      */
     private $layerDescription;
 
     /**
      * Get the value of layerDescription.
      */
-    public function getLayerDescription(): LayerDescription
+    public function getLayerDescription(): ?LayerDescription
     {
         return $this->layerDescription;
     }
 
     /**
      * Set the value of layerDescription.
-     *
      */
     public function setLayerDescription(LayerDescription $layerDescription): self
     {
