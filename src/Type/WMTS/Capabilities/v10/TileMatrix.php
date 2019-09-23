@@ -57,9 +57,8 @@ class TileMatrix
     /**
      * Get the value of identifier.
      *
-     * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
@@ -67,9 +66,8 @@ class TileMatrix
     /**
      * Get the value of scaleDenominator.
      *
-     * @return string
      */
-    public function getScaleDenominator()
+    public function getScaleDenominator(): string
     {
         return $this->scaleDenominator;
     }
@@ -77,11 +75,9 @@ class TileMatrix
     /**
      * Set the value of scaleDenominator.
      *
-     * @param string $scaleDenominator
      *
-     * @return self
      */
-    public function setScaleDenominator(string $scaleDenominator)
+    public function setScaleDenominator(string $scaleDenominator): self
     {
         $this->scaleDenominator = $scaleDenominator;
 
@@ -91,9 +87,8 @@ class TileMatrix
     /**
      * Get the value of topLeftCorner.
      *
-     * @return string
      */
-    public function getTopLeftCorner()
+    public function getTopLeftCorner(): string
     {
         return $this->topLeftCorner;
     }
@@ -101,9 +96,8 @@ class TileMatrix
     /**
      * Get the value of tileWidth.
      *
-     * @return int
      */
-    public function getTileWidth()
+    public function getTileWidth(): int
     {
         return $this->tileWidth;
     }
@@ -111,9 +105,8 @@ class TileMatrix
     /**
      * Get the value of tileHeight.
      *
-     * @return int
      */
-    public function getTileHeight()
+    public function getTileHeight(): int
     {
         return $this->tileHeight;
     }
@@ -121,9 +114,8 @@ class TileMatrix
     /**
      * Get the value of matrixWidth.
      *
-     * @return int
      */
-    public function getMatrixWidth()
+    public function getMatrixWidth(): int
     {
         return $this->matrixWidth;
     }
@@ -131,9 +123,8 @@ class TileMatrix
     /**
      * Get the value of matrixHeight.
      *
-     * @return int
      */
-    public function getMatrixHeight()
+    public function getMatrixHeight(): int
     {
         return $this->matrixHeight;
     }

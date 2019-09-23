@@ -58,9 +58,8 @@ class Layer
     /**
      * Get the value of title.
      *
-     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -68,9 +67,8 @@ class Layer
     /**
      * Get the value of abstract.
      *
-     * @return string
      */
-    public function getAbstract()
+    public function getAbstract(): string
     {
         return $this->abstract;
     }
@@ -78,9 +76,8 @@ class Layer
     /**
      * Get the value of identifier.
      *
-     * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
@@ -90,7 +87,7 @@ class Layer
      *
      * @return TileMatrixSetLink[]
      */
-    public function getTileMatrixSetLinks()
+    public function getTileMatrixSetLinks(): array
     {
         return $this->tileMatrixSetLinks;
     }
@@ -100,7 +97,7 @@ class Layer
      *
      * @return Style[]
      */
-    public function getStyles()
+    public function getStyles(): array
     {
         return $this->styles;
     }
@@ -110,7 +107,7 @@ class Layer
      *
      * @return string[]
      */
-    public function getFormats()
+    public function getFormats(): array
     {
         return $this->formats;
     }

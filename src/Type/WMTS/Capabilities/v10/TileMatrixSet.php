@@ -35,9 +35,8 @@ class TileMatrixSet
     /**
      * Get the value of identifier.
      *
-     * @return string
      */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         return $this->identifier;
     }
@@ -45,9 +44,8 @@ class TileMatrixSet
     /**
      * Get the value of supportedCRS.
      *
-     * @return string
      */
-    public function getSupportedCRS()
+    public function getSupportedCRS(): string
     {
         return $this->supportedCRS;
     }
@@ -67,9 +65,8 @@ class TileMatrixSet
      *
      * @param TileMatrix[] $tileMatrixes
      *
-     * @return self
      */
-    public function setTileMatrixes(array $tileMatrixes)
+    public function setTileMatrixes(array $tileMatrixes): self
     {
         $this->tileMatrixes = $tileMatrixes;
 
