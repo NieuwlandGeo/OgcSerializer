@@ -16,16 +16,16 @@ class OperationType
      * @Type("array<string>")
      * @XmlList(inline=true, entry="Format", namespace="http://www.opengis.net/wms")
      *
-     * @var string
+     * @var string[]
      */
-    private $format;
+    private $format = [];
 
     /**
      * Get the value of format.
      *
-     * @return string
+     * @return string[]
      */
-    public function getFormat()
+    public function getFormat(): array
     {
         return $this->format;
     }
@@ -34,10 +34,8 @@ class OperationType
      * Set the value of format.
      *
      * @param string[] $format
-     *
-     * @return self
      */
-    public function setFormat(array $format)
+    public function setFormat(array $format): self
     {
         $this->format = $format;
 

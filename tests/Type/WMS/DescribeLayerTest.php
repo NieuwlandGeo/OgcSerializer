@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Type\WMS;
 
+use JMS\Serializer\Exception\XmlErrorException;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\DescribeLayerResponse;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\LayerDescription;
@@ -14,13 +15,13 @@ use function file_get_contents;
 
 class DescribeLayerTest extends TestCase
 {
-    public function testCanCreateInstance()
+    public function testCanCreateInstance(): void
     {
         $object = new DescribeLayerResponse();
         $this->assertInstanceOf(DescribeLayerResponse::class, $object);
     }
 
-    public function testCanDeserialize()
+    public function testCanDeserialize(): void
     {
         $xml          = file_get_contents(FIXTURE_PATH . '/WMS/DescribeLayer_pdok.xml');
         $serializer   = SerializerFactory::create();
@@ -28,7 +29,7 @@ class DescribeLayerTest extends TestCase
         $this->assertInstanceOf(DescribeLayerResponse::class, $capabilities);
     }
 
-    public function testReadProps()
+    public function testReadProps(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/DescribeLayer_pdok.xml');
         $serializer = SerializerFactory::create();
@@ -44,15 +45,19 @@ class DescribeLayerTest extends TestCase
         $this->assertEquals('spoorwegen:kruising', $descr->getLayerDescription()->getQuery()->getTypeName());
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
-    public function testSerialize()
+    public function testWrongXml(): void
     {
-        $desc = new LayerDescription();
-        $desc->setName('test');
-        $resp = new DescribeLayerResponse();
-        $resp->setLayerDescription($desc);
+        $serializer   = SerializerFactory::create();
+        $xml          = '<test></test>';
+        $capabilities = $serializer->deserialize(Utils::removeDocType($xml), DescribeLayerResponse::class, 'xml');
+        $this->assertNull($capabilities->getLayerDescription());
+    }
+
+    public function testWrongString(): void
+    {
+        $this->expectException(XmlErrorException::class);
         $serializer = SerializerFactory::create();
+        $xml        = 'foutestring';
+        $serializer->deserialize(Utils::removeDocType($xml), DescribeLayerResponse::class, 'xml');
     }
 }

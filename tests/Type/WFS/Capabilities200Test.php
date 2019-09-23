@@ -13,13 +13,13 @@ use function file_get_contents;
 
 class Capabilities200Test extends TestCase
 {
-    public function testCanCreateInstance()
+    public function testCanCreateInstance(): void
     {
         $object = new Capabilities200();
         $this->assertInstanceOf(Capabilities200::class, $object);
     }
 
-    public function testCanDeserializeGeoserver()
+    public function testCanDeserializeGeoserver(): void
     {
         $xml          = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok-20.xml');
         $serializer   = SerializerFactory::create();
@@ -27,7 +27,7 @@ class Capabilities200Test extends TestCase
         $this->assertInstanceOf(Capabilities200::class, $capabilities);
     }
 
-    public function testReadServicePropsGeoserver()
+    public function testReadServicePropsGeoserver(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok-20.xml');
         $serializer = SerializerFactory::create();
@@ -40,7 +40,7 @@ class Capabilities200Test extends TestCase
         $this->assertContains('weggeg:weggegaantalrijbanen', $capabilities->getLayerNames());
     }
 
-    public function testCanDeserializeMapserver()
+    public function testCanDeserializeMapserver(): void
     {
         $xml          = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_mapserver_adam_gebieden-20.xml');
         $serializer   = SerializerFactory::create();
@@ -48,7 +48,7 @@ class Capabilities200Test extends TestCase
         $this->assertInstanceOf(Capabilities200::class, $capabilities);
     }
 
-    public function testReadServicePropsMapserver()
+    public function testReadServicePropsMapserver(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_mapserver_adam_gebieden-20.xml');
         $serializer = SerializerFactory::create();
@@ -60,7 +60,7 @@ class Capabilities200Test extends TestCase
         $this->assertContains('ms:buurt', $capabilities->getLayerNames());
     }
 
-    public function testReadProjections()
+    public function testReadProjections(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_mapserver_adam_gebieden-20.xml');
         $serializer = SerializerFactory::create();
@@ -76,7 +76,7 @@ class Capabilities200Test extends TestCase
     /**
      * @doesNotPerformAssertions
      */
-    public function testSerialize()
+    public function testSerialize(): void
     {
         $capabilities = new Capabilities200();
         $list         = new FeatureTypeList();
