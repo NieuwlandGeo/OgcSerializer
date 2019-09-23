@@ -34,6 +34,7 @@ class Layer
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\Style>")
+     * @XmlList(inline=true, entry="Style")
      *
      * @var Style[]
      */
@@ -57,7 +58,6 @@ class Layer
 
     /**
      * Get the value of title.
-     *
      */
     public function getTitle(): string
     {
@@ -66,7 +66,6 @@ class Layer
 
     /**
      * Get the value of abstract.
-     *
      */
     public function getAbstract(): string
     {
@@ -75,7 +74,6 @@ class Layer
 
     /**
      * Get the value of identifier.
-     *
      */
     public function getIdentifier(): string
     {
