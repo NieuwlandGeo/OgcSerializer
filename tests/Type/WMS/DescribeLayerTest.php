@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Type\WMS;
 
+use JMS\Serializer\Exception\XmlErrorException;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\DescribeLayerResponse;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\LayerDescription;
@@ -44,15 +45,19 @@ class DescribeLayerTest extends TestCase
         $this->assertEquals('spoorwegen:kruising', $descr->getLayerDescription()->getQuery()->getTypeName());
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
-    public function testSerialize(): void
+    public function testWrongXml(): void
     {
-        $desc = new LayerDescription();
-        $desc->setName('test');
-        $resp = new DescribeLayerResponse();
-        $resp->setLayerDescription($desc);
+        $serializer   = SerializerFactory::create();
+        $xml          = '<test></test>';
+        $capabilities = $serializer->deserialize(Utils::removeDocType($xml), DescribeLayerResponse::class, 'xml');
+        $this->assertNull($capabilities->getLayerDescription());
+    }
+
+    public function testWrongString(): void
+    {
+        $this->expectException(XmlErrorException::class);
         $serializer = SerializerFactory::create();
+        $xml        = 'foutestring';
+        $serializer->deserialize(Utils::removeDocType($xml), DescribeLayerResponse::class, 'xml');
     }
 }
