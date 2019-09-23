@@ -42,9 +42,8 @@ class Contents
      *
      * @param Layer[] $layers
      *
-     * @return self
      */
-    public function setLayers(array $layers)
+    public function setLayers(array $layers): self
     {
         $this->layers = $layers;
 

@@ -57,8 +57,8 @@ class CapabilitiesTest extends TestCase
         $xml        = file_get_contents(FIXTURE_PATH . '/WMTS/wmtsGetCapabilities_response.xml');
         $serializer = SerializerFactory::create();
         /** @var Capabilities $capabilities */
-        $capabilities   = $serializer->deserialize($xml, Capabilities::class, 'xml');
-        $matrixes       = $capabilities->getContents()->getTileMatrixSets();
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $matrixes     = $capabilities->getContents()->getTileMatrixSets();
         $this->assertCount(1, $matrixes);
         $tileMatrixes = $matrixes['0']->getTileMatrixes();
         $this->assertEquals('BigWorld', $matrixes['0']->getIdentifier());
