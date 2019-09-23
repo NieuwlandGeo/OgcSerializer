@@ -5,23 +5,28 @@ declare(strict_types=1);
 namespace Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 
 class Layer
 {
     /**
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/ows/1.1")
      *
      * @var string
      */
     protected $title;
     /**
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/ows/1.1")
      *
      * @var string
      */
     protected $abstract;
     /**
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/ows/1.1")
      *
      * @var string
      */
@@ -36,6 +41,7 @@ class Layer
 
     /**
      * @Type("array<string>")
+     * @XmlList(inline=true, entry="Format")
      *
      * @var string[]
      */
@@ -43,6 +49,7 @@ class Layer
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\TileMatrixSetLink>")
+     * @XmlList(inline=true, entry="TileMatrixSetLink")
      *
      * @var TileMatrixSetLink[]
      */
