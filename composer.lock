@@ -1547,34 +1547,35 @@
         },
         {
             "name": "goetas-webservices/xsd2php",
-            "version": "v0.3.8",
+            "version": "v0.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/goetas-webservices/xsd2php.git",
-                "reference": "8cc75ce53ca4bcf003bf02dc2ebf94cf39d992c7"
+                "reference": "e6f77953adc2a03c8883afdd77008df8cf9eddb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/goetas-webservices/xsd2php/zipball/8cc75ce53ca4bcf003bf02dc2ebf94cf39d992c7",
-                "reference": "8cc75ce53ca4bcf003bf02dc2ebf94cf39d992c7",
+                "url": "https://api.github.com/repos/goetas-webservices/xsd2php/zipball/e6f77953adc2a03c8883afdd77008df8cf9eddb5",
+                "reference": "e6f77953adc2a03c8883afdd77008df8cf9eddb5",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "^1.0",
-                "goetas-webservices/xsd-reader": "^0.2.7|^0.3.5",
+                "goetas-webservices/xsd-reader": "^0.2.8|^0.3.5",
                 "php": "^5.5|^7.0",
                 "psr/log": "^1.0",
                 "symfony/config": "^2.2|^3.0|^4.0",
                 "symfony/console": "^2.7|^3.0|^4.0",
                 "symfony/dependency-injection": "^2.2|^3.0|^4.0",
-                "symfony/yaml": "^2.1|^3.0|^4.0",
+                "symfony/yaml": "^2.2|^3.0|^4.0",
                 "zendframework/zend-code": "^3.0.3"
             },
             "require-dev": {
                 "ext-xmldiff": "*",
                 "goetas-webservices/xsd2php-runtime": "^0.2.8@dev",
                 "jms/serializer": "^1.9|^2.0|^3.0",
-                "phpunit/phpunit": "^4.8|^5.0"
+                "phpunit/phpunit": "^4.8|^5.0",
+                "symfony/validator": "^2.3.24|^3.0|^4.0"
             },
             "bin": [
                 "bin/xsd2php"
@@ -1609,7 +1610,7 @@
                 "xml",
                 "xsd"
             ],
-            "time": "2019-04-23T07:26:07+00:00"
+            "time": "2019-08-23T08:10:39+00:00"
         },
         {
             "name": "goetas-webservices/xsd2php-runtime",
