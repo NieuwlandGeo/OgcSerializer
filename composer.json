@@ -18,7 +18,9 @@
     "require-dev": {
         "doctrine/coding-standard": "^6.0",
         "phpunit/phpunit": "^8",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "goetas-webservices/xsd2php": "^0.3.9",
+        "goetas-webservices/xsd2php-runtime": "^0.2.10"
     },
     "require": {
         "php": "^7.2",
