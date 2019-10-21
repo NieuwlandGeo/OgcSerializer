@@ -30,14 +30,15 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
      */
     protected $version;
 
-    /**
-     * featuretypelist.
-     *
-     * @var AbstractFeatureTypeList
-     */
+    /** @var AbstractFeatureTypeList */
     protected $featureTypeList;
 
+    /** @var AbstractServiceIdentification */
+    protected $serviceIdentification;
+
     abstract public function getFeatureTypeList(): AbstractFeatureTypeList;
+
+    abstract public function getServiceIdentification(): AbstractServiceIdentification;
 
     /**
      * {@inheritdoc}
