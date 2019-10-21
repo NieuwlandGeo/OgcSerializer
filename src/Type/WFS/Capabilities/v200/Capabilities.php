@@ -9,8 +9,6 @@ use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractCapabilities;
-use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractFeatureTypeList;
-use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractServiceIdentification;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wfs/2.0")
@@ -33,21 +31,11 @@ class Capabilities extends AbstractCapabilities
      */
     protected $serviceIdentification;
 
-    public function getFeatureTypeList(): AbstractFeatureTypeList
-    {
-        return $this->featureTypeList;
-    }
-
     public function setFeatureTypeList(FeatureTypeList $featureTypeList): self
     {
         $this->featureTypeList = $featureTypeList;
 
         return $this;
-    }
-
-    public function getServiceIdentification(): AbstractServiceIdentification
-    {
-        return $this->serviceIdentification;
     }
 
     public function setServiceIdentification(ServiceIdentification $serviceIdentification): self
