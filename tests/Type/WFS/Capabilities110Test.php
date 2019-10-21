@@ -7,6 +7,7 @@ namespace Tests\Type\WFS;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\FeatureTypeList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\ServiceIdentification;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
@@ -51,5 +52,16 @@ class Capabilities110Test extends TestCase
         $this->assertIsArray($layer->getCrsOptions());
         $this->assertContains('urn:x-ogc:def:crs:EPSG:28992', $layer->getCrsOptions());
         $this->assertContains('urn:x-ogc:def:crs:EPSG:3035', $layer->getCrsOptions());
+    }
+
+    public function testServiceIdentification(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities200 $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $identification = $capabilities->getServiceIdentification();
+        $this->assertInstanceOf(ServiceIdentification::class, $identification);
+        $this->assertEquals('Weggegevens WFS', $identification->getTitle());
     }
 }

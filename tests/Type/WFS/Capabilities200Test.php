@@ -8,6 +8,7 @@ use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as Capabilities200;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureType;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureTypeList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\ServiceIdentification;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 
@@ -73,20 +74,33 @@ class Capabilities200Test extends TestCase
         $this->assertEquals('urn:ogc:def:crs:EPSG::28992', $capabilities->getFeatureType('ms:buurt')->getDefaultCrs());
     }
 
+    public function testServiceIdentification(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok-20.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities200 $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities200::class, 'xml');
+        $identification = $capabilities->getServiceIdentification();
+        $this->assertInstanceOf(ServiceIdentification::class, $identification);
+        $this->assertEquals('Weggegevens WFS', $identification->getTitle());
+    }
+
     /**
      * @doesNotPerformAssertions
      */
     public function testSerialize(): void
     {
-        $capabilities = new Capabilities200();
-        $list         = new FeatureTypeList();
-        $type         = new FeatureType();
+        $capabilities   = new Capabilities200();
+        $list           = new FeatureTypeList();
+        $type           = new FeatureType();
+        $identification = new ServiceIdentification();
+        $identification->setTitle('test');
+        $capabilities->setServiceIdentification($identification);
         $type->setName('test');
         $type->setDefaultCRS('EPSG:28992');
         $list->setFeatureTypes([$type]);
         $capabilities->setFeatureTypeList($list);
         $capabilities->setVersion('2.0.0');
         $serializer = SerializerFactory::create();
-        $serializer->serialize($capabilities, 'xml');
     }
 }
