@@ -12,6 +12,7 @@ use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractCapabilities;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wfs/2.0")
+ * @XmlNamespace(uri="http://www.opengis.net/ows/1.1", prefix="ows")
  * @XmlRoot("WFS_Capabilities")
  */
 class Capabilities extends AbstractCapabilities
