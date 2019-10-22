@@ -12,6 +12,7 @@ use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractCapabilities;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wfs/2.0")
+ * @XmlNamespace(uri="http://www.opengis.net/ows/1.1", prefix="ows")
  * @XmlRoot("WFS_Capabilities")
  */
 class Capabilities extends AbstractCapabilities
@@ -30,6 +31,14 @@ class Capabilities extends AbstractCapabilities
      * @var ServiceIdentification
      */
     protected $serviceIdentification;
+
+    /**
+     * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\OperationsMetadata")
+     * @XmlElement(namespace="http://www.opengis.net/ows/1.1")
+     *
+     * @var OperationsMetadata
+     */
+    protected $operationsMetadata;
 
     public function setFeatureTypeList(FeatureTypeList $featureTypeList): self
     {

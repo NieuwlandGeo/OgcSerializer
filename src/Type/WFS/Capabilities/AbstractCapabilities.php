@@ -36,6 +36,9 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     /** @var AbstractServiceIdentification */
     protected $serviceIdentification;
 
+    /** @var AbstractOperationsMetadata */
+    protected $operationsMetadata;
+
     public function getFeatureTypeList(): AbstractFeatureTypeList
     {
         return $this->featureTypeList;
@@ -44,6 +47,11 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     public function getServiceIdentification(): AbstractServiceIdentification
     {
         return $this->serviceIdentification;
+    }
+
+    public function getOperationsMetadata(): AbstractOperationsMetadata
+    {
+        return $this->operationsMetadata;
     }
 
     /**
