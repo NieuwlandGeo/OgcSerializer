@@ -8,9 +8,8 @@ use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
-use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractParameter;
 
-class Parameter extends AbstractParameter
+class Parameter
 {
     /**
      * @var string
@@ -42,6 +41,18 @@ class Parameter extends AbstractParameter
     public function setAllowedValues(array $allowedValues): self
     {
         $this->allowedValues = $allowedValues;
+
+        return $this;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }

@@ -30,8 +30,6 @@ class Operation extends AbstractOperation
     protected $parameters;
 
     /**
-     * Set the value of parameters.
-     *
      * @param Parameter[] $parameters
      */
     public function setParameters(array $parameters): self
@@ -39,5 +37,13 @@ class Operation extends AbstractOperation
         $this->parameters = $parameters;
 
         return $this;
+    }
+
+    /**
+     * @return Parameter[]
+     */
+    public function getParameters(): array
+    {
+        return $this->parameters;
     }
 }

@@ -9,19 +9,6 @@ abstract class AbstractOperation
     /** @var string */
     protected $name;
 
-    /** @var AbstractParameter[] */
-    protected $parameters;
-
-    /**
-     * Get the value of parameters.
-     *
-     * @return AbstractParameter[]
-     */
-    public function getParameters(): array
-    {
-        return $this->parameters;
-    }
-
     public function getName(): string
     {
         return $this->name;
