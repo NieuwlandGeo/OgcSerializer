@@ -100,7 +100,6 @@ class Capabilities200Test extends TestCase
         $this->assertIsArray($capOperation->getParameters());
         $versionParam = $capOperation->getParameters()['0'];
         $this->assertEquals('AcceptVersions', $versionParam->getName());
-        // TODO versions length
         $this->assertCount(3, $versionParam->getAllowedValues()->getValues());
     }
 

@@ -35,6 +35,14 @@ class Capabilities extends AbstractCapabilities
     protected $serviceIdentification;
 
     /**
+     * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\OperationsMetadata")
+     * @XmlElement(namespace="http://www.opengis.net/ows")
+     *
+     * @var OperationsMetadata
+     */
+    protected $operationsMetadata;
+
+    /**
      * Set the value of featureTypeList.
      */
     public function setFeatureTypeList(FeatureTypeList $featureTypeList): self
