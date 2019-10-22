@@ -1,0 +1,43 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200;
+
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractOperation;
+
+class Operation extends AbstractOperation
+{
+    /**
+     * @var string
+     *
+     * @Type("string")
+     * @XmlAttribute
+     * @SerializedName("name")
+     */
+    protected $name;
+
+    /**
+     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Parameter>")
+     * @XmlList(inline=true, entry="Parameter", namespace="http://www.opengis.net/ows/1.1")
+     *
+     * @var Parameter[]
+     */
+    protected $parameters;
+
+    /**
+     * Set the value of parameters.
+     *
+     * @param Parameter[] $parameters
+     */
+    public function setParameters(array $parameters): self
+    {
+        $this->parameters = $parameters;
+
+        return $this;
+    }
+}

@@ -8,6 +8,7 @@ use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as Capabilities200;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureType;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureTypeList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\OperationsMetadata;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\ServiceIdentification;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
@@ -83,6 +84,24 @@ class Capabilities200Test extends TestCase
         $identification = $capabilities->getServiceIdentification();
         $this->assertInstanceOf(ServiceIdentification::class, $identification);
         $this->assertEquals('Weggegevens WFS', $identification->getTitle());
+    }
+
+    public function testOperationsMetadata(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok-20.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities200 $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities200::class, 'xml');
+        $operationsMeta = $capabilities->getOperationsMetadata();
+        $this->assertInstanceOf(OperationsMetadata::class, $operationsMeta);
+        $this->assertIsArray($operationsMeta->getOperations());
+        $capOperation = $operationsMeta->getOperations()['0'];
+        $this->assertEquals('GetCapabilities', $capOperation->getName());
+        $this->assertIsArray($capOperation->getParameters());
+        $versionParam = $capOperation->getParameters()['0'];
+        $this->assertEquals('AcceptVersions', $versionParam->getName());
+        // TODO versions length
+        $this->assertCount(3, $versionParam->getAllowedValues()->getValues());
     }
 
     /**
