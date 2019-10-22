@@ -7,6 +7,7 @@ namespace Tests\Type\WFS;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\FeatureTypeList;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\OperationsMetadata;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\ServiceIdentification;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
@@ -58,10 +59,27 @@ class Capabilities110Test extends TestCase
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
         $serializer = SerializerFactory::create();
-        /** @var Capabilities200 $capabilities */
+        /** @var Capabilities $capabilities */
         $capabilities   = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $identification = $capabilities->getServiceIdentification();
         $this->assertInstanceOf(ServiceIdentification::class, $identification);
         $this->assertEquals('Weggegevens WFS', $identification->getTitle());
+    }
+
+    public function testOperationsMetadata(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $operationsMeta = $capabilities->getOperationsMetadata();
+        $this->assertInstanceOf(OperationsMetadata::class, $operationsMeta);
+        $this->assertIsArray($operationsMeta->getOperations());
+        $capOperation = $operationsMeta->getOperations()['0'];
+        $this->assertEquals('GetCapabilities', $capOperation->getName());
+        $this->assertIsArray($capOperation->getParameters());
+        $versionParam = $capOperation->getParameters()['0'];
+        $this->assertEquals('AcceptVersions', $versionParam->getName());
+        $this->assertCount(2, $versionParam->getValues());
     }
 }
