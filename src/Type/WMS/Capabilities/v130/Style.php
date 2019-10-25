@@ -7,7 +7,7 @@ namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 use JMS\Serializer\Annotation\Type;
 
 /**
- * Base on WMS 1.3.0 style
+ * Base on WMS 1.3.0 style.
  */
 class Style
 {
@@ -26,8 +26,14 @@ class Style
     private $title;
 
     /**
-     * Get the value of title
+     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\LegendURL")
      *
+     * @var LegendUrl
+     */
+    private $legendURL;
+
+    /**
+     * Get the value of title.
      */
     public function getTitle(): string
     {
@@ -35,9 +41,7 @@ class Style
     }
 
     /**
-     * Set the value of title
-     *
-     *
+     * Set the value of title.
      */
     public function setTitle(string $title): self
     {
@@ -47,8 +51,7 @@ class Style
     }
 
     /**
-     * Get the value of name
-     *
+     * Get the value of name.
      */
     public function getName(): string
     {
@@ -56,13 +59,23 @@ class Style
     }
 
     /**
-     * Set the value of name
-     *
-     *
+     * Set the value of name.
      */
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getLegendURL(): LegendURL
+    {
+        return $this->legendURL;
+    }
+
+    public function setLegendURL(LegendUrl $legendURL): self
+    {
+        $this->legendURL = $legendURL;
 
         return $this;
     }

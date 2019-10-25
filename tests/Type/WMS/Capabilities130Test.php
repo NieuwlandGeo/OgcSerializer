@@ -102,6 +102,24 @@ class Capabilities130Test extends TestCase
         $this->assertEquals('gemeenten', $style->getTitle());
     }
 
+    public function testReadStyleLegend(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $layer        = $capabilities->getLayer('gemeenten');
+        $style        = $layer->getStyle('bestuurlijkegrenzen:bestuurlijkegrenzen_gemeentegrenzen');
+        $legendUrl    = $style->getLegendURL();
+        $this->assertEquals('94', $legendUrl->getWidth());
+        $this->assertEquals('40', $legendUrl->getHeight());
+        $this->assertEquals('40', $legendUrl->getHeight());
+        $this->assertEquals(
+            'https://geodata.nationaalgeoregister.nl/bestuurlijkegrenzen/ows?service=WMS&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=gemeenten',
+            $legendUrl->getOnlineResource()->getHref()
+        );
+    }
+
     public function testReadBoundingBoxes(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
