@@ -27,6 +27,14 @@ class CapabilitiesTest extends TestCase
         $this->assertInstanceOf(Capabilities::class, $capabilities);
     }
 
+    public function testReadServiceProps(): void
+    {
+        $xml          = file_get_contents(FIXTURE_PATH . '/WMTS/wmtsGetCapabilities_response.xml');
+        $serializer   = SerializerFactory::create();
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $this->assertEquals('Web Map Tile Service', $capabilities->getServiceIdentification()->getTitle());
+    }
+
     public function testHasLayers(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WMTS/wmtsGetCapabilities_response.xml');

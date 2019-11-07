@@ -40,6 +40,7 @@ class Capabilities130Test extends TestCase
         /** @var Capabilities $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $this->assertEquals('WMS', $capabilities->getService()->getName());
+        $this->assertEquals('Bestuurlijke grenzen WMS', $capabilities->getService()->getTitle());
         $layerGroup = $capabilities->getCapability()->getLayer();
         $this->assertInstanceOf(Layer::class, $layerGroup);
         $this->assertCount(3, $layerGroup->getLayers());
