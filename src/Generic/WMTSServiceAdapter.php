@@ -26,6 +26,7 @@ class WMTSServiceAdapter implements ServiceCapabilitiesInterface
      */
     public function getTitle(): string
     {
+        return $this->capabilities->getServiceIdentification()->getTitle();
     }
 
     /**
@@ -33,6 +34,12 @@ class WMTSServiceAdapter implements ServiceCapabilitiesInterface
      */
     public function getLayerNames(): array
     {
+        $names = [];
+        foreach ($this->capabilities->getContents()->getLayers() as $layer) {
+            $names[] = $layer->getIdentifier();
+        }
+
+        return $names;
     }
 
     /**
