@@ -154,13 +154,28 @@ class Capabilities130Test extends TestCase
         $serializer = SerializerFactory::create();
         /** @var Capabilities $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
-        $request      = $capabilities->getCapability()->getRequest();
+
+        //service tests
+        $this->assertInstanceOf(Service::class, $capabilities->getService());
+        $this->assertEquals('Acme Corp. Map Server', $capabilities->getService()->getTitle());
+        $this->assertEquals(
+            'Map Server maintained by Acme Corporation.  Contact: webmaster@wmt.acme.com.  High-quality maps showing roadrunner nests and possible ambush locations.',
+            $capabilities->getService()->getAbstract()
+        );
+
+        // request tests
+        $request = $capabilities->getCapability()->getRequest();
         //describe layer
         $this->assertInstanceOf(OperationType::class, $request->getDescribeLayer());
         $this->assertIsArray($request->getDescribeLayer()->getFormat());
         $this->assertContains('text/xml', $request->getDescribeLayer()->getFormat());
         //layernames
         $this->assertContains('ROADS_1M', $capabilities->getLayerNames());
+        // operations in request
+        $this->assertInstanceOf(OperationType::class, $request->getGetMap());
+        $this->assertInstanceOf(OperationType::class, $request->getGetFeatureInfo());
+        $this->assertInstanceOf(OperationType::class, $request->getDescribeLayer());
+
         // bounding box inheterance
         $layer = $capabilities->getLayer('ROADS_1M');
         $this->assertIsArray($layer->getBoundingBoxOptions());
