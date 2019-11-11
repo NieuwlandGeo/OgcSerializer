@@ -16,4 +16,16 @@ abstract class AbstractOperationsMetadata
     {
         return $this->operations;
     }
+
+    /**
+     * @param AbstractOperation[] $operations
+     */
+    public function setOperations(array $operations): self
+    {
+        foreach ($operations as $operation) {
+            $this->operations[$operation->getName()] = $operation;
+        }
+
+        return $this;
+    }
 }
