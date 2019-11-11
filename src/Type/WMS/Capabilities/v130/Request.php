@@ -15,6 +15,7 @@ class Request
 {
     /**
      * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\OperationType")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var OperationType
      */
@@ -22,6 +23,7 @@ class Request
 
     /**
      * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\OperationType")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var OperationType
      */
@@ -45,7 +47,6 @@ class Request
 
     /**
      * Get the value of getMap.
-     *
      */
     public function getGetMap(): OperationType
     {
@@ -54,8 +55,6 @@ class Request
 
     /**
      * Set the value of getMap.
-     *
-     *
      */
     public function setGetMap(OperationType $getMap): self
     {
@@ -66,7 +65,6 @@ class Request
 
     /**
      * Get the value of getFeatureInfo.
-     *
      */
     public function getGetFeatureInfo(): OperationType
     {
@@ -75,8 +73,6 @@ class Request
 
     /**
      * Set the value of getFeatureInfo.
-     *
-     *
      */
     public function setGetFeatureInfo(OperationType $getFeatureInfo): self
     {
@@ -87,7 +83,6 @@ class Request
 
     /**
      * Get the value of describeLayer.
-     *
      */
     public function getDescribeLayer(): OperationType
     {
@@ -96,8 +91,6 @@ class Request
 
     /**
      * Set the value of describeLayer.
-     *
-     *
      */
     public function setDescribeLayer(OperationType $describeLayer): self
     {
@@ -108,7 +101,6 @@ class Request
 
     /**
      * Get the value of getLegendGraphic.
-     *
      */
     public function getGetLegendGraphic(): OperationType
     {
@@ -117,8 +109,6 @@ class Request
 
     /**
      * Set the value of getLegendGraphic.
-     *
-     *
      */
     public function setGetLegendGraphic(OperationType $getLegendGraphic): self
     {
