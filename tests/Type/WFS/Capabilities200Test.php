@@ -98,7 +98,7 @@ class Capabilities200Test extends TestCase
         $capOperation = $operationsMeta->getOperations()['GetCapabilities'];
         $this->assertEquals('GetCapabilities', $capOperation->getName());
         $this->assertIsArray($capOperation->getParameters());
-        $versionParam = $capOperation->getParameters()['0'];
+        $versionParam = $capOperation->getParameter('AcceptVersions');
         $this->assertEquals('AcceptVersions', $versionParam->getName());
         $this->assertCount(3, $versionParam->getAllowedValues()->getValues());
     }

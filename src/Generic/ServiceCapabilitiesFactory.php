@@ -71,9 +71,8 @@ class ServiceCapabilitiesFactory
         /** @var OperationsMetadata2 $meta */
         $meta    = $capabilities->getOperationsMetadata();
         $formats = [];
-        foreach ($meta->getOperation('GetFeature')->getParameters() as $param) {
-            $formats = $param->getAllowedValues()->getValues();
-        }
+        $param   = $meta->getOperation('GetFeature')->getParameter('outputFormat');
+        $formats = $param->getAllowedValues()->getValues();
 
         foreach ($capabilities->getFeatureTypeList()->getFeatureTypes() as $featureType) {
             $layers[] = new LayerCapabilities(
