@@ -37,6 +37,10 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $this->assertContains('coastlines', $genericCapabilities->getLayerNames());
         $this->assertInstanceOf(LayerCapabilitiesInterface::class, $genericCapabilities->getLayer('coastlines'));
         $this->assertContains('image/png', $genericCapabilities->getLayer('coastlines')->getDataFormats());
+        $this->assertContains(
+            'urn:ogc:def:crs:OGC:1.3:CRS84',
+            $genericCapabilities->getLayer('coastlines')->getProjections()
+        );
     }
 
     public function testWMSTitle(): void
@@ -49,13 +53,15 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $this->assertEquals($genericCapabilities->getTitle(), 'Acme Corp. Map Server');
     }
 
-    public function testWMSLayerNames(): void
+    public function testWMSLayers(): void
     {
         $xml                 = file_get_contents(FIXTURE_PATH . '/WMS/example_capabilities_sld.xml');
         $serializer          = SerializerFactory::create();
         $capabilities        = $serializer->deserialize($xml, WMS13Capabilities::class, 'xml');
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(8, $genericCapabilities->getLayerNames());
+        $this->assertInstanceOf(LayerCapabilitiesInterface::class, $genericCapabilities->getLayer('ROADS_RIVERS'));
+        $this->assertContains('EPSG:26986', $genericCapabilities->getLayer('ROADS_RIVERS')->getProjections());
     }
 
     public function testWFS2Title(): void

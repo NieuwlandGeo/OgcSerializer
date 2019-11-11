@@ -22,14 +22,13 @@ class Contents
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\TileMatrixSet>")
      * @XmlList(inline=true, entry="TileMatrixSet")
+     * @AccessType("public_method")
      *
      * @var TileMatrixSet[]
      */
-    protected $tileMatrixSets;
+    protected $tileMatrixSets = [];
 
     /**
-     * Get the value of layers.
-     *
      * @return Layer[]
      */
     public function getLayers(): array
@@ -38,10 +37,7 @@ class Contents
     }
 
     /**
-     * Set the value of layers.
-     *
      * @param Layer[] $layers
-     *
      */
     public function setLayers(array $layers): self
     {
@@ -51,12 +47,27 @@ class Contents
     }
 
     /**
-     * Get the value of tileMatrixSet.
-     *
      * @return TileMatrixSet[]
      */
     public function getTileMatrixSets(): array
     {
         return $this->tileMatrixSets;
+    }
+
+    /**
+     * @param TileMatrixSet[] $tileMatrixSets
+     */
+    public function setTileMatrixSets(array $tileMatrixSets): self
+    {
+        foreach ($tileMatrixSets as $set) {
+            $this->tileMatrixSets[$set->getIdentifier()] = $set;
+        }
+
+        return $this;
+    }
+
+    public function getTileMatrixSet(string $identifier): TileMatrixSet
+    {
+        return $this->tileMatrixSets[$identifier];
     }
 }

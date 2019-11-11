@@ -68,12 +68,12 @@ class CapabilitiesTest extends TestCase
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $matrixes     = $capabilities->getContents()->getTileMatrixSets();
         $this->assertCount(1, $matrixes);
-        $tileMatrixes = $matrixes['0']->getTileMatrixes();
-        $this->assertEquals('BigWorld', $matrixes['0']->getIdentifier());
-        $this->assertEquals('urn:ogc:def:crs:OGC:1.3:CRS84', $matrixes['0']->getSupportedCRS());
-        $this->assertCount(2, $tileMatrixes);
-        $this->assertEquals(256, $tileMatrixes[0]->getTileWidth());
-        $this->assertEquals(256, $tileMatrixes[0]->getTileHeight());
+        $tileMatrix = $capabilities->getContents()->getTileMatrixSet('BigWorld');
+        $this->assertEquals('BigWorld', $tileMatrix->getIdentifier());
+        $this->assertEquals('urn:ogc:def:crs:OGC:1.3:CRS84', $tileMatrix->getSupportedCRS());
+        $this->assertCount(2, $tileMatrix->getTileMatrixes());
+        $this->assertEquals(256, $tileMatrix->getTileMatrixes()['0']->getTileWidth());
+        $this->assertEquals(256, $tileMatrix->getTileMatrixes()['0']->getTileHeight());
     }
 
     public function testFormats(): void
