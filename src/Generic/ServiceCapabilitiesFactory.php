@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Generic;
 
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capabilities;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\OperationsMetadata as OperationsMetadata1;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
+use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\OperationsMetadata as OperationsMetadata2;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Capabilities as WMS13Capabilities;
 use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\Capabilities as WMTSCapabilities;
 use RuntimeException;
@@ -21,6 +24,9 @@ class ServiceCapabilitiesFactory
         }
         if ($capabilities instanceof WFS2Capabilities) {
             return self::createFromWFS2($capabilities);
+        }
+        if ($capabilities instanceof WFS11Capabilities) {
+            return self::createFromWFS11($capabilities);
         }
 
         throw new RuntimeException('unknown capabilities type');
@@ -60,8 +66,47 @@ class ServiceCapabilitiesFactory
 
     private static function createFromWFS2(WFS2Capabilities $capabilities): ServiceCapabilities
     {
-        $title = $capabilities->getServiceIdentification()->getTitle();
+        $title  = $capabilities->getServiceIdentification()->getTitle();
+        $layers = [];
+        /** @var OperationsMetadata2 $meta */
+        $meta    = $capabilities->getOperationsMetadata();
+        $formats = [];
+        foreach ($meta->getOperation('GetFeature')->getParameters() as $param) {
+            $formats = $param->getAllowedValues()->getValues();
+        }
 
-        return new ServiceCapabilities($title, []);
+        foreach ($capabilities->getFeatureTypeList()->getFeatureTypes() as $featureType) {
+            $layers[] = new LayerCapabilities(
+                $featureType->getName(),
+                $featureType->getCrsOptions(),
+                $featureType->getDefaultCrs(),
+                $formats
+            );
+        }
+
+        return new ServiceCapabilities($title, $layers);
+    }
+
+    private static function createFromWFS11(WFS11Capabilities $capabilities): ServiceCapabilities
+    {
+        $title  = $capabilities->getServiceIdentification()->getTitle();
+        $layers = [];
+        /** @var OperationsMetadata1 $meta */
+        $meta    = $capabilities->getOperationsMetadata();
+        $formats = [];
+        foreach ($meta->getOperation('GetFeature')->getParameters() as $param) {
+            $formats = $param->getValues();
+        }
+
+        foreach ($capabilities->getFeatureTypeList()->getFeatureTypes() as $featureType) {
+            $layers[] = new LayerCapabilities(
+                $featureType->getName(),
+                $featureType->getCrsOptions(),
+                $featureType->getDefaultCrs(),
+                $formats
+            );
+        }
+
+        return new ServiceCapabilities($title, $layers);
     }
 }
