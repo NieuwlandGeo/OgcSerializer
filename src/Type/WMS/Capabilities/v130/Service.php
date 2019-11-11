@@ -28,6 +28,7 @@ class Service
      * @var string
      *
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      */
     private $title;
 
@@ -35,12 +36,12 @@ class Service
      * @var string
      *
      * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/wms")
      */
     private $abstract;
 
     /**
      * Get the value of name.
-     *
      */
     public function getName(): string
     {
@@ -49,8 +50,6 @@ class Service
 
     /**
      * Set the value of name.
-     *
-     *
      */
     public function setName(string $name): self
     {
@@ -61,7 +60,6 @@ class Service
 
     /**
      * Get the value of title.
-     *
      */
     public function getTitle(): string
     {
@@ -70,8 +68,6 @@ class Service
 
     /**
      * Set the value of title.
-     *
-     *
      */
     public function setTitle(string $title): self
     {
@@ -82,7 +78,6 @@ class Service
 
     /**
      * Get the value of abstract.
-     *
      */
     public function getAbstract(): string
     {
@@ -91,8 +86,6 @@ class Service
 
     /**
      * Set the value of abstract.
-     *
-     *
      */
     public function setAbstract(string $abstract): self
     {
