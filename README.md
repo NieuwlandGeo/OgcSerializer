@@ -1,5 +1,7 @@
 # Ogc Serializer
 
+[![Build Status](https://travis-ci.org/NieuwlandGeo/OgcSerializer.svg?branch=master)](https://travis-ci.org/NieuwlandGeo/OgcSerializer)
+
 Read documents from OGC (Open Geospatial Consortium) web service interfaces. Similar to [OWSLib](https://geopython.github.io/OWSLib/) but without a http client.
 
 ## Install
