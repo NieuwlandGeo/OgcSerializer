@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Type\Generic;
 
+use Nieuwland\OgcSerializer\Generic\LayerCapabilitiesInterface;
 use Nieuwland\OgcSerializer\Generic\ServiceCapabilitiesFactory;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capabilities;
@@ -25,7 +26,7 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $this->assertEquals($genericCapabilities->getTitle(), 'Web Map Tile Service');
     }
 
-    public function testWMTSLayerNames(): void
+    public function testWMTSLayers(): void
     {
         $xml          = file_get_contents(FIXTURE_PATH . '/WMTS/wmtsGetCapabilities_response.xml');
         $serializer   = SerializerFactory::create();
@@ -34,6 +35,8 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(1, $genericCapabilities->getLayerNames());
         $this->assertContains('coastlines', $genericCapabilities->getLayerNames());
+        $this->assertInstanceOf(LayerCapabilitiesInterface::class, $genericCapabilities->getLayer('coastlines'));
+        $this->assertContains('image/png', $genericCapabilities->getLayer('coastlines')->getDataFormats());
     }
 
     public function testWMSTitle(): void

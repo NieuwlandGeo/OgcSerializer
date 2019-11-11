@@ -38,7 +38,7 @@ class ServiceCapabilitiesFactory
 
         $layers = [];
         foreach ($capabilities->getContents()->getLayers() as $layer) {
-            $layers[] = new LayerCapabilities($layer->getIdentifier(), $layer->getFormats());
+            $layers[] = new LayerCapabilities($layer->getIdentifier(), [], null, $layer->getFormats());
         }
 
         return new ServiceCapabilities($title, $layers);
