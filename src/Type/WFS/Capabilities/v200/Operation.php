@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200;
 
+use JMS\Serializer\Annotation\AccessType;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
@@ -24,6 +25,7 @@ class Operation extends AbstractOperation
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Parameter>")
      * @XmlList(inline=true, entry="Parameter", namespace="http://www.opengis.net/ows/1.1")
+     * @AccessType("public_method")
      *
      * @var Parameter[]
      */
@@ -34,7 +36,9 @@ class Operation extends AbstractOperation
      */
     public function setParameters(array $parameters): self
     {
-        $this->parameters = $parameters;
+        foreach ($parameters as $param) {
+            $this->parameters[$param->getName()] = $param;
+        }
 
         return $this;
     }
@@ -45,5 +49,10 @@ class Operation extends AbstractOperation
     public function getParameters(): array
     {
         return $this->parameters;
+    }
+
+    public function getParameter(string $name): Parameter
+    {
+        return $this->parameters[$name];
     }
 }
