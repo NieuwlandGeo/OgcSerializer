@@ -95,10 +95,10 @@ class Capabilities200Test extends TestCase
         $operationsMeta = $capabilities->getOperationsMetadata();
         $this->assertInstanceOf(OperationsMetadata::class, $operationsMeta);
         $this->assertIsArray($operationsMeta->getOperations());
-        $capOperation = $operationsMeta->getOperations()['0'];
+        $capOperation = $operationsMeta->getOperations()['GetCapabilities'];
         $this->assertEquals('GetCapabilities', $capOperation->getName());
         $this->assertIsArray($capOperation->getParameters());
-        $versionParam = $capOperation->getParameters()['0'];
+        $versionParam = $capOperation->getParameter('AcceptVersions');
         $this->assertEquals('AcceptVersions', $versionParam->getName());
         $this->assertCount(3, $versionParam->getAllowedValues()->getValues());
     }
