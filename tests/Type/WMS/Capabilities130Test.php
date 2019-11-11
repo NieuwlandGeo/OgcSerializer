@@ -177,8 +177,9 @@ class Capabilities130Test extends TestCase
         $this->assertInstanceOf(OperationType::class, $request->getDescribeLayer());
 
         // bounding box inheterance
-        $layer = $capabilities->getLayer('ROADS_1M');
+        $layer = $capabilities->getLayer('ROADS_RIVERS');
         $this->assertIsArray($layer->getBoundingBoxOptions());
+        $this->assertContains('EPSG:26986', $layer->getCrs());
     }
 
     /**

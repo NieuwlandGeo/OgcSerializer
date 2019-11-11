@@ -83,7 +83,7 @@ class Layer implements LayerInterface
 
     /**
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="CRS")
+     * @XmlList(inline=true, entry="CRS", namespace="http://www.opengis.net/wms")
      *
      * @var string[]
      */

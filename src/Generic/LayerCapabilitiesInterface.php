@@ -6,8 +6,14 @@ namespace Nieuwland\OgcSerializer\Generic;
 
 interface LayerCapabilitiesInterface
 {
+    /**
+     * string to use in typeNames / layers url query param.
+     */
     public function getName(): string;
 
+    /**
+     * for WFS.
+     */
     public function getDefaultCrs(): ?string;
 
     /**

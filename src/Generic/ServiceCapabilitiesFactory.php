@@ -38,7 +38,12 @@ class ServiceCapabilitiesFactory
 
         $layers = [];
         foreach ($capabilities->getContents()->getLayers() as $layer) {
-            $layers[] = new LayerCapabilities($layer->getIdentifier(), [], null, $layer->getFormats());
+            $projections = [];
+            foreach ($layer->getTileMatrixSetLinks() as $link) {
+                $layerTilesetId = $link->getTileMatrixSet();
+                $projections[]  = $capabilities->getContents()->getTileMatrixSet($layerTilesetId)->getSupportedCRS();
+            }
+            $layers[] = new LayerCapabilities($layer->getIdentifier(), $projections, null, $layer->getFormats());
         }
 
         return new ServiceCapabilities($title, $layers);
