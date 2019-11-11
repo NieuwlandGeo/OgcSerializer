@@ -9,22 +9,19 @@ namespace Nieuwland\OgcSerializer\Generic;
  */
 class ServiceCapabilities implements ServiceCapabilitiesInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $title;
-    /**
-     * @var LayerCapabilitiesInterface[]
-     */
-    private $layers;
+
+    /** @var LayerCapabilitiesInterface[] */
+    private $layers = [];
 
     /**
      * @param LayerCapabilitiesInterface[] $layers
      */
     public function __construct(string $title, array $layers)
     {
-        $this->title  = $title;
-        $this->layers = $layers;
+        $this->title = $title;
+        $this->setLayers($layers);
     }
 
     /**
@@ -40,6 +37,7 @@ class ServiceCapabilities implements ServiceCapabilitiesInterface
      */
     public function getLayer(string $name): LayerCapabilitiesInterface
     {
+        return $this->layers[$name];
     }
 
     /**
@@ -53,5 +51,15 @@ class ServiceCapabilities implements ServiceCapabilitiesInterface
         }
 
         return $names;
+    }
+
+    /**
+     * @param LayerCapabilitiesInterface[] $layers
+     */
+    private function setLayers(array $layers): void
+    {
+        foreach ($layers as $layer) {
+            $this->layers[$layer->getName()] = $layer;
+        }
     }
 }
