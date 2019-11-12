@@ -14,13 +14,17 @@ class ServiceCapabilities implements ServiceCapabilitiesInterface
 
     /** @var LayerCapabilitiesInterface[] */
     private $layers = [];
+    /** @var string[] */
+    private $versions = [];
 
     /**
      * @param LayerCapabilitiesInterface[] $layers
+     * @param string[]                     $versions
      */
-    public function __construct(string $title, array $layers)
+    public function __construct(string $title, array $layers, array $versions)
     {
-        $this->title = $title;
+        $this->title    = $title;
+        $this->versions = $versions;
         $this->setLayers($layers);
     }
 
@@ -61,5 +65,13 @@ class ServiceCapabilities implements ServiceCapabilitiesInterface
         foreach ($layers as $layer) {
             $this->layers[$layer->getName()] = $layer;
         }
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getVersions(): array
+    {
+        return $this->versions;
     }
 }
