@@ -50,7 +50,8 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $capabilities = $serializer->deserialize($xml, WMS13Capabilities::class, 'xml');
         $this->assertInstanceOf(WMS13Capabilities::class, $capabilities);
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
-        $this->assertEquals($genericCapabilities->getTitle(), 'Acme Corp. Map Server');
+        $this->assertEquals('Acme Corp. Map Server', $genericCapabilities->getTitle());
+        $this->assertEquals(['1.3.0'], $genericCapabilities->getVersions());
     }
 
     public function testWMSLayers(): void
@@ -70,7 +71,7 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $serializer          = SerializerFactory::create();
         $capabilities        = $serializer->deserialize($xml, WFS2Capabilities::class, 'xml');
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
-        $this->assertEquals($genericCapabilities->getTitle(), 'Weggegevens WFS');
+        $this->assertEquals('Weggegevens WFS', $genericCapabilities->getTitle());
     }
 
     public function testWFS2Layers(): void
@@ -96,7 +97,7 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $serializer          = SerializerFactory::create();
         $capabilities        = $serializer->deserialize($xml, WFS11Capabilities::class, 'xml');
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
-        $this->assertEquals($genericCapabilities->getTitle(), 'Weggegevens WFS');
+        $this->assertEquals('Weggegevens WFS', $genericCapabilities->getTitle());
     }
 
     public function testWFS11Layers(): void

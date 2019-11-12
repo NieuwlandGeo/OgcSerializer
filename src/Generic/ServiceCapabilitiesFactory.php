@@ -46,7 +46,7 @@ class ServiceCapabilitiesFactory
             $layers[] = new LayerCapabilities($layer->getIdentifier(), $projections, null, $layer->getFormats());
         }
 
-        return new ServiceCapabilities($title, $layers);
+        return new ServiceCapabilities($title, $layers, [$capabilities->getVersion()]);
     }
 
     private static function createFromWMS13(WMS13Capabilities $capabilities): ServiceCapabilities
@@ -66,7 +66,7 @@ class ServiceCapabilitiesFactory
             );
         }
 
-        return new ServiceCapabilities($title, $layers);
+        return new ServiceCapabilities($title, $layers, [$capabilities->getVersion()]);
     }
 
     private static function createFromWFS2(WFS2Capabilities $capabilities): ServiceCapabilities
@@ -74,10 +74,15 @@ class ServiceCapabilitiesFactory
         $title  = $capabilities->getServiceIdentification()->getTitle();
         $layers = [];
         /** @var OperationsMetadata2 $meta */
-        $meta    = $capabilities->getOperationsMetadata();
-        $formats = [];
-        $param   = $meta->getOperation('GetFeature')->getParameter('outputFormat');
-        $formats = $param->getAllowedValues()->getValues();
+        $meta     = $capabilities->getOperationsMetadata();
+        $formats  = [];
+        $param    = $meta->getOperation('GetFeature')->getParameter('outputFormat');
+        $formats  = $param->getAllowedValues()->getValues();
+        $versions = $meta
+            ->getOperation('GetCapabilities')
+            ->getParameter('AcceptVersions')
+            ->getAllowedValues()
+            ->getValues();
 
         foreach ($capabilities->getFeatureTypeList()->getFeatureTypes() as $featureType) {
             $layers[] = new LayerCapabilities(
@@ -88,7 +93,7 @@ class ServiceCapabilitiesFactory
             );
         }
 
-        return new ServiceCapabilities($title, $layers);
+        return new ServiceCapabilities($title, $layers, $versions);
     }
 
     private static function createFromWFS11(WFS11Capabilities $capabilities): ServiceCapabilities
@@ -96,10 +101,14 @@ class ServiceCapabilitiesFactory
         $title  = $capabilities->getServiceIdentification()->getTitle();
         $layers = [];
         /** @var OperationsMetadata1 $meta */
-        $meta    = $capabilities->getOperationsMetadata();
-        $formats = [];
-        $param   = $meta->getOperation('GetFeature')->getParameter('outputFormat');
-        $formats = $param->getValues();
+        $meta     = $capabilities->getOperationsMetadata();
+        $formats  = [];
+        $param    = $meta->getOperation('GetFeature')->getParameter('outputFormat');
+        $formats  = $param->getValues();
+        $versions = $meta
+            ->getOperation('GetCapabilities')
+            ->getParameter('AcceptVersions')
+            ->getValues();
 
         foreach ($capabilities->getFeatureTypeList()->getFeatureTypes() as $featureType) {
             $layers[] = new LayerCapabilities(
@@ -110,6 +119,6 @@ class ServiceCapabilitiesFactory
             );
         }
 
-        return new ServiceCapabilities($title, $layers);
+        return new ServiceCapabilities($title, $layers, $versions);
     }
 }

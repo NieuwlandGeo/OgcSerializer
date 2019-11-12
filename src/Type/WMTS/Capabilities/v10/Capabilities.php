@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10;
 
+use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
@@ -31,6 +33,15 @@ class Capabilities implements LayerCollectionInterface
     protected $serviceIdentification;
 
     /**
+     * @XmlAttribute
+     * @Type("string")
+     * @SerializedName("version")
+     *
+     * @var string
+     */
+    protected $version;
+
+    /**
      * {@inheritdoc}
      */
     public function getLayerNames(): array
@@ -48,5 +59,17 @@ class Capabilities implements LayerCollectionInterface
     public function getServiceIdentification(): ServiceIdentification
     {
         return $this->serviceIdentification;
+    }
+
+    public function getVersion(): ?string
+    {
+        return $this->version;
+    }
+
+    public function setVersion(string $version): self
+    {
+        $this->version = $version;
+
+        return $this;
     }
 }
