@@ -10,4 +10,9 @@ interface LayerCollectionInterface
      * @return string[]
      */
     public function getLayerNames(): array;
+
+    /**
+     * @return mixed
+     */
+    public function getLayer(string $name);
 }

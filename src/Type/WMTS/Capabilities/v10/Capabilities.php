@@ -10,7 +10,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
-use function array_map;
+use function array_keys;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wmts/1.0")
@@ -46,9 +46,14 @@ class Capabilities implements LayerCollectionInterface
      */
     public function getLayerNames(): array
     {
-        return array_map(static function (Layer $layer) {
-            return $layer->getIdentifier();
-        }, $this->contents->getLayers());
+        return array_keys($this->contents->getLayers());
+    }
+
+    public function getLayer(string $name): ?Layer
+    {
+        $layers = $this->contents->getLayers();
+
+        return $layers[$name];
     }
 
     public function getContents(): Contents
