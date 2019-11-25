@@ -43,7 +43,8 @@ class CapabilitiesTest extends TestCase
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $this->assertCount(1, $capabilities->getContents()->getLayers(), 'expected contents to have 1 layer object');
         $this->assertCount(1, $capabilities->getLayerNames());
-        $this->assertSame(['coastlines'], $capabilities->getLayerNames());
+        $this->assertContains('coastlines', $capabilities->getLayerNames());
+        $this->assertInstanceOf(Layer::class, $capabilities->getLayer('coastlines'));
     }
 
     public function testTileMatrixSetLinks(): void
