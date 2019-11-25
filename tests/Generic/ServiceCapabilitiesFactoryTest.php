@@ -35,6 +35,8 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(1, $genericCapabilities->getLayerNames());
         $this->assertContains('coastlines', $genericCapabilities->getLayerNames());
+        $this->assertFalse($genericCapabilities->hasLayer('coastlinesss'));
+        $this->assertTrue($genericCapabilities->hasLayer('coastlines'));
         $this->assertInstanceOf(LayerCapabilitiesInterface::class, $genericCapabilities->getLayer('coastlines'));
         $this->assertContains('image/png', $genericCapabilities->getLayer('coastlines')->getDataFormats());
         $this->assertContains(
