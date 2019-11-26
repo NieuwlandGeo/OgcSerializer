@@ -10,7 +10,6 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
-use Nieuwland\OgcSerializer\Type\LayerInterface;
 use RuntimeException;
 use function array_keys;
 use function sprintf;
@@ -62,7 +61,10 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
         return array_keys($this->getFeatureTypeList()->getFeatureTypes());
     }
 
-    public function getLayer(string $name): LayerInterface
+    /**
+     * {@inheritdoc}
+     */
+    public function getLayer(string $name)
     {
         $types = $this->getFeatureTypeList()->getFeatureTypes();
 
