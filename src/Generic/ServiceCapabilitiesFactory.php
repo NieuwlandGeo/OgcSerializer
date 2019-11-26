@@ -43,7 +43,13 @@ class ServiceCapabilitiesFactory
                 $layerTilesetId = $link->getTileMatrixSet();
                 $projections[]  = $capabilities->getContents()->getTileMatrixSet($layerTilesetId)->getSupportedCRS();
             }
-            $layers[] = new LayerCapabilities($layer->getIdentifier(), $projections, null, $layer->getFormats());
+            $layers[] = new LayerCapabilities(
+                $layer->getIdentifier(),
+                $projections,
+                $layer->getTitle(),
+                null,
+                $layer->getFormats()
+            );
         }
 
         return new ServiceCapabilities($title, $layers, [$capabilities->getVersion()]);
@@ -60,6 +66,7 @@ class ServiceCapabilitiesFactory
             $layers[] = new LayerCapabilities(
                 $layer->getName(),
                 $layer->getCrsOptions(),
+                $layer->getTitle(),
                 null,
                 $capabilities->getCapability()->getRequest()->getGetMap()->getFormat(),
                 $capabilities->getCapability()->getRequest()->getGetFeatureInfo()->getFormat()
@@ -88,6 +95,7 @@ class ServiceCapabilitiesFactory
             $layers[] = new LayerCapabilities(
                 $featureType->getName(),
                 $featureType->getCrsOptions(),
+                $featureType->getTitle(),
                 $featureType->getDefaultCrs(),
                 $formats
             );
@@ -114,6 +122,7 @@ class ServiceCapabilitiesFactory
             $layers[] = new LayerCapabilities(
                 $featureType->getName(),
                 $featureType->getCrsOptions(),
+                $featureType->getTitle(),
                 $featureType->getDefaultCrs(),
                 $formats
             );
