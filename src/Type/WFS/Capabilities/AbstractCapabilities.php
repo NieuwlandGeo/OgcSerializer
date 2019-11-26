@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
+use InvalidArgumentException;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
-use RuntimeException;
 use function array_keys;
 use function sprintf;
 
@@ -69,7 +69,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
         $types = $this->getFeatureTypeList()->getFeatureTypes();
 
         if (! isset($types[$name])) {
-            throw new RuntimeException(sprintf('Featuretype %s not found', $name));
+            throw new InvalidArgumentException(sprintf('Featuretype %s not found', $name));
         }
 
         return $types[$name];
