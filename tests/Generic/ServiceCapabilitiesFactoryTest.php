@@ -37,12 +37,14 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $this->assertContains('coastlines', $genericCapabilities->getLayerNames());
         $this->assertFalse($genericCapabilities->hasLayer('coastlinesss'));
         $this->assertTrue($genericCapabilities->hasLayer('coastlines'));
-        $this->assertInstanceOf(LayerCapabilitiesInterface::class, $genericCapabilities->getLayer('coastlines'));
-        $this->assertContains('image/png', $genericCapabilities->getLayer('coastlines')->getDataFormats());
+        $layer = $genericCapabilities->getLayer('coastlines');
+        $this->assertInstanceOf(LayerCapabilitiesInterface::class, $layer);
+        $this->assertContains('image/png', $layer->getDataFormats());
         $this->assertContains(
             'urn:ogc:def:crs:OGC:1.3:CRS84',
             $genericCapabilities->getLayer('coastlines')->getProjections()
         );
+        $this->assertEquals('Coastlines', $layer->getTitle());
     }
 
     public function testWMSTitle(): void
@@ -86,14 +88,16 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $capabilities        = $serializer->deserialize($xml, WFS2Capabilities::class, 'xml');
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(2, $genericCapabilities->getLayerNames());
+        $layer = $genericCapabilities->getLayer('weggeg:weggegmaximumsnelheden');
         $this->assertContains(
             'urn:ogc:def:crs:EPSG::3035',
-            $genericCapabilities->getLayer('weggeg:weggegmaximumsnelheden')->getProjections()
+            $layer->getProjections()
         );
         $this->assertContains(
             'gml32',
-            $genericCapabilities->getLayer('weggeg:weggegmaximumsnelheden')->getDataFormats()
+            $layer->getDataFormats()
         );
+        $this->assertEquals('weggegmaximumsnelheden', $layer->getTitle());
     }
 
     public function testWFS11Title(): void
@@ -112,13 +116,15 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $capabilities        = $serializer->deserialize($xml, WFS11Capabilities::class, 'xml');
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(2, $genericCapabilities->getLayerNames());
+        $layer = $genericCapabilities->getLayer('weggeg:weggegmaximumsnelheden');
         $this->assertContains(
             'urn:x-ogc:def:crs:EPSG:3035',
-            $genericCapabilities->getLayer('weggeg:weggegmaximumsnelheden')->getProjections()
+            $layer->getProjections()
         );
         $this->assertContains(
             'gml32',
-            $genericCapabilities->getLayer('weggeg:weggegmaximumsnelheden')->getDataFormats()
+            $layer->getDataFormats()
         );
+        $this->assertEquals('weggegmaximumsnelheden', $layer->getTitle());
     }
 }
