@@ -63,8 +63,11 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $capabilities        = $serializer->deserialize($xml, WMS13Capabilities::class, 'xml');
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(8, $genericCapabilities->getLayerNames());
-        $this->assertInstanceOf(LayerCapabilitiesInterface::class, $genericCapabilities->getLayer('ROADS_RIVERS'));
-        $this->assertContains('EPSG:26986', $genericCapabilities->getLayer('ROADS_RIVERS')->getProjections());
+        $layer = $genericCapabilities->getLayer('ROADS_RIVERS');
+        $this->assertInstanceOf(LayerCapabilitiesInterface::class, $layer);
+        $this->assertContains('EPSG:26986', $layer->getProjections());
+        $this->assertEquals('ROADS_RIVERS', $layer->getName());
+        $this->assertEquals('Roads and Rivers', $layer->getTitle());
     }
 
     public function testWFS2Title(): void
