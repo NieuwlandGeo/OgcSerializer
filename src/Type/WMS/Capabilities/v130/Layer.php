@@ -12,6 +12,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
+use Nieuwland\OgcSerializer\Type\StyleInterface;
 use function array_merge;
 use function array_unique;
 use function explode;
@@ -22,7 +23,7 @@ use function strpos;
 /**
  * WMS Capabilities Layer.
  */
-class Layer implements LayerInterface
+class Layer implements LayerInterface, StyleInterface
 {
     /**
      * @Type("string")
@@ -302,15 +303,13 @@ class Layer implements LayerInterface
     }
 
     /**
-     * Undocumented function.
-     *
-     * @return string[]
+     * {@inheritdoc}
      */
     public function getStyleNames(): array
     {
         $names = [];
         foreach ($this->getStyleOptions() as $style) {
-            $names[] = $style->getName();
+            $names[$style->getName()] = $style->getTitle();
         }
 
         return $names;

@@ -8,7 +8,6 @@ interface LayerInterface
 {
     /**
      * Get name identifying the layer.
-     *
      */
     public function getName(): ?string;
 

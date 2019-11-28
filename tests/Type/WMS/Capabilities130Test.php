@@ -100,6 +100,8 @@ class Capabilities130Test extends TestCase
             Style::class,
             $style
         );
+        $this->assertContains('gemeenten', $layer->getStyleNames());
+        $this->assertArrayHasKey('bestuurlijkegrenzen:bestuurlijkegrenzen_gemeentegrenzen', $layer->getStyleNames());
         $this->assertEquals('gemeenten', $style->getTitle());
     }
 
