@@ -104,6 +104,7 @@ class CapabilitiesTest extends TestCase
         $layer  = current($layers);
         $styles = $layer->getStyles();
         $this->assertCount(2, $styles);
+        $this->assertContains('Dark Blue', $layer->getStyleNames());
         foreach ($styles as $style) {
             $this->assertNotEmpty($style->getIdentifier());
             $this->assertNotEmpty($style->getTitle());

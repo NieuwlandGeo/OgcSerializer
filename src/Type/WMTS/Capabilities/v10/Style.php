@@ -55,7 +55,7 @@ class Style
     /**
      * Get the value of title.
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
