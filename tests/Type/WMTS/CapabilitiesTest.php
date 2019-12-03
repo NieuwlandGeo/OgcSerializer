@@ -69,12 +69,15 @@ class CapabilitiesTest extends TestCase
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $matrixes     = $capabilities->getContents()->getTileMatrixSets();
         $this->assertCount(1, $matrixes);
-        $tileMatrix = $capabilities->getContents()->getTileMatrixSet('BigWorld');
-        $this->assertEquals('BigWorld', $tileMatrix->getIdentifier());
-        $this->assertEquals('urn:ogc:def:crs:OGC:1.3:CRS84', $tileMatrix->getSupportedCRS());
-        $this->assertCount(2, $tileMatrix->getTileMatrixes());
-        $this->assertEquals(256, $tileMatrix->getTileMatrixes()['0']->getTileWidth());
-        $this->assertEquals(256, $tileMatrix->getTileMatrixes()['0']->getTileHeight());
+        $tileMatrixSet = $capabilities->getContents()->getTileMatrixSet('BigWorld');
+        $this->assertEquals('BigWorld', $tileMatrixSet->getIdentifier());
+        $this->assertEquals('urn:ogc:def:crs:OGC:1.3:CRS84', $tileMatrixSet->getSupportedCRS());
+        $this->assertCount(2, $tileMatrixSet->getTileMatrixes());
+        $tileMatrix = $tileMatrixSet->getTileMatrixes()['0'];
+        $this->assertEquals(256, $tileMatrix->getTileWidth());
+        $this->assertEquals(256, $tileMatrix->getTileHeight());
+        $this->assertIsFloat($tileMatrix->getScaleDenominator());
+        $this->assertEquals(1000000, $tileMatrix->getScaleDenominator());
     }
 
     public function testFormats(): void

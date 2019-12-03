@@ -18,9 +18,9 @@ class TileMatrix
     private $identifier;
 
     /**
-     * @Type("string")
+     * @Type("float")
      *
-     * @var string
+     * @var float
      */
     private $scaleDenominator;
     /**
@@ -54,76 +54,43 @@ class TileMatrix
      */
     private $matrixHeight;
 
-    /**
-     * Get the value of identifier.
-     *
-     */
     public function getIdentifier(): string
     {
         return $this->identifier;
     }
 
-    /**
-     * Get the value of scaleDenominator.
-     *
-     */
-    public function getScaleDenominator(): string
+    public function getScaleDenominator(): float
     {
         return $this->scaleDenominator;
     }
 
-    /**
-     * Set the value of scaleDenominator.
-     *
-     *
-     */
-    public function setScaleDenominator(string $scaleDenominator): self
+    public function setScaleDenominator(float $scaleDenominator): self
     {
         $this->scaleDenominator = $scaleDenominator;
 
         return $this;
     }
 
-    /**
-     * Get the value of topLeftCorner.
-     *
-     */
     public function getTopLeftCorner(): string
     {
         return $this->topLeftCorner;
     }
 
-    /**
-     * Get the value of tileWidth.
-     *
-     */
     public function getTileWidth(): int
     {
         return $this->tileWidth;
     }
 
-    /**
-     * Get the value of tileHeight.
-     *
-     */
     public function getTileHeight(): int
     {
         return $this->tileHeight;
     }
 
-    /**
-     * Get the value of matrixWidth.
-     *
-     */
     public function getMatrixWidth(): int
     {
         return $this->matrixWidth;
     }
 
-    /**
-     * Get the value of matrixHeight.
-     *
-     */
     public function getMatrixHeight(): int
     {
         return $this->matrixHeight;
