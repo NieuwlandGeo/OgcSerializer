@@ -9,6 +9,8 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     /** @var string */
     private $name;
     /** @var string */
+    private $title;
+    /** @var string */
     private $defaultCrs;
     /** @var string[] */
     private $dataFormats;
@@ -25,11 +27,13 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     public function __construct(
         string $name,
         array $projections,
+        ?string $title = null,
         ?string $defaultCrs = null,
         ?array $dataFormats = null,
         ?array $infoFormats = null
     ) {
         $this->name        = $name;
+        $this->title       = $title;
         $this->defaultCrs  = $defaultCrs;
         $this->dataFormats = $dataFormats;
         $this->projections = $projections;
@@ -39,6 +43,11 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title ?? $this->getName();
     }
 
     public function getDefaultCrs(): ?string
