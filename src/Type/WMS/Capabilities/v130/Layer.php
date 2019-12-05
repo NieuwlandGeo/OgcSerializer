@@ -295,15 +295,13 @@ class Layer implements LayerInterface
     {
         $styles = $this->getStyles() ?? [];
         if ($this->getParent()) {
-            $crs = array_merge($styles, $this->getParent()->getStyleOptions());
+            $styles = array_merge($styles, $this->getParent()->getStyleOptions());
         }
 
-        return array_unique($styles);
+        return $styles;
     }
 
     /**
-     * Undocumented function.
-     *
      * @return string[]
      */
     public function getStyleNames(): array
@@ -331,8 +329,6 @@ class Layer implements LayerInterface
     }
 
     /**
-     * Set the value of styles.
-     *
      * @param Style[] $styles
      */
     public function setStyles(array $styles): self
