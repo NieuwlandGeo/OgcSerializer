@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Generic;
 
+use InvalidArgumentException;
+
 /**
  * Holds some common used props for OGC services.
  */
@@ -41,7 +43,16 @@ class ServiceCapabilities implements ServiceCapabilitiesInterface
      */
     public function getLayer(string $name): LayerCapabilitiesInterface
     {
+        if (false === $this->hasLayer($name)) {
+            throw new InvalidArgumentException('unknown layer name');
+        }
+
         return $this->layers[$name];
+    }
+
+    public function hasLayer(string $name): bool
+    {
+        return isset($this->layers[$name]);
     }
 
     /**

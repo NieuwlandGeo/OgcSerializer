@@ -41,7 +41,9 @@ class Contents
      */
     public function setLayers(array $layers): self
     {
-        $this->layers = $layers;
+        foreach ($layers as $layer) {
+            $this->layers[$layer->getIdentifier()] = $layer;
+        }
 
         return $this;
     }

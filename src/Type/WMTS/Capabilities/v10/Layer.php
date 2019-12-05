@@ -7,8 +7,9 @@ namespace Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
+use Nieuwland\OgcSerializer\Type\StyleInterface;
 
-class Layer
+class Layer implements StyleInterface
 {
     /**
      * @Type("string")
@@ -108,5 +109,18 @@ class Layer
     public function getFormats(): array
     {
         return $this->formats;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStyleNames(): array
+    {
+        $names = [];
+        foreach ($this->getStyles() as $style) {
+            $names[$style->getIdentifier()] = $style->getTitle();
+        }
+
+        return $names;
     }
 }

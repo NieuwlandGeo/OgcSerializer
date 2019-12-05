@@ -43,7 +43,8 @@ class CapabilitiesTest extends TestCase
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $this->assertCount(1, $capabilities->getContents()->getLayers(), 'expected contents to have 1 layer object');
         $this->assertCount(1, $capabilities->getLayerNames());
-        $this->assertSame(['coastlines'], $capabilities->getLayerNames());
+        $this->assertContains('coastlines', $capabilities->getLayerNames());
+        $this->assertInstanceOf(Layer::class, $capabilities->getLayer('coastlines'));
     }
 
     public function testTileMatrixSetLinks(): void
@@ -68,12 +69,15 @@ class CapabilitiesTest extends TestCase
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $matrixes     = $capabilities->getContents()->getTileMatrixSets();
         $this->assertCount(1, $matrixes);
-        $tileMatrix = $capabilities->getContents()->getTileMatrixSet('BigWorld');
-        $this->assertEquals('BigWorld', $tileMatrix->getIdentifier());
-        $this->assertEquals('urn:ogc:def:crs:OGC:1.3:CRS84', $tileMatrix->getSupportedCRS());
-        $this->assertCount(2, $tileMatrix->getTileMatrixes());
-        $this->assertEquals(256, $tileMatrix->getTileMatrixes()['0']->getTileWidth());
-        $this->assertEquals(256, $tileMatrix->getTileMatrixes()['0']->getTileHeight());
+        $tileMatrixSet = $capabilities->getContents()->getTileMatrixSet('BigWorld');
+        $this->assertEquals('BigWorld', $tileMatrixSet->getIdentifier());
+        $this->assertEquals('urn:ogc:def:crs:OGC:1.3:CRS84', $tileMatrixSet->getSupportedCRS());
+        $this->assertCount(2, $tileMatrixSet->getTileMatrixes());
+        $tileMatrix = $tileMatrixSet->getTileMatrixes()['0'];
+        $this->assertEquals(256, $tileMatrix->getTileWidth());
+        $this->assertEquals(256, $tileMatrix->getTileHeight());
+        $this->assertIsFloat($tileMatrix->getScaleDenominator());
+        $this->assertEquals(1000000, $tileMatrix->getScaleDenominator());
     }
 
     public function testFormats(): void
@@ -103,6 +107,7 @@ class CapabilitiesTest extends TestCase
         $layer  = current($layers);
         $styles = $layer->getStyles();
         $this->assertCount(2, $styles);
+        $this->assertContains('Dark Blue', $layer->getStyleNames());
         foreach ($styles as $style) {
             $this->assertNotEmpty($style->getIdentifier());
             $this->assertNotEmpty($style->getTitle());
