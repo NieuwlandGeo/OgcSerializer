@@ -29,6 +29,17 @@ class Capabilities200Test extends TestCase
         $this->assertInstanceOf(Capabilities200::class, $capabilities);
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCanDeserializeEmptyTypeList(): void
+    {
+        $xml          = file_get_contents(FIXTURE_PATH . '/WFS/CapabilitiesEmptyTypeList.xml');
+        $serializer   = SerializerFactory::create();
+        $capabilities = $serializer->deserialize($xml, Capabilities200::class, 'xml');
+        $capabilities->getFeatureTypeList();
+    }
+
     public function testReadServicePropsGeoserver(): void
     {
         $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok-20.xml');
