@@ -38,7 +38,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
     /** @var AbstractOperationsMetadata */
     protected $operationsMetadata;
 
-    public function getFeatureTypeList(): AbstractFeatureTypeList
+    public function getFeatureTypeList(): ?AbstractFeatureTypeList
     {
         return $this->featureTypeList;
     }
