@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:Extern_Djuma="https:vpdmz463:6443/arcgis/services/Extern/Djuma/MapServer/WFSServer" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="https:vpdmz463:6443/arcgis/services/Extern/Djuma/MapServer/WFSServer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xsd:element name="AFSLUITMIDDEL" type="Extern_Djuma:AFSLUITMIDDELFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="AFSLUITMIDDELFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="BERGINGSGEBIED" type="Extern_Djuma:BERGINGSGEBIEDFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="BERGINGSGEBIEDFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="NAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiSurfacePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.AREA" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="BRUG" type="Extern_Djuma:BRUGFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="BRUGFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="BODEMVAL" type="Extern_Djuma:BODEMVALFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="BODEMVALFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="BORD" type="Extern_Djuma:BORDFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="BORDFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ID_TEKEN" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GEOMETRIE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="DUIKER" type="Extern_Djuma:DUIKERFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="DUIKERFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiCurvePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="GEMAAL" type="Extern_Djuma:GEMAALFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="GEMAALFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="NAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="GEBOUWEN" type="Extern_Djuma:GEBOUWENFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="GEBOUWENFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="HYDROOBJECT" type="Extern_Djuma:HYDROOBJECTFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="HYDROOBJECTFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiCurvePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="KADASTRALEKAART" type="Extern_Djuma:KADASTRALEKAARTFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="KADASTRALEKAARTFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="PERCEEL" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="72"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GEMC" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="30"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SECTIE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="2"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="PRCNR" nillable="true" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="KADASTRALE_IDENTFICATIE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="150"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="DEELPERCEEL" nillable="true" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="APPARTEMENTSINDEX" nillable="true" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiSurfacePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.AREA" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="KADERRICHTLIJNWATER" type="Extern_Djuma:KADERRICHTLIJNWATERFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="KADERRICHTLIJNWATERFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OWAIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OWANAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="90"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiCurvePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="LIGPLAATS" type="Extern_Djuma:LIGPLAATSFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="LIGPLAATSFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="KWKIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="MAAIBESTEKPERCEEL" type="Extern_Djuma:MAAIBESTEKPERCEELFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="MAAIBESTEKPERCEELFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAGIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAGNAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiSurfacePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.AREA" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="PEILGEBIED" type="Extern_Djuma:PEILGEBIEDFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="PEILGEBIEDFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="NAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiSurfacePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.AREA" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="PEILBUIS" type="Extern_Djuma:PEILBUISFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="PEILBUISFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="IDENTIFICATIE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="20"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GEOMETRIE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="RIOOLGEMAAL" type="Extern_Djuma:RIOOLGEMAALFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="RIOOLGEMAALFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ZREIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ZRGGANGL" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="60"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="RWZI" type="Extern_Djuma:RWZIFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="RWZIFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ZRWIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ZRWNAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="SIFON" type="Extern_Djuma:SIFONFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="SIFONFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiCurvePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="SLUIS" type="Extern_Djuma:SLUISFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="SLUISFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="NAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="STROOMGEBIED" type="Extern_Djuma:STROOMGEBIEDFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="STROOMGEBIEDFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAFIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAFNAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiSurfacePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.AREA" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="STUW" type="Extern_Djuma:STUWFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="STUWFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="NAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="TRANSPORTLEIDING" type="Extern_Djuma:TRANSPORTLEIDINGFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="TRANSPORTLEIDINGFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ZATIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ZATNAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiCurvePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="VISPASSAGE" type="Extern_Djuma:VISPASSAGEFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="VISPASSAGEFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="NAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="VISSTOEP" type="Extern_Djuma:VISSTOEPFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="VISSTOEPFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="VOVIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="VISRECHT" type="Extern_Djuma:VISRECHTFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="VISRECHTFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAGIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAGNAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiSurfacePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.AREA" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="VUILVANG" type="Extern_Djuma:VUILVANGFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="VUILVANGFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:PointPropertyType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="WATERKERING" type="Extern_Djuma:WATERKERINGFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="WATERKERINGFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="NAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiCurvePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="WATERSCHAPSGRENS" type="Extern_Djuma:WATERSCHAPSGRENSFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="WATERSCHAPSGRENSFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAGIDENT" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="24"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GAGNAAM" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiSurfacePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.AREA" type="xsd:double"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+</xsd:schema>

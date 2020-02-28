@@ -74,6 +74,20 @@ class WfsSchemaReaderTest extends TestCase
         }
     }
 
+    public function testExtractFieldsFromDuiker(): void
+    {
+        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_duiker.xsd');
+        $fields = $this->wfsSchema->extractFields($xml, 'Extern_Djuma:DUIKER');
+        $this->assertCount(4, $fields);
+        foreach ($fields as $field) {
+            $this->assertInstanceOf(WfsSchemaElement::class, $field);
+            $this->assertIsString($field->getName());
+            $this->assertIsString($field->getTypeName());
+            $this->assertStringNotContainsString(':', $field->getTypeName());
+            $this->assertIsInt($field->getMinOccurs());
+        }
+    }
+
     public function testExceptionWhenEmptyString(): void
     {
         $this->expectException(WfsSchemaException::class);
