@@ -8,6 +8,7 @@ use DOMNode;
 use Symfony\Component\DomCrawler\Crawler;
 use function explode;
 use function is_numeric;
+use function is_string;
 use function sprintf;
 use function strpos;
 use function strstr;
@@ -40,21 +41,24 @@ class WfsSchemaReader
         if (! $elementNode) {
             throw new WfsSchemaException(sprintf('Element node with name %s not found', $nameAttr));
         }
-        $complexTypeName       = $elementNode->attributes->getNamedItem('type')->nodeValue;
-        $complexNameAttr       = $this->getNameAttribute($schemaNode, $complexTypeName);
-        $complexElementPath    = sprintf(
+        $complexTypeName    = $elementNode->attributes->getNamedItem('type')->nodeValue;
+        $complexNameAttr    = $this->getNameAttribute($schemaNode, $complexTypeName);
+        $complexElementPath = sprintf(
             "//%s:complexType[@name='%s']//%s:element",
             $xsdPrefix,
             $complexNameAttr,
             $xsdPrefix
         );
-        $complexElementCrawler =  $crawler->filterXPath($complexElementPath);
+        $complexElementCrawler = $crawler->filterXPath($complexElementPath);
         $targetNamespace       = $this->getTargetNameSpace($schemaNode);
         /** @var DOMNode $element */
         foreach ($complexElementCrawler as $element) {
             $fullType = $this->getAttributeValue($element, 'type');
             // if type has prefix
-            if (false !== strpos($fullType, ':')) {
+            if (! is_string($fullType)) {
+                $typeName         = '';
+                $typeNamespaceUri = '';
+            } elseif (false !== strpos($fullType, ':')) {
                 [$prefix,$typeName] = explode(':', $fullType);
                 $typeNamespaceUri   = $schemaNode->lookupNamespaceUri($prefix);
             } else {
