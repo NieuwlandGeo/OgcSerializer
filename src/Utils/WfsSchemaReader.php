@@ -38,17 +38,20 @@ class WfsSchemaReader
         $xpath          = sprintf("//%s:element[@name='%s']", $xsdPrefix, $nameAttr);
         $elementCrawler = $crawler->filterXPath($xpath);
         $elementNode    = $elementCrawler->getNode(0);
+
         if (! $elementNode) {
             throw new WfsSchemaException(sprintf('Element node with name %s not found', $nameAttr));
         }
-        $complexTypeName    = $elementNode->attributes->getNamedItem('type')->nodeValue;
-        $complexNameAttr    = $this->getNameAttribute($schemaNode, $complexTypeName);
+        $complexTypeName = $elementNode->attributes->getNamedItem('type')->nodeValue;
+        $complexNameAttr = $this->getNameAttribute($schemaNode, $complexTypeName);
+
         $complexElementPath = sprintf(
             "//%s:complexType[@name='%s']//%s:element",
             $xsdPrefix,
             $complexNameAttr,
             $xsdPrefix
         );
+
         $complexElementCrawler = $crawler->filterXPath($complexElementPath);
         $targetNamespace       = $this->getTargetNameSpace($schemaNode);
         /** @var DOMNode $element */
