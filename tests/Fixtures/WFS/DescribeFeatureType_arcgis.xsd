@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:Extern="https:exampletarget:6443/arcgis/WFSServer" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="https:exampletarget:6443/arcgis/WFSServer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xsd:element name="DUIKER" type="Extern:DUIKERFeatureType" substitutionGroup="gml:AbstractFeature"/>
+    <xsd:complexType name="DUIKERFeatureType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="OBJECTID" type="xsd:int"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="CODE" nillable="true">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE" nillable="true" type="gml:MultiCurvePropertyType"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SHAPE.LEN" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+</xsd:schema>

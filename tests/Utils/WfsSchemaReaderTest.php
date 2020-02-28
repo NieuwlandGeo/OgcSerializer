@@ -76,8 +76,8 @@ class WfsSchemaReaderTest extends TestCase
 
     public function testExtractFieldsFromDuiker(): void
     {
-        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_duiker.xsd');
-        $fields = $this->wfsSchema->extractFields($xml, 'Extern_Djuma:DUIKER');
+        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_arcgis.xsd');
+        $fields = $this->wfsSchema->extractFields($xml, 'Extern:DUIKER');
         $this->assertCount(4, $fields);
         foreach ($fields as $field) {
             $this->assertInstanceOf(WfsSchemaElement::class, $field);
