@@ -79,6 +79,8 @@ class WFS2ServiceCapabilities implements ServiceCapabilitiesInterface
             ->getAllowedValues()
             ->getValues();
 
-        return array_filter($versions, function ($v) { '1.0.0' !== $v; });
+        return array_filter($versions, static function ($v) {
+            return '1.0.0' !== $v;
+        });
     }
 }
