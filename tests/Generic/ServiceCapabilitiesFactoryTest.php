@@ -79,6 +79,7 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $capabilities        = $serializer->deserialize($xml, WFS2Capabilities::class, 'xml');
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertEquals('Weggegevens WFS', $genericCapabilities->getTitle());
+        $this->assertNotContains('1.0.0', $genericCapabilities->getVersions(), 'Failed asserting that unsupported 1.0.0 is not listed');
     }
 
     public function testWFS2Layers(): void
