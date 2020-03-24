@@ -6,6 +6,7 @@ namespace Nieuwland\OgcSerializer\Generic;
 
 use InvalidArgumentException;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
+use function array_filter;
 use function array_keys;
 
 /**
@@ -71,12 +72,13 @@ class WFS2ServiceCapabilities implements ServiceCapabilitiesInterface
     public function getVersions(): array
     {
         /** @var OperationsMetadata2 $meta */
-        $meta = $this->capabilities->getOperationsMetadata();
-
-        return $meta
+        $meta     = $this->capabilities->getOperationsMetadata();
+        $versions = $meta
             ->getOperation('GetCapabilities')
             ->getParameter('AcceptVersions')
             ->getAllowedValues()
             ->getValues();
+
+        return array_filter($versions, function ($v) { '1.0.0' !== $v; });
     }
 }
