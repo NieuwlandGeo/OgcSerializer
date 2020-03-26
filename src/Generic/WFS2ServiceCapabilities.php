@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
 use function array_filter;
 use function array_keys;
+use function array_values;
 
 /**
  * Adapter for WFS2.
@@ -34,9 +35,11 @@ class WFS2ServiceCapabilities implements ServiceCapabilitiesInterface
             ->getAllowedValues()
             ->getValues();
 
-        $this->versions = array_filter($origVersions, static function ($v) {
-            return '1.0.0' !== $v;
-        });
+        $this->versions = array_values(
+            array_filter($origVersions, static function ($v) {
+                return '1.0.0' !== $v;
+            })
+        );
 
         //set layers
         $formats = [];
