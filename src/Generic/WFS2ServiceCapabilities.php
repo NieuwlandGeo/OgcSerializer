@@ -14,17 +14,31 @@ use function array_keys;
  */
 class WFS2ServiceCapabilities implements ServiceCapabilitiesInterface
 {
-    /** @var WFS2Capabilities */
-    private $capabilities;
     /** @var LayerCapabilities[] */
     private $layers;
+    /** @var string */
+    private $title;
+    /** @var string[] */
+    private $versions;
 
     public function __construct(WFS2Capabilities $capabilities)
     {
-        $this->capabilities = $capabilities;
-
+        // set title
+        $this->title = $capabilities->getServiceIdentification()->getTitle();
         /** @var OperationsMetadata2 $meta */
-        $meta    = $capabilities->getOperationsMetadata();
+        $meta = $capabilities->getOperationsMetadata();
+        //set versions
+        $origVersions = $meta
+            ->getOperation('GetCapabilities')
+            ->getParameter('AcceptVersions')
+            ->getAllowedValues()
+            ->getValues();
+
+        $this->versions = array_filter($origVersions, static function ($v) {
+            return '1.0.0' !== $v;
+        });
+
+        //set layers
         $formats = [];
         $param   = $meta->getOperation('GetFeature')->getParameter('outputFormat');
         $formats = $param->getAllowedValues()->getValues();
@@ -41,7 +55,7 @@ class WFS2ServiceCapabilities implements ServiceCapabilitiesInterface
 
     public function getTitle(): string
     {
-        return $this->capabilities->getServiceIdentification()->getTitle();
+        return $this->title;
     }
 
     public function hasLayer(string $name): bool
@@ -71,16 +85,6 @@ class WFS2ServiceCapabilities implements ServiceCapabilitiesInterface
      */
     public function getVersions(): array
     {
-        /** @var OperationsMetadata2 $meta */
-        $meta     = $this->capabilities->getOperationsMetadata();
-        $versions = $meta
-            ->getOperation('GetCapabilities')
-            ->getParameter('AcceptVersions')
-            ->getAllowedValues()
-            ->getValues();
-
-        return array_filter($versions, static function ($v) {
-            return '1.0.0' !== $v;
-        });
+        return $this->versions;
     }
 }
