@@ -46,7 +46,7 @@ class Operation extends AbstractOperation
     /**
      * @return Parameter[]
      */
-    public function getParameters(): array
+    public function getParameters(): ?array
     {
         return $this->parameters;
     }
