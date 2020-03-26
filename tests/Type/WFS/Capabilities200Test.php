@@ -30,14 +30,20 @@ class Capabilities200Test extends TestCase
     }
 
     /**
+     * Does not throw on empty/missing elements.
+     *
      * @doesNotPerformAssertions
      */
     public function testCanDeserializeEmptyTypeList(): void
     {
-        $xml          = file_get_contents(FIXTURE_PATH . '/WFS/CapabilitiesEmptyTypeList.xml');
-        $serializer   = SerializerFactory::create();
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/CapabilitiesEmptyTypeList.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities200 $capabilities */
         $capabilities = $serializer->deserialize($xml, Capabilities200::class, 'xml');
         $capabilities->getFeatureTypeList();
+        foreach ($capabilities->getOperationsMetadata()->getOperations() as $operation) {
+            $operation->getParameters();
+        }
     }
 
     public function testReadServicePropsGeoserver(): void
