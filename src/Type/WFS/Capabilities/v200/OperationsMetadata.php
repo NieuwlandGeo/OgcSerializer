@@ -24,4 +24,12 @@ class OperationsMetadata extends AbstractOperationsMetadata
     {
         return $this->operations[$name];
     }
+
+    /**
+     * @return Operation[]
+     */
+    public function getOperations(): array
+    {
+        return $this->operations;
+    }
 }

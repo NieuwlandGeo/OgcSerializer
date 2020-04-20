@@ -48,11 +48,6 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
         return $this->serviceIdentification;
     }
 
-    public function getOperationsMetadata(): AbstractOperationsMetadata
-    {
-        return $this->operationsMetadata;
-    }
-
     /**
      * {@inheritdoc}
      */

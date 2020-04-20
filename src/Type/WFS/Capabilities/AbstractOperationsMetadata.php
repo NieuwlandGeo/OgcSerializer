@@ -10,14 +10,6 @@ abstract class AbstractOperationsMetadata
     protected $operations;
 
     /**
-     * @return AbstractOperation[]
-     */
-    public function getOperations(): array
-    {
-        return $this->operations;
-    }
-
-    /**
      * @param AbstractOperation[] $operations
      */
     public function setOperations(array $operations): self
