@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nieuwland\OgcSerializer\Generic\Transformers;
+namespace Nieuwland\OgcSerializer\Generic\Transformer;
 
 use Nieuwland\OgcSerializer\Generic\ServiceCapabilities;
 

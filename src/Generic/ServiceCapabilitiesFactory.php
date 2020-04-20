@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Generic;
 
-use Nieuwland\OgcSerializer\Generic\Transformers\WFS2Transformer;
+use Nieuwland\OgcSerializer\Generic\Transformer\WFS2Transformer;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\OperationsMetadata as OperationsMetadata1;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
