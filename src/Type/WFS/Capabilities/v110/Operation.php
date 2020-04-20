@@ -51,7 +51,7 @@ class Operation extends AbstractOperation
         return $this->parameters;
     }
 
-    public function getParameter(string $name): Parameter
+    public function getParameter(string $name): ?Parameter
     {
         return $this->parameters[$name];
     }
