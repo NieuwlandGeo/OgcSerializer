@@ -51,11 +51,6 @@ class Operation extends AbstractOperation
         return $this->parameters;
     }
 
-    public function hasParameter(string $name): bool
-    {
-        return isset($this->parameters[$name]);
-    }
-
     public function getParameter(string $name): Parameter
     {
         return $this->parameters[$name];

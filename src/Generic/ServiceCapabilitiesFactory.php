@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nieuwland\OgcSerializer\Generic;
 
+use Nieuwland\OgcSerializer\Generic\Transformers\WFS2Transformer;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\OperationsMetadata as OperationsMetadata1;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
@@ -22,7 +23,9 @@ class ServiceCapabilitiesFactory
             return self::createFromWMS13($capabilities);
         }
         if ($capabilities instanceof WFS2Capabilities) {
-            return new WFS2ServiceCapabilities($capabilities);
+            $transfomer = new WFS2Transformer();
+
+            return $transfomer->transform($capabilities);
         }
         if ($capabilities instanceof WFS11Capabilities) {
             return self::createFromWFS11($capabilities);
