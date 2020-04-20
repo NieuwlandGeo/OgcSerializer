@@ -59,8 +59,8 @@ class Capabilities extends AbstractCapabilities
         return $this;
     }
 
-    public function getLayer(string $name): FeatureType
+    public function getOperationsMetadata(): OperationsMetadata
     {
-        return parent::getLayer($name);
+        return $this->operationsMetadata;
     }
 }
