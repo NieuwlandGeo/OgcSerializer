@@ -15,6 +15,7 @@ use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Request;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Service;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Style;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Validator\Validation;
 use function file_get_contents;
 
 class Capabilities130Test extends TestCase
@@ -195,5 +196,15 @@ class Capabilities130Test extends TestCase
         $capabilities->setService($service);
         $serializer = SerializerFactory::create();
         $serializer->serialize($capabilities, 'xml');
+    }
+
+    public function testLayerValidation(): void
+    {
+        $validator = Validation::createValidatorBuilder()
+            ->enableAnnotationMapping()
+            ->getValidator();
+
+        $violations = $validator->validate(new Layer());
+        $this->assertNotEmpty($violations);
     }
 }

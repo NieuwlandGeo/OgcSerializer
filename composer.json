@@ -27,6 +27,7 @@
         "jms/serializer": "^3.0",
         "symfony/dom-crawler": "^4.3",
         "symfony/validator": "^5.0",
-        "doctrine/annotations": "^1.10"
+        "doctrine/annotations": "^1.10",
+        "doctrine/cache": "^1.10"
     }
 }

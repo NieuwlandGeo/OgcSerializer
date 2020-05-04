@@ -13,6 +13,7 @@ use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use Nieuwland\OgcSerializer\Type\StyleInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 use function array_merge;
 use function array_unique;
 use function explode;
@@ -38,6 +39,8 @@ class Layer implements LayerInterface, StyleInterface
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var string
+     *
+     * @Assert\NotNull
      */
     private $title;
 
