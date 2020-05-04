@@ -16,6 +16,9 @@ class ServiceCapabilitiesFactory
 {
     public static function create(object $capabilities): ServiceCapabilitiesInterface
     {
+        if ($capabilities instanceof ServiceCapabilitiesInterface) {
+            return $capabilities;
+        }
         if ($capabilities instanceof WMTSCapabilities) {
             return self::createFromWMTS($capabilities);
         }
