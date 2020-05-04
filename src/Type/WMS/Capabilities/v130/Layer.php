@@ -180,17 +180,11 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of title.
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * Set the value of title.
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -199,8 +193,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Get the value of layers.
-     *
      * @return Layer[]
      */
     public function getLayers(): array
@@ -209,8 +201,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Set the value of layers.
-     *
      * @param Layer[] $layers
      */
     public function setLayers(array $layers): self
@@ -224,17 +214,11 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of parent.
-     */
     public function getParent(): ?Layer
     {
         return $this->parent;
     }
 
-    /**
-     * Set the value of parent.
-     */
     public function setParent(Layer $parent): self
     {
         $this->parent = $parent;
@@ -257,17 +241,11 @@ class Layer implements LayerInterface, StyleInterface
         return array_unique($crs);
     }
 
-    /**
-     * Get the value of abstract.
-     */
-    public function getAbstract(): string
+    public function getAbstract(): ?string
     {
         return $this->abstract;
     }
 
-    /**
-     * Set the value of abstract.
-     */
     public function setAbstract(string $abstract): self
     {
         $this->abstract = $abstract;
@@ -276,8 +254,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Get the value of styles.
-     *
      * @return Style[]
      */
     public function getStyles(): array
@@ -315,9 +291,6 @@ class Layer implements LayerInterface, StyleInterface
         return $names;
     }
 
-    /**
-     * Get style by name.
-     */
     public function getStyle(string $name): ?Style
     {
         foreach ($this->getStyleOptions() as $style) {
@@ -339,9 +312,6 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get undocumented variable.
-     */
     public function getExGeographicBoundingBox(): ?ExGeographicBoundingBox
     {
         return $this->exGeographicBoundingBox;
@@ -365,8 +335,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Set undocumented variable.
-     *
      * @param ExGeographicBoundingBox $exGeographicBoundingBox undocumented variable
      */
     public function setExGeographicBoundingBox(ExGeographicBoundingBox $exGeographicBoundingBox): self
@@ -377,8 +345,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Get the value of boundingBoxes.
-     *
      * @return BoundingBox[]
      */
     public function getBoundingBoxes(): array
@@ -415,8 +381,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Set the value of boundingBoxes.
-     *
      * @param BoundingBox[] $boundingBoxes
      */
     public function setBoundingBoxes(array $boundingBoxes): self
@@ -426,16 +390,12 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of minScaleDenominator.
-     */
     public function getMinScaleDenominator(): ?float
     {
         return $this->minScaleDenominator;
     }
 
-    /**
-     * Set the value of minScaleDenominator.
+    /**.
      *
      * @param mixed $minScaleDenominator
      */
@@ -446,17 +406,12 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of maxScaleDenominator.
-     */
     public function getMaxScaleDenominator(): ?float
     {
         return $this->maxScaleDenominator;
     }
 
     /**
-     * Set the value of maxScaleDenominator.
-     *
      * @param mixed $maxScaleDenominator
      */
     public function setMaxScaleDenominator($maxScaleDenominator): self
