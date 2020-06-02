@@ -26,9 +26,9 @@ class Style
     private $title;
 
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\LegendURL")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\LegendURL>")
      *
-     * @var LegendUrl
+     * @var LegendURL[]
      */
     private $legendURL;
 
@@ -56,12 +56,18 @@ class Style
         return $this;
     }
 
-    public function getLegendURL(): LegendURL
+    /**
+     * @return LegendURL[]|null
+     */
+    public function getLegendURL(): ?array
     {
         return $this->legendURL;
     }
 
-    public function setLegendURL(LegendUrl $legendURL): self
+    /**
+     * @param LegendURL[] $legendURL
+     */
+    public function setLegendURL(array $legendURL): self
     {
         $this->legendURL = $legendURL;
 
