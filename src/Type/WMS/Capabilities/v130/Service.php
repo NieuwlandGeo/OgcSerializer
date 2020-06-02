@@ -7,6 +7,7 @@ namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlRoot;
+use Nieuwland\OgcSerializer\Exception\UnexpectedValueException;
 
 /**
  * WMS Capabilities Service.
@@ -40,17 +41,15 @@ class Service
      */
     private $abstract;
 
-    /**
-     * Get the value of name.
-     */
     public function getName(): string
     {
+        if (null === $this->name) {
+            throw UnexpectedValueException::missingProperty('Service', 'name');
+        }
+
         return $this->name;
     }
 
-    /**
-     * Set the value of name.
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -58,17 +57,15 @@ class Service
         return $this;
     }
 
-    /**
-     * Get the value of title.
-     */
     public function getTitle(): string
     {
+        if (null === $this->title) {
+            throw UnexpectedValueException::missingProperty('Service', 'title');
+        }
+
         return $this->title;
     }
 
-    /**
-     * Set the value of title.
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -76,17 +73,11 @@ class Service
         return $this;
     }
 
-    /**
-     * Get the value of abstract.
-     */
-    public function getAbstract(): string
+    public function getAbstract(): ?string
     {
         return $this->abstract;
     }
 
-    /**
-     * Set the value of abstract.
-     */
     public function setAbstract(string $abstract): self
     {
         $this->abstract = $abstract;

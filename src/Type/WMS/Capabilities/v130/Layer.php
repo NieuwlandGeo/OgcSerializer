@@ -11,6 +11,7 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
+use Nieuwland\OgcSerializer\Exception\UnexpectedValueException;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use Nieuwland\OgcSerializer\Type\StyleInterface;
 use function array_merge;
@@ -80,7 +81,7 @@ class Layer implements LayerInterface, StyleInterface
      *
      * @var bool
      */
-    private $queryable;
+    private $queryable = false;
 
     /**
      * @Type("array<string>")
@@ -122,17 +123,11 @@ class Layer implements LayerInterface, StyleInterface
      */
     private $parent;
 
-    /**
-     * Get the value of queryable.
-     */
     public function getQueryable(): bool
     {
         return $this->queryable;
     }
 
-    /**
-     * Set the value of queryable.
-     */
     public function setQueryable(bool $queryable): self
     {
         $this->queryable = $queryable;
@@ -141,8 +136,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Get the value of crs.
-     *
      * @return string[]
      */
     public function getCrs(): ?array
@@ -151,8 +144,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Set the value of crs.
-     *
      * @param string[] $crs
      */
     public function setCrs(array $crs): self
@@ -162,17 +153,11 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of name.
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name.
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -180,17 +165,15 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of title.
-     */
     public function getTitle(): string
     {
+        if (null === $this->title) {
+            throw UnexpectedValueException::missingProperty('Layer', 'title');
+        }
+
         return $this->title;
     }
 
-    /**
-     * Set the value of title.
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -199,8 +182,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Get the value of layers.
-     *
      * @return Layer[]
      */
     public function getLayers(): array
@@ -209,8 +190,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Set the value of layers.
-     *
      * @param Layer[] $layers
      */
     public function setLayers(array $layers): self
@@ -224,17 +203,11 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of parent.
-     */
     public function getParent(): ?Layer
     {
         return $this->parent;
     }
 
-    /**
-     * Set the value of parent.
-     */
     public function setParent(Layer $parent): self
     {
         $this->parent = $parent;
@@ -257,17 +230,11 @@ class Layer implements LayerInterface, StyleInterface
         return array_unique($crs);
     }
 
-    /**
-     * Get the value of abstract.
-     */
-    public function getAbstract(): string
+    public function getAbstract(): ?string
     {
         return $this->abstract;
     }
 
-    /**
-     * Set the value of abstract.
-     */
     public function setAbstract(string $abstract): self
     {
         $this->abstract = $abstract;
@@ -276,8 +243,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Get the value of styles.
-     *
      * @return Style[]
      */
     public function getStyles(): array
@@ -339,9 +304,6 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get undocumented variable.
-     */
     public function getExGeographicBoundingBox(): ?ExGeographicBoundingBox
     {
         return $this->exGeographicBoundingBox;
@@ -364,11 +326,6 @@ class Layer implements LayerInterface, StyleInterface
         return null;
     }
 
-    /**
-     * Set undocumented variable.
-     *
-     * @param ExGeographicBoundingBox $exGeographicBoundingBox undocumented variable
-     */
     public function setExGeographicBoundingBox(ExGeographicBoundingBox $exGeographicBoundingBox): self
     {
         $this->exGeographicBoundingBox = $exGeographicBoundingBox;
@@ -377,11 +334,9 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Get the value of boundingBoxes.
-     *
-     * @return BoundingBox[]
+     * @return BoundingBox[]|null
      */
-    public function getBoundingBoxes(): array
+    public function getBoundingBoxes(): ?array
     {
         return $this->boundingBoxes;
     }
@@ -415,8 +370,6 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
-     * Set the value of boundingBoxes.
-     *
      * @param BoundingBox[] $boundingBoxes
      */
     public function setBoundingBoxes(array $boundingBoxes): self
@@ -426,17 +379,12 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of minScaleDenominator.
-     */
     public function getMinScaleDenominator(): ?float
     {
         return $this->minScaleDenominator;
     }
 
     /**
-     * Set the value of minScaleDenominator.
-     *
      * @param mixed $minScaleDenominator
      */
     public function setMinScaleDenominator($minScaleDenominator): self
@@ -446,20 +394,12 @@ class Layer implements LayerInterface, StyleInterface
         return $this;
     }
 
-    /**
-     * Get the value of maxScaleDenominator.
-     */
     public function getMaxScaleDenominator(): ?float
     {
         return $this->maxScaleDenominator;
     }
 
-    /**
-     * Set the value of maxScaleDenominator.
-     *
-     * @param mixed $maxScaleDenominator
-     */
-    public function setMaxScaleDenominator($maxScaleDenominator): self
+    public function setMaxScaleDenominator(float $maxScaleDenominator): self
     {
         $this->maxScaleDenominator = $this->readScaleDenominator($maxScaleDenominator);
 
@@ -516,6 +456,8 @@ class Layer implements LayerInterface, StyleInterface
     }
 
     /**
+     * Transforms scale denominator to float.
+     *
      * @param mixed $denominator
      */
     private function readScaleDenominator($denominator): ?float

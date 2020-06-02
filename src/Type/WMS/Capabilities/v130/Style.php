@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
 
 /**
  * Base on WMS 1.3.0 style.
@@ -26,23 +27,18 @@ class Style
     private $title;
 
     /**
-     * @Type("Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\LegendURL")
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\LegendURL>")
+     * @XmlList(inline=true, entry="LegendURL", namespace="http://www.opengis.net/wms")
      *
-     * @var LegendUrl
+     * @var LegendURL[]
      */
     private $legendURL;
 
-    /**
-     * Get the value of title.
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * Set the value of title.
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -50,17 +46,11 @@ class Style
         return $this;
     }
 
-    /**
-     * Get the value of name.
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name.
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -68,12 +58,18 @@ class Style
         return $this;
     }
 
-    public function getLegendURL(): LegendURL
+    /**
+     * @return LegendURL[]|null
+     */
+    public function getLegendURL(): ?array
     {
         return $this->legendURL;
     }
 
-    public function setLegendURL(LegendUrl $legendURL): self
+    /**
+     * @param LegendURL[] $legendURL
+     */
+    public function setLegendURL(array $legendURL): self
     {
         $this->legendURL = $legendURL;
 
