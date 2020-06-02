@@ -114,12 +114,12 @@ class Capabilities130Test extends TestCase
         $layer        = $capabilities->getLayer('gemeenten');
         $style        = $layer->getStyle('bestuurlijkegrenzen:bestuurlijkegrenzen_gemeentegrenzen');
         $legendUrl    = $style->getLegendURL();
-        $this->assertEquals('94', $legendUrl->getWidth());
-        $this->assertEquals('40', $legendUrl->getHeight());
-        $this->assertEquals('40', $legendUrl->getHeight());
+        $this->assertEquals('94', $legendUrl['0']->getWidth());
+        $this->assertEquals('40', $legendUrl['0']->getHeight());
+        $this->assertEquals('40', $legendUrl['0']->getHeight());
         $this->assertEquals(
             'https://geodata.nationaalgeoregister.nl/bestuurlijkegrenzen/ows?service=WMS&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=gemeenten',
-            $legendUrl->getOnlineResource()->getHref()
+            $legendUrl['0']->getOnlineResource()->getHref()
         );
     }
 

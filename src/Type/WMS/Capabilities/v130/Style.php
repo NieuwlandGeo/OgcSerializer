@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlList;
 
 /**
  * Base on WMS 1.3.0 style.
@@ -27,6 +28,7 @@ class Style
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\LegendURL>")
+     * @XmlList(inline=true, entry="LegendURL", namespace="http://www.opengis.net/wms")
      *
      * @var LegendURL[]
      */
