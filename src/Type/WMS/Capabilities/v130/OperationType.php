@@ -21,8 +21,6 @@ class OperationType
     private $format = [];
 
     /**
-     * Get the value of format.
-     *
      * @return string[]
      */
     public function getFormat(): array
@@ -31,8 +29,6 @@ class OperationType
     }
 
     /**
-     * Set the value of format.
-     *
      * @param string[] $format
      */
     public function setFormat(array $format): self

@@ -32,17 +32,11 @@ class Style
      */
     private $legendURL;
 
-    /**
-     * Get the value of title.
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * Set the value of title.
-     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -50,17 +44,11 @@ class Style
         return $this;
     }
 
-    /**
-     * Get the value of name.
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name.
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
