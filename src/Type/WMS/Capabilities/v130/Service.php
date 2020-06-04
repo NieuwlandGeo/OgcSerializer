@@ -7,7 +7,6 @@ namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlRoot;
-use Nieuwland\OgcSerializer\Exception\UnexpectedValueException;
 
 /**
  * WMS Capabilities Service.
@@ -43,10 +42,6 @@ class Service
 
     public function getName(): string
     {
-        if (null === $this->name) {
-            throw UnexpectedValueException::missingProperty('Service', 'name');
-        }
-
         return $this->name;
     }
 
@@ -59,10 +54,6 @@ class Service
 
     public function getTitle(): string
     {
-        if (null === $this->title) {
-            throw UnexpectedValueException::missingProperty('Service', 'title');
-        }
-
         return $this->title;
     }
 
