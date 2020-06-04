@@ -11,9 +11,9 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlList;
-use Nieuwland\OgcSerializer\Exception\UnexpectedValueException;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use Nieuwland\OgcSerializer\Type\StyleInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 use function array_merge;
 use function array_unique;
 use function explode;
@@ -39,6 +39,8 @@ class Layer implements LayerInterface, StyleInterface
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var string
+     *
+     * @Assert\NotNull
      */
     private $title;
 
@@ -167,10 +169,6 @@ class Layer implements LayerInterface, StyleInterface
 
     public function getTitle(): string
     {
-        if (null === $this->title) {
-            throw UnexpectedValueException::missingProperty('Layer', 'title');
-        }
-
         return $this->title;
     }
 

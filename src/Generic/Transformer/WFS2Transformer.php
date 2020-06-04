@@ -21,7 +21,10 @@ class WFS2Transformer implements TransformerInterface
      */
     public function transform($data): ServiceCapabilities
     {
-        $title    = $data->getServiceIdentification()->getTitle();
+        $title = null;
+        if ($data->getServiceIdentification()) {
+            $title = $data->getServiceIdentification()->getTitle();
+        }
         $versions = [];
 
         /** @var OperationsMetadata $meta */

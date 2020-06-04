@@ -20,11 +20,19 @@
         "phpunit/phpunit": "^8",
         "squizlabs/php_codesniffer": "*",
         "goetas-webservices/xsd2php": "^0.3.9",
-        "goetas-webservices/xsd2php-runtime": "^0.2.10"
+        "goetas-webservices/xsd2php-runtime": "^0.2.10",
+        "symfony/validator": "^4.4  || ^5.0",
+        "doctrine/annotations": "*",
+        "doctrine/cache": "*"
     },
     "require": {
         "php": "^7.2",
         "jms/serializer": "^3.0",
-        "symfony/dom-crawler": "^4.3"
+        "symfony/dom-crawler": "^4.4 || ^5.0"
+    },
+    "suggest": {
+        "symfony/validator": "^4.4  || ^5.0",
+        "doctrine/annotations": "*",
+        "doctrine/cache": "*"
     }
 }
