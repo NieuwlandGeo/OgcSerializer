@@ -7,6 +7,7 @@ namespace Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlRoot;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * WMS Capabilities Service.
@@ -29,6 +30,8 @@ class Service
      *
      * @Type("string")
      * @XmlElement(namespace="http://www.opengis.net/wms")
+     *
+     * @Assert\NotNull
      */
     private $title;
 

@@ -6,6 +6,7 @@ namespace Nieuwland\OgcSerializer\Type\WFS\Capabilities;
 
 use JMS\Serializer\Annotation\Type;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 abstract class AbstractFeatureType implements LayerInterface
 {
@@ -13,6 +14,8 @@ abstract class AbstractFeatureType implements LayerInterface
      * @Type("string")
      *
      * @var string
+     *
+     * @Assert\NotNull
      */
     private $name;
 
@@ -25,7 +28,6 @@ abstract class AbstractFeatureType implements LayerInterface
 
     /**
      * Get the value of name.
-     *
      */
     public function getName(): ?string
     {
@@ -34,8 +36,6 @@ abstract class AbstractFeatureType implements LayerInterface
 
     /**
      * Set the value of name.
-     *
-     *
      */
     public function setName(string $name): self
     {
@@ -46,7 +46,6 @@ abstract class AbstractFeatureType implements LayerInterface
 
     /**
      * Get the value of title.
-     *
      */
     public function getTitle(): string
     {
@@ -55,8 +54,6 @@ abstract class AbstractFeatureType implements LayerInterface
 
     /**
      * Set the value of title.
-     *
-     *
      */
     public function setTitle(string $title): self
     {

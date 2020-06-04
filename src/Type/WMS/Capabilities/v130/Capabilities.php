@@ -10,6 +10,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @XmlNamespace(uri="http://www.opengis.net/wms")
@@ -30,6 +31,8 @@ class Capabilities implements LayerCollectionInterface
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Service
+     *
+     * @Assert\NotNull
      */
     private $service;
 
@@ -38,12 +41,13 @@ class Capabilities implements LayerCollectionInterface
      * @XmlElement(namespace="http://www.opengis.net/wms")
      *
      * @var Capability
+     *
+     * @Assert\NotNull
      */
     private $capability;
 
     /**
      * Get the value of service.
-     *
      */
     public function getService(): Service
     {
@@ -52,8 +56,6 @@ class Capabilities implements LayerCollectionInterface
 
     /**
      * Set the value of service.
-     *
-     *
      */
     public function setService(Service $service): self
     {
@@ -64,7 +66,6 @@ class Capabilities implements LayerCollectionInterface
 
     /**
      * Get the value of version.
-     *
      */
     public function getVersion(): ?string
     {
@@ -73,8 +74,6 @@ class Capabilities implements LayerCollectionInterface
 
     /**
      * Set the value of version.
-     *
-     *
      */
     public function setVersion(string $version): self
     {
@@ -85,7 +84,6 @@ class Capabilities implements LayerCollectionInterface
 
     /**
      * Get the value of capability.
-     *
      */
     public function getCapability(): Capability
     {
@@ -94,8 +92,6 @@ class Capabilities implements LayerCollectionInterface
 
     /**
      * Set the value of capability.
-     *
-     *
      */
     public function setCapability(Capability $capability): self
     {

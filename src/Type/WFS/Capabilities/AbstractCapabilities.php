@@ -43,7 +43,7 @@ abstract class AbstractCapabilities implements LayerCollectionInterface
         return $this->featureTypeList;
     }
 
-    public function getServiceIdentification(): AbstractServiceIdentification
+    public function getServiceIdentification(): ?AbstractServiceIdentification
     {
         return $this->serviceIdentification;
     }
