@@ -32,6 +32,15 @@ class Operation extends AbstractOperation
     protected $parameters;
 
     /**
+     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Constraint>")
+     * @XmlList(inline=true, entry="Constraint", namespace="http://www.opengis.net/ows/1.1")
+     * @AccessType("public_method")
+     *
+     * @var Constraint[]
+     */
+    protected $constraints;
+
+    /**
      * @param Parameter[] $parameters
      */
     public function setParameters(array $parameters): self
@@ -53,6 +62,31 @@ class Operation extends AbstractOperation
 
     public function getParameter(string $name): ?Parameter
     {
-        return $this->parameters[$name];
+        return $this->parameters[$name] ?? null;
+    }
+
+    /**
+     * @return Constraint[] $constraints
+     */
+    public function getConstraints(): array
+    {
+        return $this->constraints;
+    }
+
+    public function getConstraint(string $name): ?Constraint
+    {
+        return $this->constraints[$name] ?? null;
+    }
+
+    /**
+     * @param Constraint[] $constraints
+     */
+    public function setConstraints(array $constraints): self
+    {
+        foreach ($constraints as $constraint) {
+            $this->constraints[$constraint->getName()] = $constraint;
+        }
+
+        return $this;
     }
 }

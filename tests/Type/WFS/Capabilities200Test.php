@@ -118,6 +118,26 @@ class Capabilities200Test extends TestCase
         $versionParam = $capOperation->getParameter('AcceptVersions');
         $this->assertEquals('AcceptVersions', $versionParam->getName());
         $this->assertCount(3, $versionParam->getAllowedValues()->getValues());
+        $this->assertNull($versionParam->getNoValues());
+    }
+
+    public function testTransactionOperation(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/GetCapabilities_Res_01.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities200 $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities200::class, 'xml');
+        $operationsMeta = $capabilities->getOperationsMetadata();
+        $this->assertInstanceOf(OperationsMetadata::class, $operationsMeta);
+        $this->assertIsArray($operationsMeta->getOperations());
+        $operation = $operationsMeta->getOperation('Transaction');
+        $this->assertEquals('Transaction', $operation->getName());
+        $operation->getConstraint('Unknown');
+        $autolockconstraint = $operation->getConstraint('AutomaticDataLocking');
+        $this->assertEquals('TRUE', $autolockconstraint->getDefaultValue());
+        $this->assertEquals('', $autolockconstraint->getNoValues());
+        $orderconstraint = $operation->getConstraint('PreservesSiblingOrder');
+        $this->assertEquals('TRUE', $orderconstraint->getDefaultValue());
     }
 
     /**
