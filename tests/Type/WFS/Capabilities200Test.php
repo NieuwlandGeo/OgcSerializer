@@ -118,6 +118,7 @@ class Capabilities200Test extends TestCase
         $versionParam = $capOperation->getParameter('AcceptVersions');
         $this->assertEquals('AcceptVersions', $versionParam->getName());
         $this->assertCount(3, $versionParam->getAllowedValues()->getValues());
+        $this->assertNull($versionParam->getNoValues());
     }
 
     public function testTransactionOperation(): void
@@ -133,9 +134,10 @@ class Capabilities200Test extends TestCase
         $this->assertEquals('Transaction', $operation->getName());
         $operation->getConstraint('Unknown');
         $autolockconstraint = $operation->getConstraint('AutomaticDataLocking');
-        // $this->assertTrue($autolockconstraint->getDefaultValue());
+        $this->assertEquals('TRUE', $autolockconstraint->getDefaultValue());
+        $this->assertEquals('', $autolockconstraint->getNoValues());
         $orderconstraint = $operation->getConstraint('PreservesSiblingOrder');
-        // $this->assertTrue($autolockconstraint->getDefaultValue());
+        $this->assertEquals('TRUE', $orderconstraint->getDefaultValue());
     }
 
     /**

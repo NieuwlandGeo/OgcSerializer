@@ -19,6 +19,20 @@ class DomainType
      * @SerializedName("name")
      */
     protected $name;
+    /**
+     * @var string
+     *
+     * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/ows/1.1")
+     */
+    protected $noValues;
+    /**
+     * @var string
+     *
+     * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/ows/1.1")
+     */
+    protected $defaultValue;
 
     /**
      * @Type("Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\AllowedValues")
@@ -51,6 +65,30 @@ class DomainType
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDefaultValue(): ?string
+    {
+        return $this->defaultValue;
+    }
+
+    public function setDefaultValue(?string $defaultValue): self
+    {
+        $this->defaultValue = $defaultValue;
+
+        return $this;
+    }
+
+    public function getNoValues(): ?string
+    {
+        return $this->noValues;
+    }
+
+    public function setNoValues(): self
+    {
+        $this->noValues = '';
 
         return $this;
     }
