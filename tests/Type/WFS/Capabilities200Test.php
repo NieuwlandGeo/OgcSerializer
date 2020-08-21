@@ -140,6 +140,18 @@ class Capabilities200Test extends TestCase
         $this->assertEquals('TRUE', $orderconstraint->getDefaultValue());
     }
 
+    public function testMissingTransactionOperation(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok-20.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities200 $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities200::class, 'xml');
+        $operationsMeta = $capabilities->getOperationsMetadata();
+        $this->assertInstanceOf(OperationsMetadata::class, $operationsMeta);
+        $this->assertIsArray($operationsMeta->getOperations());
+        $this->assertNull($operationsMeta->getOperation('Transaction'));
+    }
+
     /**
      * @doesNotPerformAssertions
      */

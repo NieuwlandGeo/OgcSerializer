@@ -20,9 +20,9 @@ class OperationsMetadata extends AbstractOperationsMetadata
      */
     protected $operations;
 
-    public function getOperation(string $name): Operation
+    public function getOperation(string $name): ?Operation
     {
-        return $this->operations[$name];
+        return $this->operations[$name] ?? null;
     }
 
     /**
