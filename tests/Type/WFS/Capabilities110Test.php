@@ -82,4 +82,16 @@ class Capabilities110Test extends TestCase
         $this->assertEquals('AcceptVersions', $versionParam->getName());
         $this->assertCount(2, $versionParam->getValues());
     }
+
+    public function testMissingTransactionOperation(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoserver_pdok_11.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $operationsMeta = $capabilities->getOperationsMetadata();
+        $this->assertInstanceOf(OperationsMetadata::class, $operationsMeta);
+        $this->assertIsArray($operationsMeta->getOperations());
+        $this->assertNull($operationsMeta->getOperation('Transaction'));
+    }
 }
