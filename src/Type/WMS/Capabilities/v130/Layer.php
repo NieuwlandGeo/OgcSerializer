@@ -407,12 +407,12 @@ class Layer implements LayerInterface, StyleInterface
     /**
      * Get flat array of layernames of all children.
      *
-     * @return string[]|null
+     * @return string[]
      */
-    public function getLayerNames(): ?array
+    public function getLayerNames(): array
     {
         if (! $this->getLayers()) {
-            return null;
+            return [];
         }
         $names = [];
         foreach ($this->getLayers() as $layer) {

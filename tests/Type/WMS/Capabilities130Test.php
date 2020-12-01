@@ -184,6 +184,16 @@ class Capabilities130Test extends TestCase
         $this->assertContains('EPSG:26986', $layer->getCrs());
     }
 
+    public function testEmptyLayers()
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/EmptyLayers.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+
+        $this->assertIsArray($capabilities->getLayerNames());
+    }
+
     /**
      * @doesNotPerformAssertions
      */

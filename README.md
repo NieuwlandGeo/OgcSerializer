@@ -46,6 +46,8 @@ $layer = $capabilities->getLayer('mylayer');
 
 ### extracting common used props
 
+The project has some objects for easy data transfer to clients unaware of differences between the protocols.
+
 ```php
 <?php
 
