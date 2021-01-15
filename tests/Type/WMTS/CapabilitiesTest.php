@@ -113,6 +113,7 @@ class CapabilitiesTest extends TestCase
             $this->assertNotEmpty($style->getIdentifier());
             $this->assertNotEmpty($style->getTitle());
         }
+
         $this->assertTrue($styles['0']->getIsDefault());
         $this->assertFalse($styles['1']->getIsDefault());
         $this->assertEquals('image/png', $styles['0']->getLegendurl()->getFormat());

@@ -27,9 +27,6 @@ class FeatureType extends AbstractFeatureType
      */
     protected $otherCRS;
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefaultCRS(): string
     {
         return $this->defaultCRS;

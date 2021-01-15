@@ -30,17 +30,11 @@ class ServiceCapabilities implements ServiceCapabilitiesInterface
         $this->setLayers($layers);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLayer(string $name): LayerCapabilitiesInterface
     {
         if (false === $this->hasLayer($name)) {

@@ -15,9 +15,8 @@ class FeatureType extends AbstractFeatureType
      * @Type("string")
      * @SerializedName("DefaultSRS")
      *
-     * @var string
      */
-    protected $defaultSRS;
+    protected string $defaultSRS;
 
     /**
      * @Type("array<string>")
@@ -25,7 +24,7 @@ class FeatureType extends AbstractFeatureType
      *
      * @var string[]
      */
-    protected $otherSRS;
+    protected array $otherSRS;
 
     /**
      * {@inheritdoc}
@@ -47,9 +46,6 @@ class FeatureType extends AbstractFeatureType
         return $this->defaultSRS;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDefaultCRS(): string
     {
         return $this->getDefaultSRS();

@@ -26,6 +26,7 @@ class WFS2Transformer implements TransformerInterface
         if ($data->getServiceIdentification()) {
             $title = $data->getServiceIdentification()->getTitle();
         }
+
         $versions = [];
 
         /** @var OperationsMetadata $meta */
@@ -43,12 +44,14 @@ class WFS2Transformer implements TransformerInterface
                 )
             );
         }
+
         $formats                = [];
         $getFeatureOperation    = $meta->getOperation('GetFeature');
         $getFeatureOutputFormat = $getFeatureOperation->getParameter('outputFormat');
         if ($getFeatureOutputFormat) {
             $formats = $getFeatureOutputFormat->getAllowedValues()->getValues();
         }
+
         $layers = $this->findLayers($data->getFeatureTypeList(), $formats);
 
         return new ServiceCapabilities(

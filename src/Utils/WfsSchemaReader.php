@@ -7,6 +7,7 @@ namespace Nieuwland\OgcSerializer\Utils;
 use DOMNode;
 use Symfony\Component\DomCrawler\Crawler;
 
+use function assert;
 use function explode;
 use function is_numeric;
 use function is_string;
@@ -34,6 +35,7 @@ class WfsSchemaReader
         if (! $schemaNode) {
             throw new WfsSchemaException('Schema node at position 0 not found');
         }
+
         $xsdPrefix      = $schemaNode->lookupPrefix('http://www.w3.org/2001/XMLSchema');
         $nameAttr       = $this->getNameAttribute($schemaNode, $name);
         $xpath          = sprintf("//%s:element[@name='%s']", $xsdPrefix, $nameAttr);
@@ -43,6 +45,7 @@ class WfsSchemaReader
         if (! $elementNode) {
             throw new WfsSchemaException(sprintf('Element node with name %s not found', $nameAttr));
         }
+
         $complexTypeName = $elementNode->attributes->getNamedItem('type')->nodeValue;
         $complexNameAttr = $this->getNameAttribute($schemaNode, $complexTypeName);
 
@@ -55,16 +58,16 @@ class WfsSchemaReader
 
         $complexElementCrawler = $crawler->filterXPath($complexElementPath);
         $targetNamespace       = $this->getTargetNameSpace($schemaNode);
-        /** @var DOMNode $element */
         foreach ($complexElementCrawler as $element) {
+            assert($element instanceof DOMNode);
             $fullType = $this->getAttributeValue($element, 'type');
             // if type has prefix
             if (! is_string($fullType)) {
                 $typeName         = '';
                 $typeNamespaceUri = '';
             } elseif (false !== strpos($fullType, ':')) {
-                [$prefix,$typeName] = explode(':', $fullType);
-                $typeNamespaceUri   = $schemaNode->lookupNamespaceUri($prefix);
+                [$prefix, $typeName] = explode(':', $fullType);
+                $typeNamespaceUri    = $schemaNode->lookupNamespaceUri($prefix);
             } else {
                 $typeName         = $fullType;
                 $typeNamespaceUri = $targetNamespace;
@@ -92,12 +95,15 @@ class WfsSchemaReader
         if (! $attr) {
             return null;
         }
+
         if ('true' === $attr->nodeValue) {
             return true;
         }
+
         if ('false' === $attr->nodeValue) {
             return false;
         }
+
         if (is_numeric($attr->nodeValue)) {
             return (int) $attr->nodeValue;
         }

@@ -197,6 +197,7 @@ class Layer implements LayerInterface, StyleInterface
         foreach ($layers as $layer) {
             $layer->setParent($this);
         }
+
         $this->layers = $layers;
 
         return $this;
@@ -318,6 +319,7 @@ class Layer implements LayerInterface, StyleInterface
         if ($this->getExGeographicBoundingBox()) {
             return $this->getExGeographicBoundingBox();
         }
+
         if ($this->getParent() && $this->getParent()->getExGeographicBoundingBoxOption()) {
             return $this->getParent()->getExGeographicBoundingBoxOption();
         }
@@ -350,6 +352,7 @@ class Layer implements LayerInterface, StyleInterface
         if ($this->getBoundingBoxes()) {
             return $this->getBoundingBoxes();
         }
+
         if ($this->getParent()) {
             return $this->getParent()->getBoundingBoxOptions();
         }
@@ -415,14 +418,17 @@ class Layer implements LayerInterface, StyleInterface
         if (! $this->getLayers()) {
             return [];
         }
+
         $names = [];
         foreach ($this->getLayers() as $layer) {
             if ($layer->getLayerNames()) {
                 $names = array_merge($names, $layer->getLayerNames());
             }
+
             if (! $layer->getName()) {
                 continue;
             }
+
             $names[] = $layer->getName();
         }
 
@@ -464,8 +470,9 @@ class Layer implements LayerInterface, StyleInterface
         if (is_numeric($denominator)) {
             return $denominator;
         }
+
         if (strpos($denominator, 'e')) {
-            [$base,$exp] = explode('e', $denominator);
+            [$base, $exp] = explode('e', $denominator);
 
             return pow($base, $exp);
         }

@@ -19,17 +19,21 @@ class ServiceCapabilitiesFactory
         if ($capabilities instanceof ServiceCapabilitiesInterface) {
             return $capabilities;
         }
+
         if ($capabilities instanceof WMTSCapabilities) {
             return self::createFromWMTS($capabilities);
         }
+
         if ($capabilities instanceof WMS13Capabilities) {
             return self::createFromWMS13($capabilities);
         }
+
         if ($capabilities instanceof WFS2Capabilities) {
             $transfomer = new WFS2Transformer();
 
             return $transfomer->transform($capabilities);
         }
+
         if ($capabilities instanceof WFS11Capabilities) {
             return self::createFromWFS11($capabilities);
         }
@@ -48,6 +52,7 @@ class ServiceCapabilitiesFactory
                 $layerTilesetId = $link->getTileMatrixSet();
                 $projections[]  = $capabilities->getContents()->getTileMatrixSet($layerTilesetId)->getSupportedCRS();
             }
+
             $layers[] = new LayerCapabilities(
                 $layer->getIdentifier(),
                 $projections,
