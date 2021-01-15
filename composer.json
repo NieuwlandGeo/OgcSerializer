@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "doctrine/coding-standard": "^6.0",
-        "phpunit/phpunit": "^8",
+        "phpunit/phpunit": "^9",
         "squizlabs/php_codesniffer": "*",
         "symfony/validator": "^4.4  || ^5.0",
         "doctrine/annotations": "*",
