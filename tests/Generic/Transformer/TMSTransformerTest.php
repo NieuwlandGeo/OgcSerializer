@@ -6,6 +6,7 @@ namespace Tests\Type\Generic\Transformer;
 
 use Nieuwland\OgcSerializer\Generic\Transformer\TMSTransformer;
 use PHPUnit\Framework\TestCase;
+
 use function file_get_contents;
 
 class TMSTransformerTest extends TestCase

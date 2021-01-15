@@ -15,6 +15,7 @@ use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Request;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Service;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Style;
 use PHPUnit\Framework\TestCase;
+
 use function file_get_contents;
 
 class Capabilities130Test extends TestCase

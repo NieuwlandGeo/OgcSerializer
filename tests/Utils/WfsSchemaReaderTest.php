@@ -8,6 +8,7 @@ use Nieuwland\OgcSerializer\Utils\WfsSchemaElement;
 use Nieuwland\OgcSerializer\Utils\WfsSchemaException;
 use Nieuwland\OgcSerializer\Utils\WfsSchemaReader;
 use PHPUnit\Framework\TestCase;
+
 use function file_get_contents;
 
 class WfsSchemaReaderTest extends TestCase

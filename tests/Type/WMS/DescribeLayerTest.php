@@ -11,6 +11,7 @@ use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\LayerDescription;
 use Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\Query;
 use Nieuwland\OgcSerializer\Utils;
 use PHPUnit\Framework\TestCase;
+
 use function file_get_contents;
 
 class DescribeLayerTest extends TestCase

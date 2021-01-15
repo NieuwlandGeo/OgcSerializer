@@ -11,6 +11,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlNamespace;
 use JMS\Serializer\Annotation\XmlRoot;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
+
 use function array_keys;
 use function sprintf;
 

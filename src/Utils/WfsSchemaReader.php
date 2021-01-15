@@ -6,6 +6,7 @@ namespace Nieuwland\OgcSerializer\Utils;
 
 use DOMNode;
 use Symfony\Component\DomCrawler\Crawler;
+
 use function explode;
 use function is_numeric;
 use function is_string;

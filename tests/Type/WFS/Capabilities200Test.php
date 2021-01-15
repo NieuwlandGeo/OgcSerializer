@@ -11,6 +11,7 @@ use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureTypeList;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\OperationsMetadata;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\ServiceIdentification;
 use PHPUnit\Framework\TestCase;
+
 use function file_get_contents;
 
 class Capabilities200Test extends TestCase

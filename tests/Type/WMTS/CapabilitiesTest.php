@@ -8,6 +8,7 @@ use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\Capabilities;
 use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\Layer;
 use PHPUnit\Framework\TestCase;
+
 use function current;
 use function file_get_contents;
 

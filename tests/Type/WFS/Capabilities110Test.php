@@ -10,6 +10,7 @@ use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\FeatureTypeList;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\OperationsMetadata;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\ServiceIdentification;
 use PHPUnit\Framework\TestCase;
+
 use function file_get_contents;
 
 class Capabilities110Test extends TestCase

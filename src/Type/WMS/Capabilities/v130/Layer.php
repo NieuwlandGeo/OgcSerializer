@@ -14,6 +14,7 @@ use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\LayerInterface;
 use Nieuwland\OgcSerializer\Type\StyleInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+
 use function array_merge;
 use function array_unique;
 use function explode;

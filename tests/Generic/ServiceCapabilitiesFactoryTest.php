@@ -12,6 +12,7 @@ use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capab
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Capabilities as WMS13Capabilities;
 use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\Capabilities;
 use PHPUnit\Framework\TestCase;
+
 use function file_get_contents;
 
 class ServiceCapabilitiesFactoryTest extends TestCase

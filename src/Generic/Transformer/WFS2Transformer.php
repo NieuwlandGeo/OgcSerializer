@@ -9,6 +9,7 @@ use Nieuwland\OgcSerializer\Generic\ServiceCapabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\FeatureTypeList;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\OperationsMetadata;
+
 use function array_filter;
 use function array_values;
 

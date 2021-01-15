@@ -10,6 +10,7 @@ use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlNamespace;
 use Nieuwland\OgcSerializer\Type\LayerCollectionInterface;
+
 use function array_keys;
 
 /**
