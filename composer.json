@@ -19,7 +19,6 @@
         "doctrine/coding-standard": "^6.0",
         "phpunit/phpunit": "^8",
         "squizlabs/php_codesniffer": "*",
-        "goetas-webservices/xsd2php-runtime": "^0.2.10",
         "symfony/validator": "^4.4  || ^5.0",
         "doctrine/annotations": "*",
         "doctrine/cache": "*"
