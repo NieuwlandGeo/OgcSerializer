@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nieuwland\OgcSerializer\Generic;
 
 /**
- * Shared props of OGC services for display and filtering.
+ * Data Transfer Object of transformed service capabilities for (javascript) clients.
  */
 interface ServiceCapabilitiesInterface
 {
