@@ -17,7 +17,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use function array_merge;
 use function array_unique;
-use function assert;
 use function explode;
 use function is_numeric;
 use function pow;
@@ -194,8 +193,8 @@ class Layer implements LayerInterface, StyleInterface
      */
     public function setLayers(array $layers): self
     {
+        /** @var Layer $layer */
         foreach ($layers as $layer) {
-            assert($layer instanceof Layer);
             $layer->setParent($this);
         }
 

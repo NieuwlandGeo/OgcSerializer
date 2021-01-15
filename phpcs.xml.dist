@@ -12,6 +12,7 @@
         <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing" />
         <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />
         <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint" phpcbf-only="true" />
+        <exclude name="SlevomatCodingStandard.PHP.RequireExplicitAssertion" phpcbf-only="true" />
         <exclude name="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison.DisallowedYodaComparison" />
     </rule>
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireYodaComparison" />
