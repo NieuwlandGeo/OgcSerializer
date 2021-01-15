@@ -25,11 +25,10 @@ class WfsSchemaReader
      *
      * @throws WfsSchemaException
      *
-     * @return WfsSchemaElement[]
      */
-    public function extractFields(string $xsd, string $name): array
+    public function extractFields(string $xsd, string $name): WfsSchema
     {
-        $fields     = [];
+        $schema     = new WfsSchema();
         $crawler    = new Crawler($xsd);
         $schemaNode = $crawler->getNode(0);
         if (! $schemaNode) {
@@ -58,6 +57,7 @@ class WfsSchemaReader
 
         $complexElementCrawler = $crawler->filterXPath($complexElementPath);
         $targetNamespace       = $this->getTargetNameSpace($schemaNode);
+        $schema->setNamespaceUri($targetNamespace);
         foreach ($complexElementCrawler as $element) {
             assert($element instanceof DOMNode);
             $fullType = $this->getAttributeValue($element, 'type');
@@ -73,7 +73,7 @@ class WfsSchemaReader
                 $typeNamespaceUri = $targetNamespace;
             }
 
-            $fields[] = new WfsSchemaElement(
+            $element = new WfsSchemaElement(
                 $this->getAttributeValue($element, 'name'),
                 $typeName,
                 $typeNamespaceUri,
@@ -81,9 +81,10 @@ class WfsSchemaReader
                 $this->getAttributeValue($element, 'minOccurs'),
                 $this->getAttributeValue($element, 'maxOccurs')
             );
+            $schema->addElement($element);
         }
 
-        return $fields;
+        return $schema;
     }
 
     /**

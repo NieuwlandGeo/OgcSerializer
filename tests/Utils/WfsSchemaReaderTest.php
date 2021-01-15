@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Type\WFS;
 
+use Nieuwland\OgcSerializer\Utils\WfsSchema;
 use Nieuwland\OgcSerializer\Utils\WfsSchemaElement;
 use Nieuwland\OgcSerializer\Utils\WfsSchemaException;
 use Nieuwland\OgcSerializer\Utils\WfsSchemaReader;
@@ -13,12 +14,7 @@ use function file_get_contents;
 
 class WfsSchemaReaderTest extends TestCase
 {
-    /**
-     * Undocumented variable.
-     *
-     * @var WfsSchemaReader
-     */
-    private $wfsSchema;
+    private WfsSchemaReader $wfsSchema;
 
     protected function setUp(): void
     {
@@ -29,7 +25,9 @@ class WfsSchemaReaderTest extends TestCase
     {
         $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_geoserver_pdok.xml');
         $fields = $this->wfsSchema->extractFields($xml, 'bestuurlijkegrenzen:gemeenten');
+        $this->assertInstanceOf(WfsSchema::class, $fields);
         $this->assertCount(3, $fields);
+        $this->assertEquals('http://bestuurlijkegrenzen.geonovum.nl', $fields->getNamespaceUri());
         foreach ($fields as $field) {
             $this->assertInstanceOf(WfsSchemaElement::class, $field);
             $this->assertIsString($field->getName());
