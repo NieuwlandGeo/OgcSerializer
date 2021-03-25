@@ -15,6 +15,8 @@ use PHPUnit\Framework\TestCase;
 
 use function file_get_contents;
 
+const FIXTURE_PATH = 'tests/Fixtures';
+
 class ServiceCapabilitiesFactoryTest extends TestCase
 {
     public function testWMTSTitle(): void
@@ -128,5 +130,24 @@ class ServiceCapabilitiesFactoryTest extends TestCase
             $layer->getDataFormats()
         );
         $this->assertEquals('weggegmaximumsnelheden', $layer->getTitle());
+    }
+
+    public function testWFS11WithWfsNamespaceLayers(): void
+    {
+        $xml                 = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_circle_11.xml');
+        $serializer          = SerializerFactory::create();
+        $capabilities        = $serializer->deserialize($xml, WFS11Capabilities::class, 'xml');
+        $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
+        $this->assertCount(1, $genericCapabilities->getLayerNames());
+        $layer = $genericCapabilities->getLayer('djumaobject:zaak');
+        $this->assertContains(
+            'urn:ogc:def:crs:EPSG:4326',
+            $layer->getProjections()
+        );
+        $this->assertContains(
+            'text/xml; subtype=gml/3.1.1',
+            $layer->getDataFormats()
+        );
+        $this->assertEquals('Zaak', $layer->getTitle());
     }
 }

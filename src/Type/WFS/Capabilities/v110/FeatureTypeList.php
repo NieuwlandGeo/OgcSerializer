@@ -16,7 +16,7 @@ class FeatureTypeList extends AbstractFeatureTypeList
 {
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\FeatureType>")
-     * @XmlList(inline=true, entry="FeatureType")
+     * @XmlList(inline=true, entry="FeatureType", namespace="http://www.opengis.net/wfs")
      * @AccessType("public_method")
      *
      * @var FeatureType[]
