@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/Generic/ServiceCapabilitiesFactoryTest.php';
+
+use Tests\Type\Generic\ServiceCapabilitiesFactoryTest;
+
+$test = new ServiceCapabilitiesFactoryTest();
+$test->testWFS11Title();
+$test->testWFS11Layers();
+$test->testWFS11WithWfsNamespaceLayers();
