@@ -7,6 +7,12 @@ require __DIR__ . '/Generic/ServiceCapabilitiesFactoryTest.php';
 use Tests\Type\Generic\ServiceCapabilitiesFactoryTest;
 
 $test = new ServiceCapabilitiesFactoryTest();
+$test->testWMTSTitle();
+$test->testWMTSLayers();
+$test->testWMSTitle();
+$test->testWMSLayers();
+$test->testWFS2Title();
+$test->testWFS2Layers();
 $test->testWFS11Title();
 $test->testWFS11Layers();
 $test->testWFS11WithWfsNamespaceLayers();
