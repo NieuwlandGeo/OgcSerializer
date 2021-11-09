@@ -61,8 +61,9 @@ class ServiceCapabilitiesFactory
                 $layer->getFormats()
             );
         }
+        $tileMatrixSets = $capabilities->getContents()->getTileMatrixSets();
 
-        return new ServiceCapabilities($title, $layers, [$capabilities->getVersion()]);
+        return new ServiceCapabilities($title, $layers, [$capabilities->getVersion()], $tileMatrixSets);
     }
 
     private static function createFromWMS13(WMS13Capabilities $capabilities): ServiceCapabilities

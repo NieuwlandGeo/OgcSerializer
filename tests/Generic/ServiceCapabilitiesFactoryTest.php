@@ -11,6 +11,7 @@ use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capa
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Capabilities as WMS13Capabilities;
 use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\Capabilities;
+use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\TileMatrix;
 use PHPUnit\Framework\TestCase;
 
 use function file_get_contents;
@@ -48,6 +49,10 @@ class ServiceCapabilitiesFactoryTest extends TestCase
             $genericCapabilities->getLayer('coastlines')->getProjections()
         );
         $this->assertEquals('Coastlines', $layer->getTitle());
+        $tileMatrixSet = $genericCapabilities->getTileMatrixSet('BigWorld');
+        $this->assertCount(2, $tileMatrixSet->getTileMatrixes());
+        $this->assertInstanceOf(TileMatrix::class, $tileMatrixSet->getTileMatrixes()[0]);
+        $this->assertInstanceOf(TileMatrix::class, $tileMatrixSet->getTileMatrixes()[1]);
     }
 
     public function testWMSTitle(): void
