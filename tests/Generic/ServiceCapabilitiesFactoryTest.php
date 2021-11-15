@@ -6,6 +6,7 @@ namespace Tests\Type\Generic;
 
 use Nieuwland\OgcSerializer\Generic\LayerCapabilitiesInterface;
 use Nieuwland\OgcSerializer\Generic\ServiceCapabilitiesFactory;
+use Nieuwland\OgcSerializer\Generic\WMTS\ServiceWMTSCapabilitiesInterface;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
@@ -36,6 +37,7 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $serializer   = SerializerFactory::create();
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $this->assertInstanceOf(Capabilities::class, $capabilities);
+        /** @var ServiceWMTSCapabilitiesInterface $genericCapabilities */
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(1, $genericCapabilities->getLayerNames());
         $this->assertContains('coastlines', $genericCapabilities->getLayerNames());

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nieuwland\OgcSerializer\Generic;
 
 use Nieuwland\OgcSerializer\Generic\Transformer\WFS2Transformer;
+use Nieuwland\OgcSerializer\Generic\WMTS\ServiceWMTSCapabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\OperationsMetadata as OperationsMetadata1;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
@@ -63,7 +64,7 @@ class ServiceCapabilitiesFactory
         }
         $tileMatrixSets = $capabilities->getContents()->getTileMatrixSets();
 
-        return new ServiceCapabilities($title, $layers, [$capabilities->getVersion()], $tileMatrixSets);
+        return new ServiceWMTSCapabilities($title, $layers, [$capabilities->getVersion()], $tileMatrixSets);
     }
 
     private static function createFromWMS13(WMS13Capabilities $capabilities): ServiceCapabilities
