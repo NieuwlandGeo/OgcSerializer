@@ -48,6 +48,12 @@ class ServiceCapabilitiesFactoryTest extends TestCase
             $genericCapabilities->getLayer('coastlines')->getProjections()
         );
         $this->assertEquals('Coastlines', $layer->getTitle());
+        $this->assertEquals('image/png', $layer->getResourceUrl()[0]->getFormat());
+        $this->assertEquals('tile', $layer->getResourceUrl()[0]->getResourceType());
+        $this->assertEquals(
+            'https://dummy/lyr/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png',
+            $layer->getResourceUrl()[0]->getTemplate()
+        );
     }
 
     public function testWMSTitle(): void

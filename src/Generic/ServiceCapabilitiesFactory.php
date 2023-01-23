@@ -58,7 +58,9 @@ class ServiceCapabilitiesFactory
                 $projections,
                 $layer->getTitle(),
                 null,
-                $layer->getFormats()
+                $layer->getFormats(),
+                null,
+                $layer->getResourceUrl()
             );
         }
 

@@ -18,6 +18,8 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     private $projections;
     /** @var string[]|null */
     private $infoFormats;
+    /** @var string[]|null */
+    private $resourceUrl;
 
     /**
      * @param string[] $projections
@@ -30,7 +32,8 @@ class LayerCapabilities implements LayerCapabilitiesInterface
         ?string $title = null,
         ?string $defaultCrs = null,
         ?array $dataFormats = null,
-        ?array $infoFormats = null
+        ?array $infoFormats = null,
+        ?array $resourceUrl = null
     ) {
         $this->name        = $name;
         $this->title       = $title;
@@ -38,6 +41,7 @@ class LayerCapabilities implements LayerCapabilitiesInterface
         $this->dataFormats = $dataFormats;
         $this->projections = $projections;
         $this->infoFormats = $infoFormats;
+        $this->resourceUrl = $resourceUrl;
     }
 
     public function getName(): string
@@ -77,5 +81,13 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     public function getProjections(): array
     {
         return $this->projections;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getResourceUrl(): ?array
+    {
+        return $this->resourceUrl;
     }
 }
