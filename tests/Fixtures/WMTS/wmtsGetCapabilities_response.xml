@@ -98,6 +98,7 @@
 			<TileMatrixSetLink>
 				<TileMatrixSet>BigWorld</TileMatrixSet>
 			</TileMatrixSetLink>
+			<ResourceURL format="image/png" resourceType="tile" template="https://dummy/lyr/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png"/>
 		</Layer>
 		<!-- [ ... other layers ... ] -->
 		<TileMatrixSet>

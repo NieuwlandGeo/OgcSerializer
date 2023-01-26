@@ -58,6 +58,14 @@ class Layer implements StyleInterface
     protected $tileMatrixSetLinks;
 
     /**
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\ResourceUrl>")
+     * @XmlList(inline=true, entry="ResourceURL")
+     *
+     * @var ResourceUrl[]
+     */
+    protected $resourceUrl;
+
+    /**
      * Get the value of title.
      */
     public function getTitle(): string
@@ -122,5 +130,13 @@ class Layer implements StyleInterface
         }
 
         return $names;
+    }
+
+    /**
+     * @return ResourceUrl[]
+     */
+    public function getResourceUrl(): array
+    {
+        return $this->resourceUrl;
     }
 }
