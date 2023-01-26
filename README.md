@@ -24,7 +24,7 @@ composer require nieuwland/ogc-serializer
 
 ## Planned
 
-*This package is in early development!*
+*This package is in development!*
 
 (de)Serialize WMS, WFS and WMTS getCapabilities and related.
 
