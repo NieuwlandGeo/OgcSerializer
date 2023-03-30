@@ -14,7 +14,7 @@ class ServiceIdentification extends AbstractServiceIdentification
      * @Type("string")
      * @XmlElement(namespace="http://www.opengis.net/ows")
      *
-     * @var string
+     * @var string|null
      */
     protected $title;
 }
