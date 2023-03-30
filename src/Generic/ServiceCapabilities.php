@@ -11,7 +11,7 @@ use InvalidArgumentException;
  */
 class ServiceCapabilities implements ServiceCapabilitiesInterface
 {
-    /** @var string */
+    /** @var string|null */
     private $title;
 
     /** @var LayerCapabilitiesInterface[] */
@@ -23,14 +23,14 @@ class ServiceCapabilities implements ServiceCapabilitiesInterface
      * @param LayerCapabilitiesInterface[] $layers
      * @param string[]                     $versions
      */
-    public function __construct(string $title, array $layers, array $versions)
+    public function __construct(?string $title, array $layers, array $versions)
     {
         $this->title    = $title;
         $this->versions = $versions;
         $this->setLayers($layers);
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }

@@ -95,4 +95,14 @@ class Capabilities110Test extends TestCase
         $this->assertIsArray($operationsMeta->getOperations());
         $this->assertNull($operationsMeta->getOperation('Transaction'));
     }
+
+    public function testTitle(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WFS/Capabilities_geoplex.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities   = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $identification = $capabilities->getServiceIdentification();
+        $this->assertNull($identification->getTitle());
+    }
 }

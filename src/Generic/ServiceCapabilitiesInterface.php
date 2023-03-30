@@ -9,7 +9,7 @@ namespace Nieuwland\OgcSerializer\Generic;
  */
 interface ServiceCapabilitiesInterface
 {
-    public function getTitle(): string;
+    public function getTitle(): ?string;
 
     public function hasLayer(string $name): bool;
 
