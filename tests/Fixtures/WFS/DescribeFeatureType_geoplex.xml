@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://ogr.maptools.org/"
+  xmlns:plexmap="https://k1348.w.geoplex.de/interface/wfs/01788627-b312-4561-9a54-5c154c677626/schema"
+  xmlns:ogr="http://ogr.maptools.org/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:gml="http://www.opengis.net/gml"
+  xmlns:wfs="http://www.opengis.net/wfs" elementFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/2.1.2/feature.xsd"/>
+  <xs:element name="test_solar_cadastre_roofs" type="plexmap:test_solar_cadastre_roofs" substitutionGroup="gml:_Feature"/>
+  <xs:complexType name="test_solar_cadastre_roofs">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractFeatureType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="geometryProperty" nillable="true" type="gml:MultiPolygonPropertyType"/>
+          <xs:element minOccurs="0" name="BuildingID" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="RoofID" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="Slope" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Aspect" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="RoofType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Power" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Eignung" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="Eignung_T" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="Eignung_G" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="Aufstd" nillable="true" type="xs:bool"/>
+          <xs:element minOccurs="0" name="Area" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="PvArea" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="PvAreaT" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="GreenArea" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ErtKwP_K" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ErtKwP_KA" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ErtKwhaK" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ErtKwhaKA" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="PercentMs" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="PercentMsA" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Schatten" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SchattenA" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SchattenT" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="CO2Savings" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Yield" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ModuleCount" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Irradiation" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Area3D" nillable="true" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

@@ -130,7 +130,7 @@ class WfsSchemaReader
     private function getNameAttribute(DOMNode $schemaNode, string $name): string
     {
         $namePrefix       = strstr($name, ':', true);
-        $elementNameSpace = $schemaNode->lookupNamespaceUri($namePrefix);
+        $elementNameSpace = $schemaNode->lookupNamespaceUri('ogr') ?? $schemaNode->lookupNamespaceUri($namePrefix);
         $targetNameSpace  = $this->getTargetNameSpace($schemaNode);
 
         return $targetNameSpace === $elementNameSpace
