@@ -25,6 +25,7 @@ class LayerCapabilities implements LayerCapabilitiesInterface
      * @param string[] $projections
      * @param string[] $dataFormats
      * @param string[] $infoFormats
+     * @param string[] $resourceUrl
      */
     public function __construct(
         string $name,
