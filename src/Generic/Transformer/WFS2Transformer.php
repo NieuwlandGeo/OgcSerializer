@@ -76,7 +76,10 @@ class WFS2Transformer implements TransformerInterface
                 $featureType->getCrsOptions(),
                 $featureType->getTitle(),
                 $featureType->getDefaultCrs(),
-                $formats
+                $formats,
+                null,
+                null,
+                $featureType->getMetadataURL()
             );
         }
 

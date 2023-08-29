@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use function array_merge;
 use function array_unique;
+use function count;
 use function explode;
 use function is_numeric;
 use function pow;
@@ -52,6 +53,14 @@ class Layer implements LayerInterface, StyleInterface
      * @var string
      */
     private $abstract;
+
+    /**
+     * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\MetadataURL>")
+     * @XmlList(inline=true, entry="MetadataURL", namespace="http://www.opengis.net/wms")
+     *
+     * @var MetadataURL[]
+     */
+    private $metadataURLs;
 
     /**
      * @Type("array<Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Style>")
@@ -238,6 +247,24 @@ class Layer implements LayerInterface, StyleInterface
     public function setAbstract(string $abstract): self
     {
         $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    /**
+     * @return MetadataURL[]
+     */
+    public function getMetadataURLs(): array
+    {
+        return $this->metadataURLs;
+    }
+
+    /**
+     * @param MetadataURL[] $metadataURLs
+     */
+    public function setMetadataURL(array $metadataURLs): self
+    {
+        $this->metadataURLs = $metadataURLs;
 
         return $this;
     }
@@ -478,5 +505,14 @@ class Layer implements LayerInterface, StyleInterface
         }
 
         return null;
+    }
+
+    public function getMetadataURL(): ?string
+    {
+        if (0 === count($this->metadataURLs)) {
+            return null;
+        }
+
+        return $this->metadataURLs[0]->getOnlineResource()->getHref();
     }
 }

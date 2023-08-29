@@ -17,4 +17,6 @@ interface LayerInterface
      * @return string[]
      */
     public function getCrsOptions(): array;
+
+    public function getMetadataURL(): ?string;
 }
