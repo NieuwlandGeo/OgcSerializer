@@ -184,7 +184,7 @@ class Capabilities200Test extends TestCase
         }
 
         $this->assertCount(1, $featureTypes['weggeg:weggegaantalrijbanen']->getMetadataURLs());
-        $this->assertCount(1, $featureTypes['weggeg:weggegaantalrijbanen']->getMetadataURLs());
+        $this->assertCount(1, $featureTypes['weggeg:weggegmaximumsnelheden']->getMetadataURLs());
         $this->assertEquals(
             'http://nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=27df6b33-194c-46d6-ac94-257c306c91f2',
             $featureTypes['weggeg:weggegaantalrijbanen']->getMetadataURL()
