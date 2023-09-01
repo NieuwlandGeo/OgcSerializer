@@ -81,7 +81,9 @@ class ServiceCapabilitiesFactory
                 $layer->getTitle(),
                 null,
                 $capabilities->getCapability()->getRequest()->getGetMap()->getFormat(),
-                $capabilities->getCapability()->getRequest()->getGetFeatureInfo()->getFormat()
+                $capabilities->getCapability()->getRequest()->getGetFeatureInfo()->getFormat(),
+                null,
+                $layer->getMetadataURL()
             );
         }
 
@@ -108,7 +110,10 @@ class ServiceCapabilitiesFactory
                 $featureType->getCrsOptions(),
                 $featureType->getTitle(),
                 $featureType->getDefaultCrs(),
-                $formats
+                $formats,
+                null,
+                null,
+                $featureType->getMetadataURL()
             );
         }
 

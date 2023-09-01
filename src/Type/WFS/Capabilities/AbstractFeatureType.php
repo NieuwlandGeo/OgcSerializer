@@ -71,4 +71,6 @@ abstract class AbstractFeatureType implements LayerInterface
      * Get de default Crs.
      */
     abstract public function getDefaultCrs(): string;
+
+    abstract public function getMetadataURL(): ?string;
 }

@@ -207,4 +207,29 @@ class Capabilities130Test extends TestCase
         $serializer = SerializerFactory::create();
         $serializer->serialize($capabilities, 'xml');
     }
+
+    public function testMetadataURL(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_pdok_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $this->assertCount(3, $capabilities->getLayerNames());
+        foreach ($capabilities->getLayerNames() as $layerName) {
+            $this->assertCount(1, $capabilities->getLayer($layerName)->getMetadataURLs());
+        }
+
+        $this->assertEquals(
+            'http://nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=c5c4a6d6-b850-473c-8ab5-af9c2c550809',
+            $capabilities->getLayer('gemeenten')->getMetadataURL()
+        );
+        $this->assertEquals(
+            'http://nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=c5c4a6d6-b850-473c-8ab5-af9c2c550809',
+            $capabilities->getLayer('landsgrens')->getMetadataURL()
+        );
+        $this->assertEquals(
+            'http://nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=c5c4a6d6-b850-473c-8ab5-af9c2c550809',
+            $capabilities->getLayer('provincies')->getMetadataURL()
+        );
+    }
 }

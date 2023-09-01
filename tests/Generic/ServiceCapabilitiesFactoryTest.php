@@ -108,6 +108,10 @@ class ServiceCapabilitiesFactoryTest extends TestCase
             $layer->getDataFormats()
         );
         $this->assertEquals('weggegmaximumsnelheden', $layer->getTitle());
+        $this->assertEquals(
+            'http://nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=abaf1e22-55aa-4a11-a855-7ac963e4a82b',
+            $layer->getMetadataUrl()
+        );
     }
 
     public function testWFS11Title(): void
@@ -136,6 +140,10 @@ class ServiceCapabilitiesFactoryTest extends TestCase
             $layer->getDataFormats()
         );
         $this->assertEquals('weggegmaximumsnelheden', $layer->getTitle());
+        $this->assertEquals(
+            'http://nationaalgeoregister.nl/geonetwork/srv/dut/xml.metadata.get?uuid=abaf1e22-55aa-4a11-a855-7ac963e4a82b',
+            $layer->getMetadataUrl()
+        );
     }
 
     public function testWFS11WithWfsNamespaceLayers(): void

@@ -44,6 +44,13 @@ class FeatureType extends AbstractFeatureType
      */
     protected array $otherSRS;
 
+    /**
+     * @Type("string")
+     * @XmlElement(namespace="http://www.opengis.net/wfs")
+     * @SerializedName("MetadataURL")
+     */
+    protected ?string $metadataURL = null;
+
     public function getName(): string
     {
         return $this->name;
@@ -110,6 +117,24 @@ class FeatureType extends AbstractFeatureType
     public function setOtherSRS(array $otherSRS): self
     {
         $this->otherSRS = $otherSRS;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of metadataURL.
+     */
+    public function getMetadataURL(): ?string
+    {
+        return $this->metadataURL;
+    }
+
+    /**
+     * Set the value of metadataURL.
+     */
+    public function setMetadataURL(?string $metadataURL): self
+    {
+        $this->metadataURL = $metadataURL;
 
         return $this;
     }

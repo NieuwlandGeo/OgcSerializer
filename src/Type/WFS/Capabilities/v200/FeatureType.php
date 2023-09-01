@@ -9,6 +9,8 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlList;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\AbstractFeatureType;
 
+use function count;
+
 class FeatureType extends AbstractFeatureType
 {
     /**
@@ -26,6 +28,14 @@ class FeatureType extends AbstractFeatureType
      * @var string[]
      */
     protected $otherCRS;
+
+    /**
+     * @Type("array<Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\MetadataURL>")
+     * @XmlList(inline=true, entry="MetadataURL")
+     *
+     * @var MetadataURL[]
+     */
+    private $metadataURLs;
 
     public function getDefaultCRS(): string
     {
@@ -73,5 +83,32 @@ class FeatureType extends AbstractFeatureType
         $crs[] = $this->getDefaultCRS();
 
         return $crs;
+    }
+
+    /**
+     * @return MetadataURL[]
+     */
+    public function getMetadataURLs(): array
+    {
+        return $this->metadataURLs;
+    }
+
+    /**
+     * @param MetadataURL[] $metadataURLs
+     */
+    public function setMetadataURLs(array $metadataURLs): self
+    {
+        $this->metadataURLs = $metadataURLs;
+
+        return $this;
+    }
+
+    public function getMetadataURL(): ?string
+    {
+        if (0 === count($this->metadataURLs)) {
+            return null;
+        }
+
+        return $this->metadataURLs[0]->getHref();
     }
 }

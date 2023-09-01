@@ -46,4 +46,6 @@ interface LayerCapabilitiesInterface
      * @return ResourceUrl[]
      */
     public function getResourceUrl(): ?array;
+
+    public function getMetadataUrl(): ?string;
 }
