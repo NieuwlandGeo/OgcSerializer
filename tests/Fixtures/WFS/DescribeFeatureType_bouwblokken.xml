@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<schema
+   xmlns="http://www.w3.org/2001/XMLSchema"
+   xmlns:app="https://api.data.azure.amsterdam.nl/v1/wfs/"
+   xmlns:gml="http://www.opengis.net/gml/3.2"
+   targetNamespace="https://api.data.azure.amsterdam.nl/v1/wfs/"
+   elementFormDefault="qualified" version="0.1">
+
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />
+
+  <element name="bouwblokken" type="app:BouwblokkenType" substitutionGroup="gml:AbstractFeature" />
+
+  <complexType name="BouwblokkenType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="id" type="string" minOccurs="0" />
+          <element name="identificatie" type="string" minOccurs="0" />
+          <element name="volgnummer" type="integer" minOccurs="0" />
+          <element name="registratiedatum" type="dateTime" minOccurs="0" nillable="true" />
+          <element name="code" type="string" minOccurs="0" nillable="true" />
+          <element name="begin_geldigheid" type="dateTime" minOccurs="0" nillable="true" />
+          <element name="eind_geldigheid" type="dateTime" minOccurs="0" nillable="true" />
+          <element name="ligt_in_buurt_id" type="string" minOccurs="0" nillable="true" />
+          <element name="ligt_in_buurt_identificatie" type="string" minOccurs="0" nillable="true" />
+          <element name="ligt_in_buurt_volgnummer" type="integer" minOccurs="0" nillable="true" />
+          <element name="geometrie" type="gml:SurfacePropertyType" minOccurs="0" maxOccurs="1" nillable="true" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+</schema>

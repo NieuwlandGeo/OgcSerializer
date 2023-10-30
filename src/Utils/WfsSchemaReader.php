@@ -35,7 +35,7 @@ class WfsSchemaReader
             throw new WfsSchemaException('Schema node at position 0 not found');
         }
 
-        $xsdPrefix      = $schemaNode->lookupPrefix('http://www.w3.org/2001/XMLSchema');
+        $xsdPrefix      = $schemaNode->lookupPrefix('http://www.w3.org/2001/XMLSchema') ?? 'default';
         $nameAttr       = $this->getNameAttribute($schemaNode, $name);
         $xpath          = sprintf("//%s:element[@name='%s']", $xsdPrefix, $nameAttr);
         $elementCrawler = $crawler->filterXPath($xpath);

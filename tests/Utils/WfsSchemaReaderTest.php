@@ -101,6 +101,20 @@ class WfsSchemaReaderTest extends TestCase
         }
     }
 
+    public function testExtractFieldsFromBouwblokken(): void
+    {
+        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_bouwblokken.xml');
+        $fields = $this->wfsSchema->extractFields($xml, 'app:bouwblokken');
+        $this->assertCount(11, $fields);
+        foreach ($fields as $field) {
+            $this->assertInstanceOf(WfsSchemaElement::class, $field);
+            $this->assertIsString($field->getName());
+            $this->assertIsString($field->getTypeName());
+            $this->assertStringNotContainsString(':', $field->getTypeName());
+            $this->assertIsInt($field->getMinOccurs());
+        }
+    }
+
     public function testExceptionWhenEmptyString(): void
     {
         $this->expectException(WfsSchemaException::class);
