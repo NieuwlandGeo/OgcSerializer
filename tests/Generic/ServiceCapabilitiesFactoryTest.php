@@ -164,4 +164,23 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         );
         $this->assertEquals('Zaak', $layer->getTitle());
     }
+
+    public function testWMSWithoutTitle(): void
+    {
+        $xml                 = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_qgis_raap_130.xml');
+        $serializer          = SerializerFactory::create();
+        $capabilities        = $serializer->deserialize($xml, WMS13Capabilities::class, 'xml');
+        $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
+        $this->assertCount(5, $genericCapabilities->getLayerNames());
+        $layer = $genericCapabilities->getLayer('Gemeentegrens');
+        $this->assertContains(
+            'CRS:84',
+            $layer->getProjections()
+        );
+        $this->assertContains(
+            'application/dxf',
+            $layer->getDataFormats()
+        );
+        $this->assertEquals('Gemeentegrens', $layer->getTitle());
+    }
 }

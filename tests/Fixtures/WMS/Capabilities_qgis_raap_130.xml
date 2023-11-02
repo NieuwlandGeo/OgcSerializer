@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WMS_Capabilities xmlns:sld="http://www.opengis.net/sld" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd https://services.raap.nl:443/qgis/soer3/ows?SERVICE=WMS&amp;REQUEST=GetSchemaExtension" version="1.3.0" xmlns="http://www.opengis.net/wms" xmlns:qgs="http://www.qgis.org/wms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <Service>
+  <Name>WMS</Name>
+  <KeywordList>
+   <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+  </KeywordList>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows" xlink:type="simple"/>
+  <Fees>conditions unknown</Fees>
+  <AccessConstraints>None</AccessConstraints>
+ </Service>
+ <Capability>
+  <Request>
+   <GetCapabilities>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetCapabilities>
+   <GetMap>
+    <Format>image/jpeg</Format>
+    <Format>image/png</Format>
+    <Format>image/png; mode=16bit</Format>
+    <Format>image/png; mode=8bit</Format>
+    <Format>image/png; mode=1bit</Format>
+    <Format>application/dxf</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetMap>
+   <GetFeatureInfo>
+    <Format>text/plain</Format>
+    <Format>text/html</Format>
+    <Format>text/xml</Format>
+    <Format>application/vnd.ogc.gml</Format>
+    <Format>application/vnd.ogc.gml/3.1.1</Format>
+    <Format>application/json</Format>
+    <Format>application/geo+json</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetFeatureInfo>
+   <sld:GetLegendGraphic>
+    <Format>image/jpeg</Format>
+    <Format>image/png</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </sld:GetLegendGraphic>
+   <sld:DescribeLayer>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </sld:DescribeLayer>
+   <qgs:GetStyles>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </qgs:GetStyles>
+  </Request>
+  <Exception>
+   <Format>XML</Format>
+  </Exception>
+  <sld:UserDefinedSymbolization UserLayer="0" UserStyle="1" RemoteWFS="0" SupportSLD="1" RemoteWCS="0" InlineFeature="0"/>
+  <Layer queryable="1">
+   <KeywordList>
+    <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+   </KeywordList>
+   <CRS>CRS:84</CRS>
+   <CRS>EPSG:28992</CRS>
+   <CRS>EPSG:4326</CRS>
+   <CRS>EPSG:3857</CRS>
+   <EX_GeographicBoundingBox>
+    <westBoundLongitude>5.24276</westBoundLongitude>
+    <eastBoundLongitude>5.35006</eastBoundLongitude>
+    <southBoundLatitude>52.1101</southBoundLatitude>
+    <northBoundLatitude>52.2047</northBoundLatitude>
+   </EX_GeographicBoundingBox>
+   <BoundingBox CRS="EPSG:3857" minx="583621" maxx="595566" miny="6.82007e+6" maxy="6.83721e+6"/>
+   <BoundingBox CRS="EPSG:4326" minx="52.1101" maxx="52.2047" miny="5.24276" maxy="5.35006"/>
+   <BoundingBox CRS="EPSG:28992" minx="145126" maxx="152455" miny="458000" maxy="468506"/>
+   <Layer queryable="1">
+    <Name>Gemeentegrens</Name>
+    <Title>Gemeentegrens</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:28992</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>5.24306</westBoundLongitude>
+     <eastBoundLongitude>5.34998</eastBoundLongitude>
+     <southBoundLatitude>52.1102</southBoundLatitude>
+     <northBoundLatitude>52.2046</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:3857" minx="583655" maxx="595557" miny="6.82008e+6" maxy="6.8372e+6"/>
+    <BoundingBox CRS="EPSG:4326" minx="52.1102" maxx="52.2046" miny="5.24306" maxy="5.34998"/>
+    <BoundingBox CRS="EPSG:28992" minx="145147" maxx="152450" miny="458007" maxy="468498"/>
+    <Style>
+     <Name>default</Name>
+     <Title>default</Title>
+     <LegendURL>
+      <Format>image/png</Format>
+      <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Gemeentegrens&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+     </LegendURL>
+    </Style>
+   </Layer>
+   <Layer queryable="1">
+    <Name>Rijksmonumenten</Name>
+    <Title>Rijksmonumenten</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:28992</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>5.26312</westBoundLongitude>
+     <eastBoundLongitude>5.3288</eastBoundLongitude>
+     <southBoundLatitude>52.1174</southBoundLatitude>
+     <northBoundLatitude>52.1916</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:3857" minx="585888" maxx="593200" miny="6.82138e+6" maxy="6.83485e+6"/>
+    <BoundingBox CRS="EPSG:4326" minx="52.1174" maxx="52.1916" miny="5.26312" maxy="5.3288"/>
+    <BoundingBox CRS="EPSG:28992" minx="146515" maxx="151000" miny="458802" maxy="467057"/>
+    <Style>
+     <Name>default</Name>
+     <Title>default</Title>
+     <LegendURL>
+      <Format>image/png</Format>
+      <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Rijksmonumenten&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+     </LegendURL>
+    </Style>
+   </Layer>
+   <Layer queryable="1">
+    <Name>Gemeentelijke monumenten</Name>
+    <Title>Gemeentelijke monumenten</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:28992</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>5.24439</westBoundLongitude>
+     <eastBoundLongitude>5.3295</eastBoundLongitude>
+     <southBoundLatitude>52.1184</southBoundLatitude>
+     <northBoundLatitude>52.1922</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:3857" minx="583803" maxx="593277" miny="6.82155e+6" maxy="6.83496e+6"/>
+    <BoundingBox CRS="EPSG:4326" minx="52.1184" maxx="52.1922" miny="5.24439" maxy="5.3295"/>
+    <BoundingBox CRS="EPSG:28992" minx="145235" maxx="151048" miny="458913" maxy="467123"/>
+    <Style>
+     <Name>default</Name>
+     <Title>default</Title>
+     <LegendURL>
+      <Format>image/png</Format>
+      <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Gemeentelijke monumenten&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+     </LegendURL>
+    </Style>
+   </Layer>
+   <Layer queryable="1">
+    <Name>Beeldbepalende panden</Name>
+    <Title>Beeldbepalende panden</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:28992</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>5.24821</westBoundLongitude>
+     <eastBoundLongitude>5.34227</eastBoundLongitude>
+     <southBoundLatitude>52.1168</southBoundLatitude>
+     <northBoundLatitude>52.1902</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:3857" minx="584228" maxx="594699" miny="6.82128e+6" maxy="6.8346e+6"/>
+    <BoundingBox CRS="EPSG:4326" minx="52.1168" maxx="52.1902" miny="5.24821" maxy="5.34227"/>
+    <BoundingBox CRS="EPSG:28992" minx="145496" maxx="151923" miny="458743" maxy="466902"/>
+    <Style>
+     <Name>default</Name>
+     <Title>default</Title>
+     <LegendURL>
+      <Format>image/png</Format>
+      <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Beeldbepalende panden&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+     </LegendURL>
+    </Style>
+   </Layer>
+   <Layer queryable="1">
+    <Name>Beeldondersteunende panden</Name>
+    <Title>Beeldondersteunende panden</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:28992</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>5.24671</westBoundLongitude>
+     <eastBoundLongitude>5.32816</eastBoundLongitude>
+     <southBoundLatitude>52.1171</southBoundLatitude>
+     <northBoundLatitude>52.1872</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:3857" minx="584061" maxx="593128" miny="6.82132e+6" maxy="6.83405e+6"/>
+    <BoundingBox CRS="EPSG:4326" minx="52.1171" maxx="52.1872" miny="5.24671" maxy="5.32816"/>
+    <BoundingBox CRS="EPSG:28992" minx="145393" maxx="150956" miny="458770" maxy="466566"/>
+    <Style>
+     <Name>default</Name>
+     <Title>default</Title>
+     <LegendURL>
+      <Format>image/png</Format>
+      <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://services.raap.nl:443/qgis/soer3/ows?&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Beeldondersteunende panden&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+     </LegendURL>
+    </Style>
+   </Layer>
+  </Layer>
+ </Capability>
+</WMS_Capabilities>
