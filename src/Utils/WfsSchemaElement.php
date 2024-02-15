@@ -19,19 +19,29 @@ class WfsSchemaElement
     private $typeName;
     /** @var string */
     private $typeNamespace;
+    /** @var string */
+    private $typePrefix;
     /** @var bool|null */
     private $nillable;
 
     /**
      * @param string $name without prefix
      */
-    public function __construct(string $name, string $typeName, string $typeNamespace, ?bool $nillable = null, ?int $minOccurs = null, ?int $maxOccurs = null)
-    {
+    public function __construct(
+        string $name,
+        string $typeName,
+        string $typeNamespace,
+        string $typePrefix,
+        ?bool $nillable = null,
+        ?int $minOccurs = null,
+        ?int $maxOccurs = null
+    ) {
         $this->minOccurs     = $minOccurs;
         $this->maxOccurs     = $maxOccurs;
         $this->name          = $name;
         $this->typeName      = $typeName;
         $this->typeNamespace = $typeNamespace;
+        $this->typePrefix    = $typePrefix;
         $this->nillable      = $nillable;
     }
 
@@ -73,6 +83,14 @@ class WfsSchemaElement
     public function getTypeNamespace(): string
     {
         return $this->typeNamespace;
+    }
+
+    /**
+     * Get the type prefix.
+     */
+    public function getTypePrefix(): string
+    {
+        return $this->typePrefix;
     }
 
     /**

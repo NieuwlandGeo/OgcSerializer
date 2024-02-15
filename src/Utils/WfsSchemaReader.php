@@ -65,18 +65,21 @@ class WfsSchemaReader
             if (! is_string($fullType)) {
                 $typeName         = '';
                 $typeNamespaceUri = '';
+                $typePrefix       = '';
             } elseif (false !== strpos($fullType, ':')) {
-                [$prefix, $typeName] = explode(':', $fullType);
-                $typeNamespaceUri    = $schemaNode->lookupNamespaceUri($prefix);
+                [$typePrefix, $typeName] = explode(':', $fullType);
+                $typeNamespaceUri        = $schemaNode->lookupNamespaceUri($typePrefix);
             } else {
                 $typeName         = $fullType;
                 $typeNamespaceUri = $targetNamespace;
+                $typePrefix       = '';
             }
 
             $element = new WfsSchemaElement(
                 $this->getAttributeValue($element, 'name'),
                 $typeName,
                 $typeNamespaceUri,
+                $typePrefix,
                 $this->getAttributeValue($element, 'nillable'),
                 $this->getAttributeValue($element, 'minOccurs'),
                 $this->getAttributeValue($element, 'maxOccurs')
