@@ -1,0 +1,2694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WMS_Capabilities xmlns:inspire_vs="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0" xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0" version="1.3.0" updateSequence="7459" xmlns="http://www.opengis.net/wms" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wms https://geoserver-vrk.webgispublisher.nl/schemas/wms/1.3.0/capabilities_1_3_0.xsd http://inspire.ec.europa.eu/schemas/inspire_vs/1.0 http://inspire.ec.europa.eu/schemas/inspire_vs/1.0/inspire_vs.xsd">
+  <Service>
+    <Name>WMS</Name>
+    <Title>VRK</Title>
+    <Abstract>Deze service bevat de WMS services van Veiligheidsregio Kennemerland</Abstract>
+    <KeywordList/>
+    <OnlineResource xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/"/>
+    <ContactInformation>
+      <ContactPersonPrimary>
+        <ContactPerson>Karin Kleijn</ContactPerson>
+        <ContactOrganization>Veiligheidsregio Kennemerland</ContactOrganization>
+      </ContactPersonPrimary>
+      <ContactPosition>Adviseur / ontwikkelaar GIS</ContactPosition>
+      <ContactAddress>
+        <AddressType/>
+        <Address>Zijlweg 200</Address>
+        <City>Haarlem</City>
+        <StateOrProvince>Noord-Holland</StateOrProvince>
+        <PostCode>2015 CK</PostCode>
+        <Country>Nederland</Country>
+      </ContactAddress>
+      <ContactVoiceTelephone>023-5159500</ContactVoiceTelephone>
+      <ContactFacsimileTelephone/>
+      <ContactElectronicMailAddress>kkleijn@vrk.nl</ContactElectronicMailAddress>
+    </ContactInformation>
+    <Fees>none</Fees>
+    <AccessConstraints>none</AccessConstraints>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>text/xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?SERVICE=WMS&amp;"/>
+            </Get>
+            <Post>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?SERVICE=WMS&amp;"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/png</Format>
+        <Format>application/atom+xml</Format>
+        <Format>application/json;type=utfgrid</Format>
+        <Format>application/pdf</Format>
+        <Format>application/rss+xml</Format>
+        <Format>application/vnd.google-earth.kml+xml</Format>
+        <Format>application/vnd.google-earth.kml+xml;mode=networklink</Format>
+        <Format>application/vnd.google-earth.kmz</Format>
+        <Format>image/geotiff</Format>
+        <Format>image/geotiff8</Format>
+        <Format>image/gif</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/png; mode=8bit</Format>
+        <Format>image/svg+xml</Format>
+        <Format>image/tiff</Format>
+        <Format>image/tiff8</Format>
+        <Format>image/vnd.jpeg-png</Format>
+        <Format>text/html; subtype=openlayers</Format>
+        <Format>text/html; subtype=openlayers2</Format>
+        <Format>text/html; subtype=openlayers3</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>text/plain</Format>
+        <Format>application/vnd.ogc.gml</Format>
+        <Format>text/xml</Format>
+        <Format>application/vnd.ogc.gml/3.1.1</Format>
+        <Format>text/xml; subtype=gml/3.1.1</Format>
+        <Format>text/html</Format>
+        <Format>application/json</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+    </Request>
+    <Exception>
+      <Format>XML</Format>
+      <Format>INIMAGE</Format>
+      <Format>BLANK</Format>
+      <Format>JSON</Format>
+    </Exception>
+    <Layer>
+      <Title>VRK</Title>
+      <Abstract>Deze service bevat de WMS services van Veiligheidsregio Kennemerland</Abstract>
+      <!--Limited list of EPSG projections:-->
+      <CRS>EPSG:4326</CRS>
+      <CRS>EPSG:900913</CRS>
+      <CRS>EPSG:3857</CRS>
+      <CRS>EPSG:28992</CRS>
+      <CRS>CRS:84</CRS>
+      <EX_GeographicBoundingBox>
+        <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+        <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+        <southBoundLatitude>50.72411568868117</southBoundLatitude>
+        <northBoundLatitude>53.71864904182287</northBoundLatitude>
+      </EX_GeographicBoundingBox>
+      <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72411568868117" maxx="7.346119662163628" maxy="53.71864904182287"/>
+      <Layer queryable="1">
+        <Name>Buisleidingen</Name>
+        <Title>Buisleidingen</Title>
+        <Abstract>Layer-Group type layer: Buisleidingen</Abstract>
+        <KeywordList/>
+        <CRS>EPSG:28992</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Layer queryable="1" opaque="0">
+          <Name>WGP:prk_buisleidingen_gasunie</Name>
+          <Title>prk_buisleidingen_gasunie</Title>
+          <Abstract/>
+          <KeywordList>
+            <Keyword>features</Keyword>
+            <Keyword>prk_buisleidingen_gasunie</Keyword>
+          </KeywordList>
+          <CRS>EPSG:28992</CRS>
+          <CRS>CRS:84</CRS>
+          <EX_GeographicBoundingBox>
+            <westBoundLongitude>3.361613312870907</westBoundLongitude>
+            <eastBoundLongitude>7.2506595963948675</eastBoundLongitude>
+            <southBoundLatitude>50.7420128404776</southBoundLatitude>
+            <northBoundLatitude>53.47992621099086</northBoundLatitude>
+          </EX_GeographicBoundingBox>
+          <BoundingBox CRS="CRS:84" minx="3.361613312870907" miny="50.7420128404776" maxx="7.2506595963948675" maxy="53.47992621099086"/>
+          <BoundingBox CRS="EPSG:28992" minx="20402.791015625" miny="307512.4375" maxx="278681.59375" maxy="610397.25"/>
+          <Style>
+            <Name>wgp_gasunie_leidingen</Name>
+            <Title>wgp_gasunie_leidingen</Title>
+            <LegendURL width="20" height="20">
+              <Format>image/png</Format>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=WGP%3Aprk_buisleidingen_gasunie"/>
+            </LegendURL>
+          </Style>
+        </Layer>
+        <Layer queryable="1" opaque="0">
+          <Name>WGP:prk_buisleidingen_overig</Name>
+          <Title>prk_buisleidingen_overig</Title>
+          <Abstract/>
+          <KeywordList>
+            <Keyword>features</Keyword>
+            <Keyword>prk_buisleidingen_overig</Keyword>
+          </KeywordList>
+          <CRS>EPSG:28992</CRS>
+          <CRS>CRS:84</CRS>
+          <EX_GeographicBoundingBox>
+            <westBoundLongitude>3.5939537185648938</westBoundLongitude>
+            <eastBoundLongitude>7.122964594365315</eastBoundLongitude>
+            <southBoundLatitude>50.7402881023772</southBoundLatitude>
+            <northBoundLatitude>53.494307434914894</northBoundLatitude>
+          </EX_GeographicBoundingBox>
+          <BoundingBox CRS="CRS:84" minx="3.5939537185648938" miny="50.7402881023772" maxx="7.122964594365315" maxy="53.494307434914894"/>
+          <BoundingBox CRS="EPSG:28992" minx="35880.9765625" miny="306940.71875" maxx="270158.875" maxy="611995.1875"/>
+          <Style>
+            <Name>wgp_buisleidingen_overig</Name>
+            <Title>wgp_buisleidingen_overig</Title>
+            <LegendURL width="20" height="20">
+              <Format>image/png</Format>
+              <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=WGP%3Aprk_buisleidingen_overig"/>
+            </LegendURL>
+          </Style>
+        </Layer>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>BRW_schade_motorvoertuigen_2018</Name>
+        <Title>BRW_schade_motorvoertuigen_2018</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>BRW_schade_motorvoertuigen_2018</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.538887401383157</westBoundLongitude>
+          <eastBoundLongitude>4.913804012178852</eastBoundLongitude>
+          <southBoundLatitude>52.27262016445839</southBoundLatitude>
+          <northBoundLatitude>52.540396872330824</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.538887401383157" miny="52.27262016445839" maxx="4.913804012178852" maxy="52.540396872330824"/>
+        <BoundingBox CRS="EPSG:28992" minx="97373.9927294079" miny="476381.27617291" maxx="122617.700410391" maxy="505946.942151264"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=BRW_schade_motorvoertuigen_2018"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>Covid_besmettingen_per_ggd_25maart</Name>
+        <Title>Covid_besmettingen_per_ggd_25maart</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>besmettingen_per_ggd_25maart</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.2547826715466024</westBoundLongitude>
+          <eastBoundLongitude>7.244227945673938</eastBoundLongitude>
+          <southBoundLatitude>50.73438723601148</southBoundLatitude>
+          <northBoundLatitude>53.559255956120396</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.2547826715466024" miny="50.73438723601148" maxx="7.244227945673938" maxy="53.559255956120396"/>
+        <BoundingBox CRS="EPSG:28992" minx="13565.4" miny="306846.198" maxx="278026.09" maxy="619232.555006"/>
+        <Style>
+          <Name>covid_besmettingen_per_ggd_25maart</Name>
+          <Title>covid_besmettingen_per_ggd_25maart</Title>
+          <LegendURL width="107" height="40">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=Covid_besmettingen_per_ggd_25maart"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>WGP:covid besmettingen per ggd 25maartA</Name>
+          <Title>WGP:covid besmettingen per ggd 25maartA</Title>
+          <LegendURL width="107" height="40">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=Covid_besmettingen_per_ggd_25maart&amp;style=covid%20besmettingen%20per%20ggd%2025maartA"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>VRK_locaties</Name>
+        <Title>VRK_locaties</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>objecten</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.525184176116167</westBoundLongitude>
+          <eastBoundLongitude>4.776544492729189</eastBoundLongitude>
+          <southBoundLatitude>52.25737614898307</southBoundLatitude>
+          <northBoundLatitude>52.53641777531626</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.525184176116167" miny="52.25737614898307" maxx="4.776544492729189" maxy="52.53641777531626"/>
+        <BoundingBox CRS="EPSG:28992" minx="96439.765" miny="474696.0" maxx="113235.0" maxy="505575.0"/>
+        <Style>
+          <Name>VRK_locaties</Name>
+          <Title>VRK_locaties</Title>
+          <LegendURL width="49" height="40">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=VRK_locaties"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>100.0</MinScaleDenominator>
+        <MaxScaleDenominator>100000.0</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>aanlandingsplaatsen_ibp_nzk</Name>
+        <Title>aanlandingsplaatsen_ibp_nzk</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>aanlandingsplaatsen_ibp_nzk</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_aanlandingsplaatsen_ibp_nzk</Name>
+          <Title>wgp_aanlandingsplaatsen_ibp_nzk</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=aanlandingsplaatsen_ibp_nzk"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brandkraan_inspectie_hlm</Name>
+        <Title>brandkraan_inspectie_hlm</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brandkraan_inspectie_hlm</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.602763817396034</westBoundLongitude>
+          <eastBoundLongitude>4.681757290620571</eastBoundLongitude>
+          <southBoundLatitude>52.33918131740402</southBoundLatitude>
+          <northBoundLatitude>52.42389296356763</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.602763817396034" miny="52.33918131740402" maxx="4.681757290620571" maxy="52.42389296356763"/>
+        <BoundingBox CRS="EPSG:28992" minx="101568.8515625" miny="483740.59375" maxx="106851.1484375" maxy="493112.3125"/>
+        <Style>
+          <Name>wgp_brandkraan_inspectie_hlm</Name>
+          <Title>wgp_brandkraan_inspectie_hlm</Title>
+          <LegendURL width="110" height="60">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brandkraan_inspectie_hlm"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brandkraan_overig</Name>
+        <Title>brandkraan_overig</Title>
+        <Abstract>Overige, door de VRK, beheerde brandkranen in Kennemerland</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brandkraan_overig</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.573375681304658</westBoundLongitude>
+          <eastBoundLongitude>4.816489940187484</eastBoundLongitude>
+          <southBoundLatitude>52.283224634064425</southBoundLatitude>
+          <northBoundLatitude>52.504159708989526</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.573375681304658" miny="52.283224634064425" maxx="4.816489940187484" maxy="52.504159708989526"/>
+        <BoundingBox CRS="EPSG:28992" minx="96692.84375" miny="474218.09375" maxx="115996.5625" maxy="505543.0625"/>
+        <Style>
+          <Name>wgp_brandkraan_overig</Name>
+          <Title>wgp_brandkraan_overig</Title>
+          <LegendURL width="316" height="340">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brandkraan_overig"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_10-Risico_objecten</Name>
+        <Title>brw_10-Risico_objecten</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_10-Risico_objecten</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.612686385607936</westBoundLongitude>
+          <eastBoundLongitude>5.301440008370169</eastBoundLongitude>
+          <southBoundLatitude>52.53897393877136</southBoundLatitude>
+          <northBoundLatitude>53.18667472838503</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.612686385607936" miny="52.53897393877136" maxx="5.301440008370169" maxy="53.18667472838503"/>
+        <BoundingBox CRS="EPSG:28992" minx="103152.4921875" miny="505955.53125" maxx="149109.515625" maxy="577760.5"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_10-Risico_objecten"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_11-Risico_objecten</Name>
+        <Title>brw_11-Risico_objecten</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_11-Risico_objecten</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.713870752311198</westBoundLongitude>
+          <eastBoundLongitude>5.110565836610477</eastBoundLongitude>
+          <southBoundLatitude>52.42088772637479</southBoundLatitude>
+          <northBoundLatitude>52.59572061826119</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.713870752311198" miny="52.42088772637479" maxx="5.110565836610477" maxy="52.59572061826119"/>
+        <BoundingBox CRS="EPSG:28992" minx="109303.296875" miny="492754.5625" maxx="136109.703125" maxy="512032.4375"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_11-Risico_objecten"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_12-Risico_objecten</Name>
+        <Title>brw_12-Risico_objecten</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_12-Risico_objecten</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.520856049579231</westBoundLongitude>
+          <eastBoundLongitude>4.816303433943425</eastBoundLongitude>
+          <southBoundLatitude>52.24972522990112</southBoundLatitude>
+          <northBoundLatitude>52.54183881592733</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.520856049579231" miny="52.24972522990112" maxx="4.816303433943425" maxy="52.54183881592733"/>
+        <BoundingBox CRS="EPSG:28992" minx="96153.03125" miny="473848.0625" maxx="115942.96875" maxy="506155.9375"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_12-Risico_objecten"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13-Risico_objecten</Name>
+        <Title>brw_13-Risico_objecten</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13-Risico_objecten</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.7403567114930585</westBoundLongitude>
+          <eastBoundLongitude>5.023892158903832</eastBoundLongitude>
+          <southBoundLatitude>52.23009854610716</southBoundLatitude>
+          <northBoundLatitude>52.41866459478763</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.7403567114930585" miny="52.23009854610716" maxx="5.023892158903832" maxy="52.41866459478763"/>
+        <BoundingBox CRS="EPSG:28992" minx="110922.0234375" miny="471510.78125" maxx="130106.9765625" maxy="492358.21875"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13-Risico_objecten"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_anw_fv</Name>
+        <Title>brw_13_nw4_operationelegrens_anw_fv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13_nw4_operationelegrens_anw_fv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>OVD</Name>
+          <Title>OVD</Title>
+          <LegendURL width="88" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_anw_fv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_anw_hv</Name>
+        <Title>brw_13_nw4_operationelegrens_anw_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13_nw4_operationelegrens_anw_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_hv_anw</Name>
+          <Title>wgp_brw_nw4_operationelegrens_hv_anw</Title>
+          <LegendURL width="153" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_anw_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_anw_rv</Name>
+        <Title>brw_13_nw4_operationelegrens_anw_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13_nw4_operationelegrens_anw_rv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_rv_anw</Name>
+          <Title>wgp_brw_nw4_operationelegrens_rv_anw</Title>
+          <LegendURL width="204" height="540">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_anw_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_anw_ts</Name>
+        <Title>brw_13_nw4_operationelegrens_anw_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>brw_13_nw4_operationelegrens_anw_ts</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrans_ts_anw</Name>
+          <Title>wgp_brw_nw4_operationelegrans_ts_anw</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_anw_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_anw_wo</Name>
+        <Title>brw_13_nw4_operationelegrens_anw_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13_nw4_operationelegrens_anw_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_wo_anw</Name>
+          <Title>wgp_brw_nw4_operationelegrens_wo_anw</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_anw_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_dag_hv</Name>
+        <Title>brw_13_nw4_operationelegrens_dag_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13_nw4_operationelegrens_dag_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_hv_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrens_hv_dag</Title>
+          <LegendURL width="153" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_dag_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_dag_rv</Name>
+        <Title>brw_13_nw4_operationelegrens_dag_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13_nw4_operationelegrens_dag_rv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_rv_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrens_rv_dag</Title>
+          <LegendURL width="204" height="540">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_dag_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_dag_ts</Name>
+        <Title>brw_13_nw4_operationelegrens_dag_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>brw_13_nw4_operationelegrens_dag_ts</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrans_ts_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrans_ts_dag</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_dag_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_13_nw4_operationelegrens_dag_wo</Name>
+        <Title>brw_13_nw4_operationelegrens_dag_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_13_nw4_operationelegrens_dag_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.666046221847568</westBoundLongitude>
+          <eastBoundLongitude>5.083572449306968</eastBoundLongitude>
+          <southBoundLatitude>52.20520265017583</southBoundLatitude>
+          <northBoundLatitude>52.43374967743294</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.666046221847568" miny="52.20520265017583" maxx="5.083572449306968" maxy="52.43374967743294"/>
+        <BoundingBox CRS="EPSG:28992" minx="105882.7890625" miny="468788.03125" maxx="134172.796875" maxy="494017.84375"/>
+        <Style>
+          <Name>mknh_dag_wo</Name>
+          <Title>mknh_dag_wo</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_13_nw4_operationelegrens_dag_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_anw_hv</Name>
+        <Title>brw_16_operationelegrens_anw_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_anw_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>HV_ANW_16</Name>
+          <Title>HV_ANW_16</Title>
+          <LegendURL width="153" height="440">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_anw_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_anw_rv</Name>
+        <Title>brw_16_operationelegrens_anw_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_anw_rv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>RV_ANW_16</Name>
+          <Title>RV_ANW_16</Title>
+          <LegendURL width="204" height="780">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_anw_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_anw_ts</Name>
+        <Title>brw_16_operationelegrens_anw_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_anw_ts</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>TS_ANW_16</Name>
+          <Title>TS_ANW_16</Title>
+          <LegendURL width="234" height="3960">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_anw_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_anw_wo</Name>
+        <Title>brw_16_operationelegrens_anw_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_anw_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>WO_ANW_16</Name>
+          <Title>WO_ANW_16</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_anw_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_dag_hv</Name>
+        <Title>brw_16_operationelegrens_dag_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_dag_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_hv_anw</Name>
+          <Title>wgp_brw_nw4_operationelegrens_hv_anw</Title>
+          <LegendURL width="153" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_dag_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_dag_rv</Name>
+        <Title>brw_16_operationelegrens_dag_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_dag_rv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>nw3_rv_anw</Name>
+          <Title>nw3_rv_anw</Title>
+          <LegendURL width="204" height="540">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_dag_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_dag_ts</Name>
+        <Title>brw_16_operationelegrens_dag_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_dag_ts</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>nw3_ts_dag</Name>
+          <Title>nw3_ts_dag</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_dag_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_16_operationelegrens_dag_wo</Name>
+        <Title>brw_16_operationelegrens_dag_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_16_operationelegrens_dag_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>mknh_dag_wo</Name>
+          <Title>mknh_dag_wo</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_16_operationelegrens_dag_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_kazernes_nw4</Name>
+        <Title>brw_kazernes_nw4</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_kazernes_nw4</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.527921078508094</westBoundLongitude>
+          <eastBoundLongitude>5.279521562859366</eastBoundLongitude>
+          <southBoundLatitude>52.2363046413402</southBoundLatitude>
+          <northBoundLatitude>53.15312060283392</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.527921078508094" miny="52.2363046413402" maxx="5.279521562859366" maxy="53.15312060283392"/>
+        <BoundingBox CRS="EPSG:28992" minx="97440.828125" miny="472339.59375" maxx="147572.171875" maxy="574028.4375"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_kazernes_nw4"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_kazernes_vrk</Name>
+        <Title>brw_kazernes_vrk</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_kazernes_vrk</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.543471408851772</westBoundLongitude>
+          <eastBoundLongitude>4.776620456657597</eastBoundLongitude>
+          <southBoundLatitude>52.257456969767894</southBoundLatitude>
+          <northBoundLatitude>52.53641721117307</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.543471408851772" miny="52.257456969767894" maxx="4.776620456657597" maxy="52.53641721117307"/>
+        <BoundingBox CRS="EPSG:28992" minx="97680.6838699634" miny="474690.471917802" maxx="113240.14006077" maxy="505574.893519916"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_kazernes_vrk"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_nw4_TS-ANW</Name>
+        <Title>brw_nw4_TS-ANW</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_nw4_TS-ANW</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.411358197285127</westBoundLongitude>
+          <eastBoundLongitude>5.3141440592298546</eastBoundLongitude>
+          <southBoundLatitude>52.19121401780891</southBoundLatitude>
+          <northBoundLatitude>52.778015624473305</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.411358197285127" miny="52.19121401780891" maxx="5.3141440592298546" maxy="52.778015624473305"/>
+        <BoundingBox CRS="EPSG:28992" minx="89076.4296875" miny="467426.40625" maxx="149932.0625" maxy="532283.1875"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_anw_ts</Name>
+          <Title>wgp_brw_nw4_operationelegrens_anw_ts</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_nw4_TS-ANW"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_nw4_TS-DAG</Name>
+        <Title>brw_nw4_TS-DAG</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_nw4_TS-DAG</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.411358197285127</westBoundLongitude>
+          <eastBoundLongitude>5.3141440592298546</eastBoundLongitude>
+          <southBoundLatitude>52.19121401780891</southBoundLatitude>
+          <northBoundLatitude>52.778015624473305</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.411358197285127" miny="52.19121401780891" maxx="5.3141440592298546" maxy="52.778015624473305"/>
+        <BoundingBox CRS="EPSG:28992" minx="89076.4296875" miny="467426.40625" maxx="149932.0625" maxy="532283.1875"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_dag_ts</Name>
+          <Title>wgp_brw_nw4_operationelegrens_dag_ts</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_nw4_TS-DAG"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_nw4_kazernes-TS</Name>
+        <Title>brw_nw4_kazernes-TS</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_nw4_kazernes-TS</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.527863511857299</westBoundLongitude>
+          <eastBoundLongitude>5.279228321955514</eastBoundLongitude>
+          <southBoundLatitude>52.236015524166426</southBoundLatitude>
+          <northBoundLatitude>53.153067533940366</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.527863511857299" miny="52.236015524166426" maxx="5.279228321955514" maxy="53.153067533940366"/>
+        <BoundingBox CRS="EPSG:28992" minx="97436.90625" miny="472307.46875" maxx="147552.09375" maxy="574022.5625"/>
+        <Style>
+          <Name>TS_Kazerne_NW4</Name>
+          <Title>TS_Kazerne_NW4</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_nw4_kazernes-TS"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_nw4_regio</Name>
+        <Title>brw_nw4_regio</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>brw_nw4_regio</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.477340337321757</westBoundLongitude>
+          <eastBoundLongitude>5.3093509662470275</eastBoundLongitude>
+          <southBoundLatitude>52.205193423538056</southBoundLatitude>
+          <northBoundLatitude>53.186098035198306</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.477340337321757" miny="52.205193423538056" maxx="5.3093509662470275" maxy="53.186098035198306"/>
+        <BoundingBox CRS="EPSG:28992" minx="94102.8206" miny="468917.6742" maxx="149605.9629" maxy="577695.7403"/>
+        <Style>
+          <Name>wgp_brw_regiogrenzen_nw4</Name>
+          <Title>wgp_brw_regiogrenzen_nw4</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_nw4_regio"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_regiogrenzen_nw4</Name>
+        <Title>brw_regiogrenzen_nw4</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>brw_regiogrenzen_nw4</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.477340337321757</westBoundLongitude>
+          <eastBoundLongitude>5.3093509662470275</eastBoundLongitude>
+          <southBoundLatitude>52.205193423538056</southBoundLatitude>
+          <northBoundLatitude>53.186098035198306</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.477340337321757" miny="52.205193423538056" maxx="5.3093509662470275" maxy="53.186098035198306"/>
+        <BoundingBox CRS="EPSG:28992" minx="94102.8206" miny="468917.6742" maxx="149605.9629" maxy="577695.7403"/>
+        <Style>
+          <Name>wgp_brw_regiogrenzen_nw4</Name>
+          <Title>wgp_brw_regiogrenzen_nw4</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_regiogrenzen_nw4"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>brw_rietendaken</Name>
+        <Title>brw_rietendaken</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>brw_rietendaken</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.569135959948622</westBoundLongitude>
+          <eastBoundLongitude>4.638506283451718</eastBoundLongitude>
+          <southBoundLatitude>52.31758662279567</southBoundLatitude>
+          <northBoundLatitude>52.42524263960414</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.569135959948622" miny="52.31758662279567" maxx="4.638506283451718" maxy="52.42524263960414"/>
+        <BoundingBox CRS="EPSG:28992" minx="99283.25" miny="481362.9375" maxx="103878.75" maxy="493292.4375"/>
+        <Style>
+          <Name>wgp_brw_rietendaken</Name>
+          <Title>wgp_brw_rietendaken</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=brw_rietendaken"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>buffer_wegvlakken</Name>
+        <Title>buffer_wegvlakken</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>buffer_wegvlakken</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.256983563045326</westBoundLongitude>
+          <eastBoundLongitude>7.243067855631613</eastBoundLongitude>
+          <southBoundLatitude>50.73617037939406</southBoundLatitude>
+          <northBoundLatitude>53.45372497845655</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.256983563045326" miny="50.73617037939406" maxx="7.243067855631613" maxy="53.45372497845655"/>
+        <BoundingBox CRS="EPSG:28992" minx="13363.1709676898" miny="307050.20668032" maxx="278252.253088759" maxy="607486.775523365"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=buffer_wegvlakken"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_anw_fv</Name>
+        <Title>concept_operationelegrens_anw_fv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_anw_fv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.418667330494979</westBoundLongitude>
+          <eastBoundLongitude>5.383108864398853</eastBoundLongitude>
+          <southBoundLatitude>52.20836994062692</southBoundLatitude>
+          <northBoundLatitude>53.22077903529619</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.418667330494979" miny="52.20836994062692" maxx="5.383108864398853" maxy="53.22077903529619"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>OVD</Name>
+          <Title>OVD</Title>
+          <LegendURL width="88" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_anw_fv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_anw_hv</Name>
+        <Title>concept_operationelegrens_anw_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_anw_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_hv_anw</Name>
+          <Title>wgp_brw_nw4_operationelegrens_hv_anw</Title>
+          <LegendURL width="153" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_anw_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_anw_nbb</Name>
+        <Title>concept_operationelegrens_anw_nbb</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>concept_operationelegrens_anw_nbb</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.47215729351732</westBoundLongitude>
+          <eastBoundLongitude>4.9203260672131846</eastBoundLongitude>
+          <southBoundLatitude>52.30457238892881</southBoundLatitude>
+          <northBoundLatitude>53.19001732848386</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.47215729351732" miny="52.30457238892881" maxx="4.9203260672131846" maxy="53.19001732848386"/>
+        <BoundingBox CRS="EPSG:28992" minx="93763.1328125" miny="479980.09375" maxx="123086.0703125" maxy="578234.5625"/>
+        <Style>
+          <Name>mknh_anw_nbb</Name>
+          <Title>mknh_anw_nbb</Title>
+          <LegendURL width="91" height="240">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_anw_nbb"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_anw_reg</Name>
+        <Title>concept_operationelegrens_anw_reg</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_anw_reg</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>wgp_brw_nw4_regio_spec_anw</Name>
+          <Title>wgp_brw_nw4_regio_spec_anw</Title>
+          <LegendURL width="231" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_anw_reg"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_anw_rv</Name>
+        <Title>concept_operationelegrens_anw_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_anw_rv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.418667330494979</westBoundLongitude>
+          <eastBoundLongitude>5.383108864398853</eastBoundLongitude>
+          <southBoundLatitude>52.20836994062692</southBoundLatitude>
+          <northBoundLatitude>53.22077903529619</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.418667330494979" miny="52.20836994062692" maxx="5.383108864398853" maxy="53.22077903529619"/>
+        <BoundingBox CRS="EPSG:28992" minx="90231.8046875" miny="469320.1875" maxx="154647.515625" maxy="581552.375"/>
+        <Style>
+          <Name>nw3_rv_anw</Name>
+          <Title>nw3_rv_anw</Title>
+          <LegendURL width="204" height="540">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_anw_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_anw_ts</Name>
+        <Title>concept_operationelegrens_anw_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_anw_ts</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.418667330494979</westBoundLongitude>
+          <eastBoundLongitude>5.383108864398853</eastBoundLongitude>
+          <southBoundLatitude>52.20836994062692</southBoundLatitude>
+          <northBoundLatitude>53.22077903529619</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.418667330494979" miny="52.20836994062692" maxx="5.383108864398853" maxy="53.22077903529619"/>
+        <BoundingBox CRS="EPSG:28992" minx="90231.8046875" miny="469320.1875" maxx="154647.515625" maxy="581552.375"/>
+        <Style>
+          <Name>nw3_ts_anw</Name>
+          <Title>nw3_ts_anw</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_anw_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_anw_wo</Name>
+        <Title>concept_operationelegrens_anw_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_anw_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.418667330494979</westBoundLongitude>
+          <eastBoundLongitude>5.383108864398853</eastBoundLongitude>
+          <southBoundLatitude>52.20836994062692</southBoundLatitude>
+          <northBoundLatitude>53.22077903529619</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.418667330494979" miny="52.20836994062692" maxx="5.383108864398853" maxy="53.22077903529619"/>
+        <BoundingBox CRS="EPSG:28992" minx="90231.8046875" miny="469320.1875" maxx="154647.515625" maxy="581552.375"/>
+        <Style>
+          <Name>mknh_anw_wo</Name>
+          <Title>mknh_anw_wo</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_anw_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_dag_hv</Name>
+        <Title>concept_operationelegrens_dag_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_dag_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.418667330494979</westBoundLongitude>
+          <eastBoundLongitude>5.383108864398853</eastBoundLongitude>
+          <southBoundLatitude>52.20836994062692</southBoundLatitude>
+          <northBoundLatitude>53.22077903529619</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.418667330494979" miny="52.20836994062692" maxx="5.383108864398853" maxy="53.22077903529619"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_hv_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrens_hv_dag</Title>
+          <LegendURL width="153" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_dag_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_dag_nbb</Name>
+        <Title>concept_operationelegrens_dag_nbb</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_dag_nbb</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>mknh_nbb_dag</Name>
+          <Title>mknh_nbb_dag</Title>
+          <LegendURL width="91" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_dag_nbb"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_dag_reg</Name>
+        <Title>concept_operationelegrens_dag_reg</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_dag_reg</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633737</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163628</eastBoundLongitude>
+          <southBoundLatitude>50.728803954873406</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633737" miny="50.728803954873406" maxx="7.346119662163628" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789820177" miny="306594.55430005793" maxx="284300.02540947974" maxy="636981.769887085"/>
+        <Style>
+          <Name>wgp_brw_nw4_regio_spec_dag</Name>
+          <Title>wgp_brw_nw4_regio_spec_dag</Title>
+          <LegendURL width="231" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_dag_reg"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_dag_rv</Name>
+        <Title>concept_operationelegrens_dag_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_dag_rv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_rv_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrens_rv_dag</Title>
+          <LegendURL width="204" height="540">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_dag_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_dag_ts</Name>
+        <Title>concept_operationelegrens_dag_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_dag_ts</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>nw3_ts_dag</Name>
+          <Title>nw3_ts_dag</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_dag_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>concept_operationelegrens_dag_wo</Name>
+        <Title>concept_operationelegrens_dag_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>concept_operationelegrens_dag_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.418667330494979</westBoundLongitude>
+          <eastBoundLongitude>5.383108864398853</eastBoundLongitude>
+          <southBoundLatitude>52.20836994062692</southBoundLatitude>
+          <northBoundLatitude>53.22077903529619</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.418667330494979" miny="52.20836994062692" maxx="5.383108864398853" maxy="53.22077903529619"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>mknh_dag_wo</Name>
+          <Title>mknh_dag_wo</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=concept_operationelegrens_dag_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>coordinaten_bereikbaarheidskaart</Name>
+        <Title>coordinaten_bereikbaarheidskaart</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>coordinaten_bereikbaarheidskaart</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>test_coordinaten_bereikbaarheidskaart</Name>
+          <Title>test_coordinaten_bereikbaarheidskaart</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=coordinaten_bereikbaarheidskaart"/>
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>10000.0</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>covid_19_new</Name>
+        <Title>covid_19_new</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>covid_19_new</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.3209629747395053</westBoundLongitude>
+          <eastBoundLongitude>7.167402692165106</eastBoundLongitude>
+          <southBoundLatitude>50.72411568868117</southBoundLatitude>
+          <northBoundLatitude>53.597140361055445</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.3209629747395053" miny="50.72411568868117" maxx="7.167402692165106" maxy="53.597140361055445"/>
+        <BoundingBox CRS="EPSG:28992" minx="18076.814453125" miny="305581.53125" maxx="272826.6875" maxy="623449.9375"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=covid_19_new"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>geboorde_putten_vrk</Name>
+        <Title>geboorde_putten_vrk</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>geboorde_putten_vrk</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.55253479824019</westBoundLongitude>
+          <eastBoundLongitude>4.982683444551038</eastBoundLongitude>
+          <southBoundLatitude>52.23534964924714</southBoundLatitude>
+          <northBoundLatitude>52.526934665174075</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.55253479824019" miny="52.23534964924714" maxx="4.982683444551038" maxy="52.526934665174075"/>
+        <BoundingBox CRS="EPSG:28992" minx="98282.3671875" miny="472223.625" maxx="127295.6328125" maxy="504420.375"/>
+        <Style>
+          <Name>wgp_geboorde_putten_vrk</Name>
+          <Title>wgp_geboorde_putten_vrk</Title>
+          <LegendURL width="175" height="240">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=geboorde_putten_vrk"/>
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>50005.0</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>gezonde_school</Name>
+        <Title>gezonde_school</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>gezonde_school</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.531804480927252</westBoundLongitude>
+          <eastBoundLongitude>4.776722905479893</eastBoundLongitude>
+          <southBoundLatitude>52.261247961314176</southBoundLatitude>
+          <northBoundLatitude>52.514390268547366</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.531804480927252" miny="52.261247961314176" maxx="4.776722905479893" maxy="52.514390268547366"/>
+        <BoundingBox CRS="EPSG:28992" minx="96859.9992992312" miny="475121.873461789" maxx="113250.772731538" maxy="503123.782997214"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=gezonde_school"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=gezonde_school&amp;style=point"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>koersen</Name>
+        <Title>koersen</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>koersen</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.544894762674063</westBoundLongitude>
+          <eastBoundLongitude>4.683743932769664</eastBoundLongitude>
+          <southBoundLatitude>52.262746859166285</southBoundLatitude>
+          <northBoundLatitude>52.46068225846329</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.544894762674063" miny="52.262746859166285" maxx="4.683743932769664" maxy="52.46068225846329"/>
+        <BoundingBox CRS="EPSG:28992" minx="97679.775678" miny="475279.099751" maxx="106904.325126" maxy="497205.462379"/>
+        <Style>
+          <Name>samen koers def versie</Name>
+          <Title>samen koers def versie</Title>
+          <LegendURL width="134" height="100">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=koersen"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1500.0</MinScaleDenominator>
+        <MaxScaleDenominator>30000.0</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>kwetsbaaradres_kennemerland</Name>
+        <Title>kwetsbaaradres_kennemerland</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>kwetsbaaradres_kennemerland</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.502999916090584</westBoundLongitude>
+          <eastBoundLongitude>4.839667075106934</eastBoundLongitude>
+          <southBoundLatitude>52.21164022347232</southBoundLatitude>
+          <northBoundLatitude>52.54830738248868</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.502999916090584" miny="52.21164022347232" maxx="4.839667075106934" maxy="52.54830738248868"/>
+        <BoundingBox CRS="EPSG:28992" minx="96151.2890625" miny="470337.625" maxx="116293.2890625" maxy="506145.59375"/>
+        <Style>
+          <Name>Kwetsbaaradres</Name>
+          <Title>Kwetsbaaradres</Title>
+          <LegendURL width="410" height="1200">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=kwetsbaaradres_kennemerland"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>kwetsbaarmonumentpand_kennemerland</Name>
+        <Title>kwetsbaarmonumentpand_kennemerland</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>kwetsbaarmonumentpand_kennemerland</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.5767332849954805</westBoundLongitude>
+          <eastBoundLongitude>4.693249859899406</eastBoundLongitude>
+          <southBoundLatitude>52.29792566969242</southBoundLatitude>
+          <northBoundLatitude>52.48019920948994</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.5767332849954805" miny="52.29792566969242" maxx="4.693249859899406" maxy="52.48019920948994"/>
+        <BoundingBox CRS="EPSG:28992" minx="99868.171875" miny="479168.65625" maxx="107590.59375" maxy="499370.53125"/>
+        <Style>
+          <Name>Kwetsbaarmonumentpand</Name>
+          <Title>Kwetsbaarmonumentpand</Title>
+          <LegendURL width="155" height="40">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=kwetsbaarmonumentpand_kennemerland"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>kwetsbaarmonumentperceel_kennemerland</Name>
+        <Title>kwetsbaarmonumentperceel_kennemerland</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>kwetsbaarmonumentperceel_kennemerland</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.537989750624048</westBoundLongitude>
+          <eastBoundLongitude>4.722779726753948</eastBoundLongitude>
+          <southBoundLatitude>52.236621112575286</southBoundLatitude>
+          <northBoundLatitude>52.53618492413237</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.537989750624048" miny="52.236621112575286" maxx="4.722779726753948" maxy="52.53618492413237"/>
+        <BoundingBox CRS="EPSG:28992" minx="97308.796875" miny="472376.34375" maxx="109542.7265625" maxy="505581.875"/>
+        <Style>
+          <Name>Kwetsbaarmonumentperceel</Name>
+          <Title>Kwetsbaarmonumentperceel</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=kwetsbaarmonumentperceel_kennemerland"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>kwetsbaarpand_kennemerland</Name>
+        <Title>kwetsbaarpand_kennemerland</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>kwetsbaarpand_kennemerland</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.5139654361258135</westBoundLongitude>
+          <eastBoundLongitude>4.792586484576748</eastBoundLongitude>
+          <southBoundLatitude>52.21781785559211</southBoundLatitude>
+          <northBoundLatitude>52.542655645200156</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.5139654361258135" miny="52.21781785559211" maxx="4.792586484576748" maxy="52.542655645200156"/>
+        <BoundingBox CRS="EPSG:28992" minx="95686.765625" miny="470303.21875" maxx="114294.2421875" maxy="506260.21875"/>
+        <Style>
+          <Name>Kwetsbaarpand</Name>
+          <Title>Kwetsbaarpand</Title>
+          <LegendURL width="155" height="40">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=kwetsbaarpand_kennemerland"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>kwetsbaarperceel_kennemerland</Name>
+        <Title>kwetsbaarperceel_kennemerland</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>kwetsbaarperceel_kennemerland</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.51358849223377</westBoundLongitude>
+          <eastBoundLongitude>4.799746081908466</eastBoundLongitude>
+          <southBoundLatitude>52.21699893214044</southBoundLatitude>
+          <northBoundLatitude>52.542404802688225</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.51358849223377" miny="52.21699893214044" maxx="4.799746081908466" maxy="52.542404802688225"/>
+        <BoundingBox CRS="EPSG:28992" minx="95660.8046875" miny="470212.40625" maxx="114782.78125" maxy="506228.28125"/>
+        <Style>
+          <Name>Kwetsbaarperceel</Name>
+          <Title>Kwetsbaarperceel</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=kwetsbaarperceel_kennemerland"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_anw_fv</Name>
+        <Title>mknh_operationelegrens_anw_fv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_anw_fv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>OVD</Name>
+          <Title>OVD</Title>
+          <LegendURL width="88" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_anw_fv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_anw_hv</Name>
+        <Title>mknh_operationelegrens_anw_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_anw_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_hv_anw</Name>
+          <Title>wgp_brw_nw4_operationelegrens_hv_anw</Title>
+          <LegendURL width="153" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_anw_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_anw_nbb</Name>
+        <Title>mknh_operationelegrens_anw_nbb</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>mknh_operationelegrens_anw_nbb</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>mknh_anw_nbb</Name>
+          <Title>mknh_anw_nbb</Title>
+          <LegendURL width="91" height="240">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_anw_nbb"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_anw_rv</Name>
+        <Title>mknh_operationelegrens_anw_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>mknh_operationelegrens_anw_rv</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>nw3_rv_anw</Name>
+          <Title>nw3_rv_anw</Title>
+          <LegendURL width="204" height="540">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_anw_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_anw_ts</Name>
+        <Title>mknh_operationelegrens_anw_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_anw_ts</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>nw3_ts_anw</Name>
+          <Title>nw3_ts_anw</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_anw_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_anw_wo</Name>
+        <Title>mknh_operationelegrens_anw_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_anw_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>mknh_anw_wo</Name>
+          <Title>mknh_anw_wo</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_anw_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_dag_hv</Name>
+        <Title>mknh_operationelegrens_dag_hv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_dag_hv</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_hv_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrens_hv_dag</Title>
+          <LegendURL width="153" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_dag_hv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_dag_nbb</Name>
+        <Title>mknh_operationelegrens_dag_nbb</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_dag_nbb</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>mknh_dag_nbb</Name>
+          <Title>mknh_dag_nbb</Title>
+          <LegendURL width="91" height="260">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_dag_nbb"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_dag_rv</Name>
+        <Title>mknh_operationelegrens_dag_rv</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>mknh_operationelegrens_dag_rv</Keyword>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_rv_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrens_rv_dag</Title>
+          <LegendURL width="204" height="540">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_dag_rv"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_dag_ts</Name>
+        <Title>mknh_operationelegrens_dag_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_dag_ts</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>nw3_ts_dag</Name>
+          <Title>nw3_ts_dag</Title>
+          <LegendURL width="234" height="2920">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_dag_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>mknh_operationelegrens_dag_wo</Name>
+        <Title>mknh_operationelegrens_dag_wo</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>mknh_operationelegrens_dag_wo</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_brw_nw4_operationelegrens_wo_dag</Name>
+          <Title>wgp_brw_nw4_operationelegrens_wo_dag</Title>
+          <LegendURL width="204" height="300">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=mknh_operationelegrens_dag_wo"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>open_water_dpu</Name>
+        <Title>open_water_dpu</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>open_water_dpu</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>oivrk_open_water_dpu</Name>
+          <Title>oivrk_open_water_dpu</Title>
+          <LegendURL width="125" height="40">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=open_water_dpu"/>
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>10000.0</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>open_water_ts</Name>
+        <Title>open_water_ts</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>open_water_ts</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.0511703974633724</westBoundLongitude>
+          <eastBoundLongitude>7.346119662163627</eastBoundLongitude>
+          <southBoundLatitude>50.72880395487337</southBoundLatitude>
+          <northBoundLatitude>53.71864904182287</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.0511703974633724" miny="50.72880395487337" maxx="7.346119662163627" maxy="53.71864904182287"/>
+        <BoundingBox CRS="EPSG:28992" minx="634.5732789819012" miny="306594.5543000576" maxx="284300.0254094796" maxy="636981.7698870846"/>
+        <Style>
+          <Name>wgp_open_water_ts</Name>
+          <Title>wgp_open_water_ts</Title>
+          <LegendURL width="113" height="40">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=open_water_ts"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>q123_2019_responstijden_ravken_cumulatief</Name>
+        <Title>q123_2019_responstijden_ravken_cumulatief</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>q123_2019_responstijden_ravken_cumulatief</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.47267376084464</westBoundLongitude>
+          <eastBoundLongitude>4.824298869650753</eastBoundLongitude>
+          <southBoundLatitude>52.212239168817</southBoundLatitude>
+          <northBoundLatitude>52.54433602157299</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.47267376084464" miny="52.212239168817" maxx="4.824298869650753" maxy="52.54433602157299"/>
+        <BoundingBox CRS="EPSG:28992" minx="92887.3203125" miny="469716.75" maxx="116456.8515625" maxy="506429.75"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=q123_2019_responstijden_ravken_cumulatief"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>q2_2019_responstijden_ravken</Name>
+        <Title>q2_2019_responstijden_ravken</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>q2_2019_responstijden_ravken</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.474427332326396</westBoundLongitude>
+          <eastBoundLongitude>4.82257091693693</eastBoundLongitude>
+          <southBoundLatitude>52.2138857081214</southBoundLatitude>
+          <northBoundLatitude>52.54269438625797</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.474427332326396" miny="52.2138857081214" maxx="4.82257091693693" maxy="52.54269438625797"/>
+        <BoundingBox CRS="EPSG:28992" minx="93004.0" miny="469898.5046" maxx="116340.17" maxy="506247.9968"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=q2_2019_responstijden_ravken"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>q2_2019_responstijden_ravken_gemeentedata</Name>
+        <Title>q2_2019_responstijden_ravken_gemeentedata</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>q2_2019_responstijden_ravken_gemeentedata</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.474577508178662</westBoundLongitude>
+          <eastBoundLongitude>4.821602276694417</eastBoundLongitude>
+          <southBoundLatitude>52.2136824455502</southBoundLatitude>
+          <northBoundLatitude>52.53543577688272</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.474577508178662" miny="52.2136824455502" maxx="4.821602276694417" maxy="52.53543577688272"/>
+        <BoundingBox CRS="EPSG:28992" minx="93004.0" miny="469875.887" maxx="116273.793" maxy="505440.83"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=q2_2019_responstijden_ravken_gemeentedata"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>q3_2019_responstijden_ravken</Name>
+        <Title>q3_2019_responstijden_ravken</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>q3_2019_responstijden_ravken</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.47267376084464</westBoundLongitude>
+          <eastBoundLongitude>4.824298869650753</eastBoundLongitude>
+          <southBoundLatitude>52.212239168817</southBoundLatitude>
+          <northBoundLatitude>52.54433602157299</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.47267376084464" miny="52.212239168817" maxx="4.824298869650753" maxy="52.54433602157299"/>
+        <BoundingBox CRS="EPSG:28992" minx="92887.3203125" miny="469716.75" maxx="116456.8515625" maxy="506429.75"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=q3_2019_responstijden_ravken"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>q3_2019_responstijden_ravken_gemeentedata</Name>
+        <Title>q3_2019_responstijden_ravken_gemeentedata</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>q3_2019_responstijden_ravken_gemeentedata</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.474577508178662</westBoundLongitude>
+          <eastBoundLongitude>4.821602276694417</eastBoundLongitude>
+          <southBoundLatitude>52.2136824455502</southBoundLatitude>
+          <northBoundLatitude>52.53543577688272</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.474577508178662" miny="52.2136824455502" maxx="4.821602276694417" maxy="52.53543577688272"/>
+        <BoundingBox CRS="EPSG:28992" minx="93004.0" miny="469875.887" maxx="116273.793" maxy="505440.83"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=q3_2019_responstijden_ravken_gemeentedata"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>responstijden_2019</Name>
+        <Title>responstijden_2019</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>responstijden_2019</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.47267376084464</westBoundLongitude>
+          <eastBoundLongitude>4.824298869650753</eastBoundLongitude>
+          <southBoundLatitude>52.212239168817</southBoundLatitude>
+          <northBoundLatitude>52.54433602157299</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.47267376084464" miny="52.212239168817" maxx="4.824298869650753" maxy="52.54433602157299"/>
+        <BoundingBox CRS="EPSG:28992" minx="92887.3203125" miny="469716.75" maxx="116456.8515625" maxy="506429.75"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=responstijden_2019"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>routering_gevaarlijkestoffen</Name>
+        <Title>routering_gevaarlijkestoffen</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>routering_gevaarlijkestoffen</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.530795322355224</westBoundLongitude>
+          <eastBoundLongitude>5.108834353082544</eastBoundLongitude>
+          <southBoundLatitude>52.21496949018436</southBoundLatitude>
+          <northBoundLatitude>52.57621905642315</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.530795322355224" miny="52.21496949018436" maxx="5.108834353082544" maxy="52.57621905642315"/>
+        <BoundingBox CRS="EPSG:28992" minx="96871.3299999982" miny="469972.244399998" maxx="135904.142999999" maxy="509863.272"/>
+        <Style>
+          <Name>polygon</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a transparent red interior with a red outline</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=routering_gevaarlijkestoffen"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>routering_gevaarlijkestoffen_buffer_230m</Name>
+        <Title>routering_gevaarlijkestoffen_buffer_230m</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>routering_gevaarlijkestoffen_buffer_230m</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.52736779302887</westBoundLongitude>
+          <eastBoundLongitude>5.11219911259121</eastBoundLongitude>
+          <southBoundLatitude>52.212890580935344</southBoundLatitude>
+          <northBoundLatitude>52.57828912102834</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.52736779302887" miny="52.212890580935344" maxx="5.11219911259121" maxy="52.57828912102834"/>
+        <BoundingBox CRS="EPSG:28992" minx="96641.6800029185" miny="469743.619075927" maxx="136133.217407346" maxy="510092.724016479"/>
+        <Style>
+          <Name>polygon</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a transparent red interior with a red outline</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=routering_gevaarlijkestoffen_buffer_230m"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>rws_diepte_lijn_noordzeekanaal</Name>
+        <Title>rws_diepte_lijn_noordzeekanaal</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>rws_diepte_lijn_noordzeekanaal</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.565920342224853</westBoundLongitude>
+          <eastBoundLongitude>4.962443359242334</eastBoundLongitude>
+          <southBoundLatitude>52.363922494475645</southBoundLatitude>
+          <northBoundLatitude>52.47434646991444</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.565920342224853" miny="52.363922494475645" maxx="4.962443359242334" maxy="52.47434646991444"/>
+        <BoundingBox CRS="EPSG:28992" minx="99124.5" miny="486520.680522766" maxx="125997.0" maxy="498576.358194004"/>
+        <Style>
+          <Name>line</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a green line</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rws_diepte_lijn_noordzeekanaal"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>rws_diepte_pt_noordzeekanaal</Name>
+        <Title>rws_diepte_pt_noordzeekanaal</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>rws_diepte_pt_noordzeekanaal</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.564027397762361</westBoundLongitude>
+          <eastBoundLongitude>4.964211693921119</eastBoundLongitude>
+          <southBoundLatitude>52.363633710198975</southBoundLatitude>
+          <northBoundLatitude>52.47464169034771</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.564027397762361" miny="52.363633710198975" maxx="4.964211693921119" maxy="52.47464169034771"/>
+        <BoundingBox CRS="EPSG:28992" minx="98996.234375" miny="486490.0" maxx="126117.265625" maxy="498608.5"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rws_diepte_pt_noordzeekanaal"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>rws_noordzeekanaal_diepte_geotiff</Name>
+        <Title>rws_noordzeekanaal_diepte_geotiff</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+          <Keyword>noordzeekanaal_diepte</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.565901046091111</westBoundLongitude>
+          <eastBoundLongitude>4.962462265923167</eastBoundLongitude>
+          <southBoundLatitude>52.36386457729544</southBoundLatitude>
+          <northBoundLatitude>52.474394993181605</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.565901046091111" miny="52.36386457729544" maxx="4.962462265923167" maxy="52.474394993181605"/>
+        <BoundingBox CRS="EPSG:28992" minx="99123.25" miny="486514.25" maxx="125998.25" maxy="498581.75"/>
+        <Style>
+          <Name>wgp_rws_noordzeekanaal_geotiff</Name>
+          <Title>VRK point2raster tif style</Title>
+          <LegendURL width="131" height="663">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rws_noordzeekanaal_diepte_geotiff"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>rws_wegvakken_nwb</Name>
+        <Title>rws_wegvakken_nwb</Title>
+        <Abstract>Wegvlakken uit het NWB bestand van RWS - versie 1 december 2016 -</Abstract>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>Wegvakken</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.2435113947721894</westBoundLongitude>
+          <eastBoundLongitude>7.253681435382399</eastBoundLongitude>
+          <southBoundLatitude>50.72676443729265</southBoundLatitude>
+          <northBoundLatitude>53.501015939686255</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.2435113947721894" miny="50.72676443729265" maxx="7.253681435382399" maxy="53.501015939686255"/>
+        <BoundingBox CRS="EPSG:28992" minx="12624.2685546875" miny="306023.5625" maxx="278821.3125" maxy="612750.4375"/>
+        <Style>
+          <Name>line</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a green line</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=rws_wegvakken_nwb"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>successenskr</Name>
+        <Title>successenskr</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>successenskr</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.616339752726487</westBoundLongitude>
+          <eastBoundLongitude>4.618097792381061</eastBoundLongitude>
+          <southBoundLatitude>52.38507931781376</southBoundLatitude>
+          <northBoundLatitude>52.3866813968305</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.616339752726487" miny="52.38507931781376" maxx="4.618097792381061" maxy="52.3866813968305"/>
+        <BoundingBox CRS="EPSG:28992" minx="102448.736364411" miny="488838.355141451" maxx="102566.549044918" maxy="489015.370173971"/>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=successenskr"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>view_objectgegevens</Name>
+        <Title>view_objectgegevens</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>view_objectgegevens</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.522420914768656</westBoundLongitude>
+          <eastBoundLongitude>4.795831635515225</eastBoundLongitude>
+          <southBoundLatitude>52.251235389242645</southBoundLatitude>
+          <northBoundLatitude>52.53522570668793</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.522420914768656" miny="52.251235389242645" maxx="4.795831635515225" maxy="52.53522570668793"/>
+        <BoundingBox CRS="EPSG:28992" minx="96250.5391013977" miny="474014.943910939" maxx="114546.32529451" maxy="505431.378460932"/>
+        <Style>
+          <Name>oivrk_view_objectgegevens</Name>
+          <Title>oivrk_view_objectgegevens</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=view_objectgegevens"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1.0</MinScaleDenominator>
+        <MaxScaleDenominator>2500.0</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>vrk_evenementen_2015</Name>
+        <Title>vrk_evenementen_2015</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>vrk_evenementen_2015</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.535965012353114</westBoundLongitude>
+          <eastBoundLongitude>4.825847147130029</eastBoundLongitude>
+          <southBoundLatitude>52.25746766543173</southBoundLatitude>
+          <northBoundLatitude>52.52792096475697</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.535965012353114" miny="52.25746766543173" maxx="4.825847147130029" maxy="52.52792096475697"/>
+        <BoundingBox CRS="EPSG:28992" minx="97159.8671875" miny="474697.71875" maxx="116601.2890625" maxy="504602.0625"/>
+        <Style>
+          <Name>wgp_evenementen_sail_2015</Name>
+          <Title>Evenementen ZaWa: Transparent Star</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vrk_evenementen_2015"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>vrk_evenementenkalender2016</Name>
+        <Title>vrk_evenementenkalender2016</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>vrk_evenementenkalender2016</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.5156833327324115</westBoundLongitude>
+          <eastBoundLongitude>4.811382415060202</eastBoundLongitude>
+          <southBoundLatitude>52.25105202185917</southBoundLatitude>
+          <northBoundLatitude>52.53049132316359</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.5156833327324115" miny="52.25105202185917" maxx="4.811382415060202" maxy="52.53049132316359"/>
+        <BoundingBox CRS="EPSG:28992" minx="95786.875" miny="474000.0625" maxx="115608.125" maxy="504895.9375"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vrk_evenementenkalender2016"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>vrk_evenementenkalender2017</Name>
+        <Title>vrk_evenementenkalender2017</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>vrk_evenementenkalender2017</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.518087057428258</westBoundLongitude>
+          <eastBoundLongitude>4.811685041441438</eastBoundLongitude>
+          <southBoundLatitude>52.22901326044261</southBoundLatitude>
+          <northBoundLatitude>52.5362550837616</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.518087057428258" miny="52.22901326044261" maxx="4.811685041441438" maxy="52.5362550837616"/>
+        <BoundingBox CRS="EPSG:28992" minx="95957.71875" miny="471545.71875" maxx="115609.28125" maxy="505537.28125"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vrk_evenementenkalender2017"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>vrk_evenementenkalender_2018</Name>
+        <Title>vrk_evenementenkalender_2018</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>vrk_evenementenkalender_2018</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>4.517932503543051</westBoundLongitude>
+          <eastBoundLongitude>4.811685686211128</eastBoundLongitude>
+          <southBoundLatitude>52.22898521262529</southBoundLatitude>
+          <northBoundLatitude>52.54183670070927</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="4.517932503543051" miny="52.22898521262529" maxx="4.811685686211128" maxy="52.54183670070927"/>
+        <BoundingBox CRS="EPSG:28992" minx="95954.69921875" miny="471542.6337890625" maxx="115609.30078125" maxy="506158.3671875"/>
+        <Style>
+          <Name>point</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a purple square</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=vrk_evenementenkalender_2018"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>wegvakken_a_n</Name>
+        <Title>wegvakken_a_n</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+          <Keyword>wegvakken_a_n</Keyword>
+        </KeywordList>
+        <CRS>EPSG:28992</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>3.260537308143319</westBoundLongitude>
+          <eastBoundLongitude>7.239519659663108</eastBoundLongitude>
+          <southBoundLatitude>50.73829271996596</southBoundLatitude>
+          <northBoundLatitude>53.45166049111184</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="3.260537308143319" miny="50.73829271996596" maxx="7.239519659663108" maxy="53.45166049111184"/>
+        <BoundingBox CRS="EPSG:28992" minx="13592.698" miny="307280.152" maxx="278022.27" maxy="607257.0"/>
+        <Style>
+          <Name>line</Name>
+          <Title>A boring default style</Title>
+          <Abstract>A sample style that just prints out a green line</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoserver-vrk.webgispublisher.nl/WGP/ows?service=WMS&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=wegvakken_a_n"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMS_Capabilities>

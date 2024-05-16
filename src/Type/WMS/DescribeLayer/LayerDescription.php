@@ -49,7 +49,7 @@ class LayerDescription
     /**
      * @Type("Nieuwland\OgcSerializer\Type\WMS\DescribeLayer\Query")
      *
-     * @var Query
+     * @var Query|null
      */
     private $query;
 
@@ -141,7 +141,7 @@ class LayerDescription
      * Get the value of query.
      *
      */
-    public function getQuery(): Query
+    public function getQuery(): ?Query
     {
         return $this->query;
     }

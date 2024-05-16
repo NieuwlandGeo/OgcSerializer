@@ -83,7 +83,9 @@ class ServiceCapabilitiesFactory
                 $capabilities->getCapability()->getRequest()->getGetMap()->getFormat(),
                 $capabilities->getCapability()->getRequest()->getGetFeatureInfo()->getFormat(),
                 null,
-                $layer->getMetadataURL()
+                $layer->getMetadataURL(),
+                $layer->getMaxScaleDenominator(),
+                $layer->getMinScaleDenominator()
             );
         }
 

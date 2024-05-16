@@ -22,6 +22,10 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     private $resourceUrl;
     /** @var string[]|null */
     private $metadataUrl;
+    /** @var string|null */
+    private $maxScaleDenominator;
+    /** @var string|null */
+    private $minScaleDenominator;
 
     /**
      * @param string[] $projections
@@ -37,16 +41,20 @@ class LayerCapabilities implements LayerCapabilitiesInterface
         ?array $dataFormats = null,
         ?array $infoFormats = null,
         ?array $resourceUrl = null,
-        ?string $metadataUrl = null
+        ?string $metadataUrl = null,
+        ?float $maxScaleDenominator = null,
+        ?float $minScaleDenominator = null
     ) {
-        $this->name        = $name;
-        $this->title       = $title;
-        $this->defaultCrs  = $defaultCrs;
-        $this->dataFormats = $dataFormats;
-        $this->projections = $projections;
-        $this->infoFormats = $infoFormats;
-        $this->resourceUrl = $resourceUrl;
-        $this->metadataUrl = $metadataUrl;
+        $this->name                = $name;
+        $this->title               = $title;
+        $this->defaultCrs          = $defaultCrs;
+        $this->dataFormats         = $dataFormats;
+        $this->projections         = $projections;
+        $this->infoFormats         = $infoFormats;
+        $this->resourceUrl         = $resourceUrl;
+        $this->metadataUrl         = $metadataUrl;
+        $this->maxScaleDenominator = $maxScaleDenominator;
+        $this->minScaleDenominator = $minScaleDenominator;
     }
 
     public function getName(): string
@@ -99,5 +107,15 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     public function getMetadataUrl(): ?string
     {
         return $this->metadataUrl;
+    }
+
+    public function getMaxScaleDenominator(): ?float
+    {
+        return $this->maxScaleDenominator;
+    }
+
+    public function getMinScaleDenominator(): ?float
+    {
+        return $this->minScaleDenominator;
     }
 }
