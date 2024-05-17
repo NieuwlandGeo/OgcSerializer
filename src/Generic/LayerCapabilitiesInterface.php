@@ -48,4 +48,8 @@ interface LayerCapabilitiesInterface
     public function getResourceUrl(): ?array;
 
     public function getMetadataUrl(): ?string;
+
+    public function getMaxScaleDenominator(): ?float;
+
+    public function getMinScaleDenominator(): ?float;
 }

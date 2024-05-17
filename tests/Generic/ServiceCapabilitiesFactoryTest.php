@@ -183,4 +183,16 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         );
         $this->assertEquals('Gemeentegrens', $layer->getTitle());
     }
+
+    public function testWMSScaleDenominators(): void
+    {
+        $xml                 = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_vrk_130.xml');
+        $serializer          = SerializerFactory::create();
+        $capabilities        = $serializer->deserialize($xml, WMS13Capabilities::class, 'xml');
+        $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
+        $this->assertCount(94, $genericCapabilities->getLayerNames());
+        $layer = $genericCapabilities->getLayer('koersen');
+        $this->assertEquals('30000.0', $layer->getMaxScaleDenominator());
+        $this->assertEquals('1500.0', $layer->getMinScaleDenominator());
+    }
 }
