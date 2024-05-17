@@ -22,9 +22,9 @@ class LayerCapabilities implements LayerCapabilitiesInterface
     private $resourceUrl;
     /** @var string[]|null */
     private $metadataUrl;
-    /** @var string|null */
+    /** @var float|null */
     private $maxScaleDenominator;
-    /** @var string|null */
+    /** @var float|null */
     private $minScaleDenominator;
 
     /**
