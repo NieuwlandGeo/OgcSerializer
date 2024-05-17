@@ -232,4 +232,16 @@ class Capabilities130Test extends TestCase
             $capabilities->getLayer('provincies')->getMetadataURL()
         );
     }
+
+    public function testWMSScaleDenominators(): void
+    {
+        $xml        = file_get_contents(FIXTURE_PATH . '/WMS/Capabilities_geoserver_vrk_130.xml');
+        $serializer = SerializerFactory::create();
+        /** @var Capabilities $capabilities */
+        $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
+        $this->assertCount(94, $capabilities->getLayerNames());
+        $layer = $capabilities->getLayer('koersen');
+        $this->assertEquals('30000.0', $layer->getMaxScaleDenominator());
+        $this->assertEquals('1500.0', $layer->getMinScaleDenominator());
+    }
 }
