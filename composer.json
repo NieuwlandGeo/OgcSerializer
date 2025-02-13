@@ -19,18 +19,18 @@
         "doctrine/coding-standard": "^8.0",
         "phpunit/phpunit": "^9",
         "squizlabs/php_codesniffer": "*",
-        "symfony/validator": "^5.4",
+        "symfony/validator": "^6.4 || ^7",
         "doctrine/annotations": "^1.14",
         "doctrine/cache": "*"
     },
     "require": {
         "php": "^7.4 || ^8",
         "jms/serializer": "^3.23",
-        "symfony/dom-crawler": "^5.4",
-        "symfony/cache": "^5.4"
+        "symfony/dom-crawler": "^6.4 || ^7",
+        "symfony/cache": "^6.4 || ^7"
     },
     "suggest": {
-        "symfony/validator": "^5.4",
+        "symfony/validator": "^6.4 || ^7",
         "doctrine/annotations": "*",
         "doctrine/cache": "*"
     },
