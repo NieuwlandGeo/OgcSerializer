@@ -9,20 +9,19 @@ namespace Nieuwland\OgcSerializer\Utils;
  */
 class WfsSchemaElement
 {
-    /** @var int */
-    private $minOccurs;
-    /** @var int */
-    private $maxOccurs;
-    /** @var string */
-    private $name;
-    /** @var string */
-    private $typeName;
-    /** @var string */
-    private $typeNamespace;
-    /** @var string */
-    private $typePrefix;
-    /** @var bool|null */
-    private $nillable;
+    private ?string $minOccurs = null;
+
+    private ?string $maxOccurs = null;
+
+    private ?string $name = null;
+
+    private ?string $typeName = null;
+
+    private ?string $typeNamespace = null;
+
+    private ?string $typePrefix = null;
+
+    private ?string $nillable = null;
 
     /**
      * @param string $name without prefix
@@ -32,9 +31,9 @@ class WfsSchemaElement
         string $typeName,
         string $typeNamespace,
         string $typePrefix,
-        ?bool $nillable = null,
-        ?int $minOccurs = null,
-        ?int $maxOccurs = null
+        ?string $nillable = null,
+        ?string $minOccurs = null,
+        ?string $maxOccurs = null
     ) {
         $this->minOccurs     = $minOccurs;
         $this->maxOccurs     = $maxOccurs;
@@ -48,7 +47,7 @@ class WfsSchemaElement
     /**
      * Get the value of minOccurs.
      */
-    public function getMinOccurs(): ?int
+    public function getMinOccurs(): ?string
     {
         return $this->minOccurs;
     }
@@ -56,7 +55,7 @@ class WfsSchemaElement
     /**
      * Get the value of maxOccurs.
      */
-    public function getMaxOccurs(): ?int
+    public function getMaxOccurs(): ?string
     {
         return $this->maxOccurs;
     }
@@ -96,7 +95,7 @@ class WfsSchemaElement
     /**
      * Get the value of nillable.
      */
-    public function getNillable(): ?bool
+    public function getNillable(): ?string
     {
         return $this->nillable;
     }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:geolinq="https://waalwijk.geolinq.nl/BRK"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://waalwijk.geolinq.nl/BRK">
+    <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xsd:complexType name="BRK_Uitgebreid_BRPType">
+        <xsd:complexContent>
+            <xsd:extension base="gml:AbstractFeatureType">
+                <xsd:sequence>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="ID" nillable="false" type="xsd:long"/>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="Identificatie" nillable="false" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GemeenteCode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Gemeente" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Sectie" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Perceelnummer" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="AppartementsrechtVolgnummer" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GebruikBebouwd" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="GebruikOnbebouwd" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Koopsom" nillable="true" type="xsd:decimal"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="KoopsomValuta" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Koopjaar" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="BegrenzingPerceel" nillable="false" type="gml:SurfacePropertyType"/>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="KadastraleGrootte" nillable="false" type="xsd:decimal"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SoortGerechtigde" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Gerechtigde" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SoortRecht" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Aandeel" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="DecimaalAandeel" nillable="true" type="xsd:decimal"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="SoortErfpacht" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ErfpachtJaarlijksBedrag" nillable="true" type="xsd:decimal"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="ErfpachtValuta" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="IndicatieMandelig" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="MandeligeZaakVanHoofdpercelen" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="BSN" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="KVKNummer" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Rechtsvorm" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="StatutaireNaam" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Voornamen" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Voorvoegsels" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Achternaam" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="IndicatieOverleden" nillable="true" type="xsd:boolean"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="AdresGerechtigde" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Straat" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Huisnummer" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Huisletter" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Huisnummertoevoeging" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Postcode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Woonplaats" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="Land" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatieAdres" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatieStraat" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatieHuisnummer" nillable="true" type="xsd:long"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatieHuisletter" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatieHuisnummertoevoeging" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatiePostcode" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatieWoonplaats" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" maxOccurs="1" name="LocatieLand" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="BRK_Uitgebreid_BRP" substitutionGroup="gml:AbstractFeature" type="geolinq:BRK_Uitgebreid_BRPType"/>
+</xsd:schema>
