@@ -50,8 +50,9 @@ class WfsSchemaReader
         $complexNameAttr = $this->getNameAttribute($schemaNode, $complexTypeName);
 
         $complexElementPath = sprintf(
-            "//%scomplexType[@name='%s']//%selement",
+            "//%s%s[@name='%s']//%selement",
             $xsdPrefixColon,
+            'html' === $crawler->nodeName() ? 'complextype' : 'complexType',
             $complexNameAttr,
             $xsdPrefixColon
         );
@@ -109,7 +110,12 @@ class WfsSchemaReader
      */
     private function getTargetNameSpace(DOMNode $schemaNode): string
     {
-        return $schemaNode->attributes->getNamedItem('targetNamespace')->nodeValue;
+        $targetNamespaceItem = $schemaNode->attributes->getNamedItem('targetNamespace');
+        if (null === $targetNamespaceItem) {
+            return '';
+        }
+
+        return $targetNamespaceItem->nodeValue;
     }
 
     /**
@@ -127,9 +133,8 @@ class WfsSchemaReader
         }
 
         $elementNameSpace = $schemaNode->lookupNamespaceUri('ogr') ?? $schemaNode->lookupNamespaceUri($namePrefix);
-        $targetNameSpace  = $this->getTargetNameSpace($schemaNode);
 
-        return $targetNameSpace === $elementNameSpace || null === $elementNameSpace
+        return null === $elementNameSpace || $this->getTargetNameSpace($schemaNode) === $elementNameSpace
             ? substr(strstr($name, ':'), 1)
             : $name;
     }
