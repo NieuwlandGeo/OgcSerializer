@@ -9,7 +9,6 @@ use Symfony\Component\DomCrawler\Crawler;
 
 use function assert;
 use function explode;
-use function is_numeric;
 use function is_string;
 use function sprintf;
 use function strpos;
@@ -31,28 +30,31 @@ class WfsSchemaReader
         $schema     = new WfsSchema();
         $crawler    = new Crawler($xsd);
         $schemaNode = $crawler->getNode(0);
-        if (! $schemaNode) {
+        if (null === $schemaNode) {
             throw new WfsSchemaException('Schema node at position 0 not found');
         }
 
-        $xsdPrefix      = $schemaNode->lookupPrefix('http://www.w3.org/2001/XMLSchema') ?? 'default';
         $nameAttr       = $this->getNameAttribute($schemaNode, $name);
-        $xpath          = sprintf("//%s:element[@name='%s']", $xsdPrefix, $nameAttr);
+        $xsdPrefix      = $schemaNode->lookupPrefix('http://www.w3.org/2001/XMLSchema') ?? 'default';
+        $xsdPrefixColon = null === $nameAttr ? '' : sprintf('%s:', $xsdPrefix);
+
+        $xpath          = sprintf("//%selement[@name='%s']", $xsdPrefixColon, $nameAttr ?? $name);
         $elementCrawler = $crawler->filterXPath($xpath);
         $elementNode    = $elementCrawler->getNode(0);
 
-        if (! $elementNode) {
-            throw new WfsSchemaException(sprintf('Element node with name %s not found', $nameAttr));
+        if (null === $elementNode) {
+            throw new WfsSchemaException(sprintf('Element node with name %s not found', $nameAttr ?? $name));
         }
 
         $complexTypeName = $elementNode->attributes->getNamedItem('type')->nodeValue;
         $complexNameAttr = $this->getNameAttribute($schemaNode, $complexTypeName);
 
         $complexElementPath = sprintf(
-            "//%s:complexType[@name='%s']//%s:element",
-            $xsdPrefix,
+            "//%s%s[@name='%s']//%selement",
+            $xsdPrefixColon,
+            'html' === $crawler->nodeName() ? 'complextype' : 'complexType',
             $complexNameAttr,
-            $xsdPrefix
+            $xsdPrefixColon
         );
 
         $complexElementCrawler = $crawler->filterXPath($complexElementPath);
@@ -68,7 +70,7 @@ class WfsSchemaReader
                 $typePrefix       = '';
             } elseif (false !== strpos($fullType, ':')) {
                 [$typePrefix, $typeName] = explode(':', $fullType);
-                $typeNamespaceUri        = $schemaNode->lookupNamespaceUri($typePrefix);
+                $typeNamespaceUri        = $schemaNode->lookupNamespaceUri($typePrefix) ?? '';
             } else {
                 $typeName         = $fullType;
                 $typeNamespaceUri = $targetNamespace;
@@ -96,20 +98,8 @@ class WfsSchemaReader
     private function getAttributeValue(DOMNode $node, string $name)
     {
         $attr = $node->attributes->getNamedItem($name);
-        if (! $attr) {
+        if (null === $attr) {
             return null;
-        }
-
-        if ('true' === $attr->nodeValue) {
-            return true;
-        }
-
-        if ('false' === $attr->nodeValue) {
-            return false;
-        }
-
-        if (is_numeric($attr->nodeValue)) {
-            return (int) $attr->nodeValue;
         }
 
         return $attr->nodeValue;
@@ -120,7 +110,12 @@ class WfsSchemaReader
      */
     private function getTargetNameSpace(DOMNode $schemaNode): string
     {
-        return $schemaNode->attributes->getNamedItem('targetNamespace')->nodeValue;
+        $targetNamespaceItem = $schemaNode->attributes->getNamedItem('targetNamespace');
+        if (null === $targetNamespaceItem) {
+            return '';
+        }
+
+        return $targetNamespaceItem->nodeValue;
     }
 
     /**
@@ -130,13 +125,16 @@ class WfsSchemaReader
      *
      * @return string without prefix if it equals targetNameSpace
      */
-    private function getNameAttribute(DOMNode $schemaNode, string $name): string
+    private function getNameAttribute(DOMNode $schemaNode, string $name): ?string
     {
-        $namePrefix       = strstr($name, ':', true);
-        $elementNameSpace = $schemaNode->lookupNamespaceUri('ogr') ?? $schemaNode->lookupNamespaceUri($namePrefix);
-        $targetNameSpace  = $this->getTargetNameSpace($schemaNode);
+        $namePrefix = strstr($name, ':', true);
+        if (false === $namePrefix) {
+            return null;
+        }
 
-        return $targetNameSpace === $elementNameSpace
+        $elementNameSpace = $schemaNode->lookupNamespaceUri('ogr') ?? $schemaNode->lookupNamespaceUri($namePrefix);
+
+        return null === $elementNameSpace || $this->getTargetNameSpace($schemaNode) === $elementNameSpace
             ? substr(strstr($name, ':'), 1)
             : $name;
     }

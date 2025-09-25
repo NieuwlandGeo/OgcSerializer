@@ -33,8 +33,6 @@ class WfsSchemaReaderTest extends TestCase
             $this->assertIsString($field->getName());
             $this->assertIsString($field->getTypeName());
             $this->assertStringNotContainsString(':', $field->getTypeName());
-            $this->assertIsInt($field->getMinOccurs());
-            $this->assertIsBool($field->getNillable());
         }
     }
 
@@ -68,7 +66,6 @@ class WfsSchemaReaderTest extends TestCase
             $this->assertIsString($field->getName());
             $this->assertIsString($field->getTypeName());
             $this->assertStringNotContainsString(':', $field->getTypeName());
-            $this->assertIsInt($field->getMinOccurs());
             $this->assertNull($field->getNillable());
         }
     }
@@ -83,7 +80,6 @@ class WfsSchemaReaderTest extends TestCase
             $this->assertIsString($field->getName());
             $this->assertIsString($field->getTypeName());
             $this->assertStringNotContainsString(':', $field->getTypeName());
-            $this->assertIsInt($field->getMinOccurs());
         }
     }
 
@@ -97,7 +93,6 @@ class WfsSchemaReaderTest extends TestCase
             $this->assertIsString($field->getName());
             $this->assertIsString($field->getTypeName());
             $this->assertStringNotContainsString(':', $field->getTypeName());
-            $this->assertIsInt($field->getMinOccurs());
         }
     }
 
@@ -111,7 +106,32 @@ class WfsSchemaReaderTest extends TestCase
             $this->assertIsString($field->getName());
             $this->assertIsString($field->getTypeName());
             $this->assertStringNotContainsString(':', $field->getTypeName());
-            $this->assertIsInt($field->getMinOccurs());
+        }
+    }
+
+    public function testExtractFieldsFromGeolinq(): void
+    {
+        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_geolinq.xml');
+        $fields = $this->wfsSchema->extractFields($xml, 'geolinq:BRK_Uitgebreid_BRP');
+        $this->assertCount(48, $fields);
+        foreach ($fields as $field) {
+            $this->assertInstanceOf(WfsSchemaElement::class, $field);
+            $this->assertIsString($field->getName());
+            $this->assertIsString($field->getTypeName());
+            $this->assertStringNotContainsString(':', $field->getTypeName());
+        }
+    }
+
+    public function testExtractFieldsFromQgis(): void
+    {
+        $xml    = file_get_contents(FIXTURE_PATH . '/WFS/DescribeFeatureType_raap_qgis.xml');
+        $fields = $this->wfsSchema->extractFields($xml, 'geomorfogenese');
+        $this->assertCount(4, $fields);
+        foreach ($fields as $field) {
+            $this->assertInstanceOf(WfsSchemaElement::class, $field);
+            $this->assertIsString($field->getName());
+            $this->assertIsString($field->getTypeName());
+            $this->assertStringNotContainsString(':', $field->getTypeName());
         }
     }
 
