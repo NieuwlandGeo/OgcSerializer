@@ -6,11 +6,13 @@ namespace Tests\Type\Generic;
 
 use Nieuwland\OgcSerializer\Generic\LayerCapabilitiesInterface;
 use Nieuwland\OgcSerializer\Generic\ServiceCapabilitiesFactory;
+use Nieuwland\OgcSerializer\Generic\WMTS\ServiceWMTSCapabilitiesInterface;
 use Nieuwland\OgcSerializer\SerializerFactory;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v110\Capabilities as WFS11Capabilities;
 use Nieuwland\OgcSerializer\Type\WFS\Capabilities\v200\Capabilities as WFS2Capabilities;
 use Nieuwland\OgcSerializer\Type\WMS\Capabilities\v130\Capabilities as WMS13Capabilities;
 use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\Capabilities;
+use Nieuwland\OgcSerializer\Type\WMTS\Capabilities\v10\TileMatrix;
 use PHPUnit\Framework\TestCase;
 
 use function file_get_contents;
@@ -35,6 +37,7 @@ class ServiceCapabilitiesFactoryTest extends TestCase
         $serializer   = SerializerFactory::create();
         $capabilities = $serializer->deserialize($xml, Capabilities::class, 'xml');
         $this->assertInstanceOf(Capabilities::class, $capabilities);
+        /** @var ServiceWMTSCapabilitiesInterface $genericCapabilities */
         $genericCapabilities = ServiceCapabilitiesFactory::create($capabilities);
         $this->assertCount(1, $genericCapabilities->getLayerNames());
         $this->assertContains('coastlines', $genericCapabilities->getLayerNames());
@@ -54,6 +57,10 @@ class ServiceCapabilitiesFactoryTest extends TestCase
             'https://dummy/lyr/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png',
             $layer->getResourceUrl()[0]->getTemplate()
         );
+        $tileMatrixSet = $genericCapabilities->getTileMatrixSet('BigWorld');
+        $this->assertCount(2, $tileMatrixSet->getTileMatrixes());
+        $this->assertInstanceOf(TileMatrix::class, $tileMatrixSet->getTileMatrixes()[0]);
+        $this->assertInstanceOf(TileMatrix::class, $tileMatrixSet->getTileMatrixes()[1]);
     }
 
     public function testWMSTitle(): void
